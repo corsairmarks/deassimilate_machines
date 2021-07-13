@@ -256,3 +256,28 @@ set_post_assimilation_minimum_living_standard_pop = {
 		}
 	}
 }
+
+# event_target:mechanical_species - used as the base species to be modified, will be overwritten with the new specis if one or more traits had to be swapped
+swap_species_traits_machine_to_robot = {
+	if = {
+		limit = { has_trait = trait_robot_emotion_emulators }
+		modify_species = {
+			species = event_target:mechanical_species
+			add_trait = trait_robot_domestic_protocols
+			remove_trait = trait_robot_emotion_emulators
+			effect = {
+				save_event_target_as = mechanical_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_robot_uncanny }
+		modify_species = {
+			species = event_target:mechanical_species
+			remove_trait = trait_robot_uncanny
+			effect = {
+				save_event_target_as = mechanical_species
+			}
+		}
+	}
+}

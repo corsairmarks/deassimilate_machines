@@ -74,6 +74,7 @@ event = {
 								}
 							}
 						}
+						swap_species_traits_machine_to_robot = yes
 						modify_species = {
 							base = event_target:machine_species
 							species = event_target:mechanical_species
