@@ -1,0 +1,49 @@
+# defined_text = { # species
+# 	name = GetDeassimilationName
+# 	text = {
+# 		trigger = {
+# 			has_trait = trait_hive_mind
+# 		}
+# 		localization_key = living_standard_deassimilation_hive
+# 	}
+# 	text = {
+# 		trigger = {
+# 			has_trait = trait_machine_unit
+# 		}
+# 		localization_key = living_standard_deassimilation_machine
+# 	}
+# 	text = { # fallback if not hive/machine
+# 		trigger = {
+# 			NOR = {
+# 				has_trait = trait_hive_mind
+# 				has_trait = trait_machine_unit
+# 			}
+# 		}
+# 		localization_key = living_standard_deassimilation_hive
+# 	}
+# }
+
+defined_text = { # species
+	name = GetDeassimilationTooltip
+	text = {
+		trigger = {
+			has_trait = trait_hive_mind
+		}
+		localization_key = living_standard_deassimilation_hive_tooltip
+	}
+	text = {
+		trigger = {
+			has_trait = trait_machine_unit
+		}
+		localization_key = living_standard_deassimilation_machine_tooltip
+	}
+	text = { # fallback if not hive/machine
+		trigger = {
+			NOR = {
+				has_trait = trait_hive_mind
+				has_trait = trait_machine_unit
+			}
+		}
+		localization_key = living_standard_deassimilation_hive_tooltip
+	}
+}

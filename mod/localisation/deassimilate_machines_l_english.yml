@@ -1,0 +1,12 @@
+﻿l_english:
+ AI_IS_OUTLAWED_POP: "$TRIGGER_FAIL$Artificial Intelligence is §Routlawed§!. §Y$trait_machine_unit$§! Pops are too sophisticated to convert into mindless robots."
+ disconnected_machine_pops_collapse_without_ai_citizenship: "$TRIGGER_FAIL$Once their uplink to the central §Y$auth_machine_intelligence$§! is severed, $trait_machine_unit$ Pops are eventually rendered inoperable - unless they could be retrofitted with individual §Y$tech_sapient_ai$§!."
+ ASSIMILATION_CITIZENSHIP_ENABLED_UNMACHINE: "Gain access to the §Y$citizenship_assimilation$§! Citizenship §HSpecies Right§!, allowing §Y$trait_machine_unit$§! Pops to be dissociated from a central §Y$auth_machine_intelligence$§!."
+ # should match living_standard_deassimilation
+ # living_standard_deassimilation_hive: "Hive Dissociation"
+ # should match living_standard_deassimilation_tooltip
+ living_standard_deassimilation_hive_tooltip: "This species is undergoing a difficult physiological separation from a Hive Mind."
+ living_standard_deassimilation_machine: "Machine Dissociation"
+ living_standard_deassimilation_machine_tooltip: "This species is being unlinked from a central §Y$auth_machine_intelligence$§!."
+ deassimilate_machines.1.title: "title" # TODO
+ deassimilate_machines.1.desc: "desc" # TODO

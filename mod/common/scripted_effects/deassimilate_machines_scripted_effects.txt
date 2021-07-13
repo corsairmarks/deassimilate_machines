@@ -1,0 +1,258 @@
+# pop
+set_post_assimilation_minimum_citizenship_pop = {
+	if = {
+		limit = { owner = { is_machine_empire = yes } }
+		set_citizenship_type = {
+			type = citizenship_full_machine
+			country = owner
+		}
+		if = {
+			limit = { owner = { has_valid_civic = civic_machine_assimilator } }
+			owner = { generate_cyborg_treats = yes }
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				is_hive_empire = yes
+				NOT = { has_valid_civic = civic_hive_devouring_swarm }
+			}
+		}
+		set_citizenship_type = {
+			type = citizenship_full
+			country = owner
+		}
+	}
+	else_if = {
+		limit = { owner = { is_regular_empire = yes } }
+		if = {
+			limit = {
+				is_same_species = owner_species
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_full
+						country = owner
+					}
+				}
+			}
+			set_citizenship_type = {
+				type = citizenship_full
+				country = owner
+				cooldown = no
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					is_robotic_species = no
+					has_policy_flag = robots_allowed
+				}
+				has_citizenship_type = {
+					type = citizenship_purge
+					country = owner
+				}
+			}
+			if = {
+				limit = {
+					is_robotic_species = yes
+					owner = {
+						OR = {
+							has_policy_flag = ai_outlawed
+							has_policy_flag = ai_servitude
+						}
+					}
+				}
+				set_citizenship_type = {
+					type = citizenship_robot_servitude
+					country = owner
+					cooldown = no
+				}
+			}
+			else_if = {
+				limit = {
+					owner = {
+						OR = {
+							is_xenophile = yes
+							is_egalitarian = yes
+						}
+					}
+				}
+				set_citizenship_type = {
+					type = citizenship_full
+					country = owner
+					cooldown = no
+				}
+			}
+			else_if = {
+				limit = {
+					owner = {
+						OR = {
+							is_xenophobe = yes
+							is_authoritarian = yes
+						}
+					}
+				}
+				set_citizenship_type = {
+					type = citizenship_slavery
+					country = owner
+					cooldown = no
+				}
+			}
+			else = {
+				set_citizenship_type = {
+					type = citizenship_limited
+					country = owner
+					cooldown = no
+				}
+			}
+		}
+	}
+}
+
+# pop
+set_post_assimilation_minimum_living_standard_pop = {
+	if = {
+		limit = {
+			owner = {
+				OR = {
+					is_machine_empire = yes
+					is_hive_empire = yes
+				}
+			}
+			NOT = {
+				has_living_standard = {
+					country = owner
+					type = living_standard_hive_mind
+				}
+			}
+		}
+		set_living_standard = {
+			country = owner
+			type = living_standard_hive_mind
+		}
+	}
+	else_if = {
+		limit = {
+			owner = { is_regular_empire = yes }
+			OR = {
+				has_living_standard = {
+					type = living_standard_none
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_ego_assimilation
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_psi_assimilation
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_tech_assimilation
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_deassimilation
+					country = owner
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_citizenship_type = {
+					type = citizenship_purge
+					country = owner
+				}
+			}
+			set_living_standard = {
+				type = living_standard_none
+				country = owner
+			}
+		}
+		else_if = {
+			limit = {
+				has_citizenship_type = {
+					type = citizenship_robot_servitude
+					country = owner
+				}
+			}
+			set_living_standard = {
+				type = living_standard_servitude
+				country = owner
+			}
+		}
+		else_if = {
+			limit = {
+				has_citizenship_type = {
+					type = citizenship_slavery
+					country = owner
+				}
+			}
+			if = {
+				limit = {
+					owner = { is_authoritarian = yes }
+					has_slavery_type = {
+						type = slavery_military
+						country = owner
+					}
+				}
+				set_living_standard = {
+					country = owner
+					type = living_standard_stratified
+					cooldown = no
+				}
+			}
+			else = {
+				set_living_standard = {
+					country = owner
+					type = living_standard_subsistence
+					cooldown = no
+				}
+			}
+		}
+		else_if = {
+			limit = { owner = { has_valid_civic = civic_shared_burden } }
+			set_living_standard = {
+				country = owner
+				type = living_standard_shared_burden
+				cooldown = no
+			}
+		}
+		else_if = {
+			limit = { owner = { is_materialist = yes } }
+			set_living_standard = {
+				country = owner
+				type = living_standard_academic_privilege
+				cooldown = no
+			}
+		}
+		else_if = {
+			limit = { owner = { is_authoritarian = yes } }
+			set_living_standard = {
+				country = owner
+				type = living_standard_stratified
+				cooldown = no
+			}
+		}
+		else_if = {
+			limit = {
+				has_citizenship_type = {
+					country = owner
+					type = citizenship_full
+				} 
+			}
+			set_living_standard = {
+				country = owner
+				type = living_standard_normal
+				cooldown = no
+			}
+		}
+		else = {
+			set_living_standard = {
+				country = owner
+				type = living_standard_subsistence
+				cooldown = no
+			}
+		}
+	}
+}

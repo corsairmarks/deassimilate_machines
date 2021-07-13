@@ -1,0 +1,3 @@
+﻿l_english:
+ living_standard_deassimilation: "Gestalt Dissociation" # does not activate scripted_loc, so new static localisation chosen
+ living_standard_deassimilation_tooltip: "[Root.GetDeassimilationTooltip]"

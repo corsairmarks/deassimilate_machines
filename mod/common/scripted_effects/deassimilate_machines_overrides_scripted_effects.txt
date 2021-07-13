@@ -1,0 +1,78 @@
+# THIS = planet
+assimilation_effect = {
+	random_owned_pop = {
+		limit = {
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = owner
+			}
+		}
+		if = { # ascended synths
+			limit = {
+				owner = { has_country_flag = synthetic_empire }
+				has_living_standard = {
+					type = living_standard_tech_assimilation
+					country = PREV
+				}
+			}
+			kill_pop = yes
+			PREV = {
+				create_pop = {
+					species = owner
+					ethos = owner
+				}
+				owner = {
+					if = {
+						limit = { has_ascension_perk = ap_become_the_crisis }
+						complete_crisis_objective = crisobj_purge_pops
+					}
+				}
+			}
+		}
+		else = { # everything else - including synths assimilating machines (which have living_standard_deassimilation)
+			random_galaxy_species = {
+				limit = {
+					has_species_flag = assimilation_species_of_species@PREV.species
+					has_species_flag = assimilation_species_of_empire@PREV.owner
+				}
+				save_event_target_as = convert_to_species
+			}
+			species = { save_event_target_as = old_species }
+			if = {
+				limit = { exists = event_target:convert_to_species } # should always exist
+				PREV = {
+					while = { # to avoid doing the random_galaxy_species thing too many times
+						limit = {
+							exists = event_target:old_species
+							check_variable = {
+								which = assimilation_counter
+								value > 0
+							}
+							any_owned_pop = { is_exact_same_species = event_target:old_species }
+						}
+						random_owned_pop = {
+							limit = { is_exact_same_species = event_target:old_species }
+							change_species = event_target:convert_to_species
+							set_post_assimilation_minimum_citizenship_pop = yes
+							set_post_assimilation_minimum_living_standard_pop = yes
+						}
+						owner = {
+							if = {
+								limit = { has_ascension_perk = ap_become_the_crisis }
+								complete_crisis_objective = crisobj_purge_pops
+							}
+						}
+						log = "counter at \\[This.assimilation_counter]" # TODO: remove
+						change_variable = {
+							which = assimilation_counter
+							value = -1
+						}
+					}
+				}
+			}
+			else = {
+				log_error = "No species found for \\[This.Species.GetName] pop owned by \\[This.Owner.GetName] on \\[This.Planet.GetName] to assimilate to"
+			}
+		}
+	}
+}

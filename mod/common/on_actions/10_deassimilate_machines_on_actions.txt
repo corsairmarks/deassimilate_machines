@@ -1,0 +1,35 @@
+# fired when the game starts
+on_game_start = {
+	events = {
+		deassimilate_machines.13 # flag mod as installed
+	}
+}
+
+# fired when loading a single-player game
+on_single_player_save_game_load = {
+	events = {
+		deassimilate_machines.13 # flag mod as installed
+	}
+}
+
+on_yearly_pulse_country = {
+	events = {
+		deassimilate_machines.2
+	}
+}
+
+on_tech_increased = {
+	events = {
+		deassimilate_machines.1
+	}
+}
+
+# Fires when my custom code changes a leader's species.  You might attach an event
+# here to handle custom traits in another mod that should be added or removed (or
+# converted) based on information about the leader (possibly taking in to account
+# things like their owner).
+# THIS = leader (post-modification)
+on_leader_species_changed = {
+	events = {
+	}
+}

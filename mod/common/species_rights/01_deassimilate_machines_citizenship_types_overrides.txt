@@ -1,0 +1,146 @@
+# modified to allow assimilating machine units, psionics can assimilate cyborgs
+citizenship_assimilation = {
+	token = citizenship_assimilation
+	potential = {
+		OR = {
+			has_synthethic_dawn = yes
+			has_utopia = yes
+		}
+		exists = FROM
+		FROM = {
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
+			OR = {
+				AND = { # machine assimilator
+					is_machine_empire = yes
+					has_valid_civic = civic_machine_assimilator
+				}
+				AND = { # non-devouring hive mind
+					is_hive_empire = yes
+					NOT = { has_valid_civic = civic_hive_devouring_swarm }
+					ROOT = { is_robotic_species = no }
+				}
+				AND = {
+					has_ascension_perk = ap_evolutionary_mastery
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+				}
+				AND = {
+					is_regular_empire = yes
+					has_technology = tech_sapient_ai
+					ROOT = { has_trait = trait_machine_unit }
+				}
+				has_country_flag = synthetic_empire # synthetically ascended empire
+				has_country_flag = flesh_weakened # cyborg empire
+				has_ascension_perk = ap_transcendence # psionic assimilation
+			}
+		}
+	}
+	allow = {
+		hidden_trigger = { exists = FROM }
+		custom_tooltip = {
+			fail_text = MUST_NOT_BE_DOMINANT_SPECIES
+			NOT = { is_exact_same_species = FROM }
+		}
+		custom_tooltip = {
+			fail_text = lonely_hive_mind_pops_kill_themselves_citizenship_assimilation
+			if = {
+				limit = { is_lonely_hive_mind_pop = yes }
+				FROM = { has_ascension_perk = ap_evolutionary_mastery }
+			}
+		}
+		if = {
+			limit = { is_disconnected_machine_pop = yes }
+			custom_tooltip = {
+				fail_text = disconnected_machine_pops_collapse_without_ai_citizenship
+				FROM = { has_technology = tech_sapient_ai }
+			}
+			custom_tooltip = {
+				fail_text = ROBOTS_ARE_OUTLAWED
+				FROM = { has_policy_flag = robots_allowed }
+			}
+			custom_tooltip = {
+				fail_text = AI_IS_OUTLAWED_POP
+				FROM = { NOT = { has_policy_flag = ai_outlawed } }
+			}
+		}
+		if = {
+			limit = { FROM = { has_valid_civic = civic_machine_assimilator } }
+			custom_tooltip = { # machine assimilator
+				fail_text = MACHINE_SPECIES_MUST_BE_ORGANIC
+				NOR = {
+					has_trait = trait_mechanical
+					has_trait = trait_machine_unit
+					has_trait = trait_cybernetic
+				}
+			}
+		}
+		else_if = {
+			limit = { FROM = { is_hive_empire = yes } }
+			custom_tooltip = { # non-devouring hive mind
+				fail_text = HIVE_SPECIES_MUST_BE_NON_HIVE
+				FROM = { has_ascension_perk = ap_evolutionary_mastery }
+				NOR = {
+					has_trait = trait_hive_mind
+					has_trait = trait_mechanical
+					has_trait = trait_machine_unit
+				}
+			}
+		}
+		else_if = {
+			limit = { FROM = { has_country_flag = synthetic_empire } }
+			custom_tooltip = { # synthetically ascended empire
+				fail_text = SYNTH_SPECIES_MUST_BE_ORGANIC
+				NOT = { has_trait = trait_mechanical }
+			}
+		}
+		else_if = {
+			limit = { FROM = { has_country_flag = flesh_weakened } }
+			custom_tooltip = { # cyborg empire
+				fail_text = CYBORG_SPECIES_MUST_BE_ORGANIC
+				NOR = {
+					has_trait = trait_mechanical
+					has_trait = trait_cybernetic
+				}
+				OR = {
+					NOT = { has_trait = trait_machine_unit }
+					FROM = { has_technology = tech_sapient_ai }
+				}
+			}
+		}
+		else_if = {
+			limit = { FROM = { has_ascension_perk = ap_transcendence } }
+			custom_tooltip = { # species must be organic to transcend
+				fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
+				is_robotic_species = no
+				# NOT = { has_trait = trait_cybernetic } # cyborgs have enough organic parts left - just my judgment call
+			}
+			custom_tooltip = { # species already has psionic trait
+				fail_text = TRANSCENDING_SPECIES_IS_ALREADY_PSIONIC
+				NOT = { has_trait = trait_psionic }
+			}
+			custom_tooltip = { # transcending species cannot be gestalt consciousness
+				fail_text = TRANSCENDING_SPECIES_CANT_BE_HIVE
+				NOT = { has_trait = trait_hive_mind }
+			}
+		}
+		else_if = {
+			limit = { FROM = { has_ascension_perk = ap_evolutionary_mastery } }
+			custom_tooltip = {
+				fail_text = CAN_ONLY_ASSIMILATE_HIVES
+				OR = {
+					has_trait = trait_hive_mind
+					AND = {
+						has_trait = trait_machine_unit
+						FROM = { has_technology = tech_sapient_ai }
+					}
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 0
+			FROM = { is_homicidal = yes }
+		}
+	}
+}

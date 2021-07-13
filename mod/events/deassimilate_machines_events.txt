@@ -1,0 +1,86 @@
+namespace = deassimilate_machines
+
+# flag mod as active
+event = {
+	id = deassimilate_machines.13
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_global_flag = deassimilate_machines_installed }
+	}
+	immediate = {
+		set_global_flag = deassimilate_machines_installed
+	}
+}
+
+# triggered by on_tech_increased
+country_event = {
+	id = deassimilate_machines.1
+	is_triggered_only = yes
+	title = "deassimilate_machines.1.title"
+	desc = "deassimilate_machines.1.desc"
+	picture = GFX_evt_robot_assembly_plant
+	show_sound = event_robot_encounter
+	trigger = {
+		has_utopia = yes
+		is_regular_empire = yes
+		last_increased_tech = tech_sapient_ai
+	}
+	immediate = {
+		log = "deassimilate_machines.1"
+	}
+	option = {
+		name = {
+			text = MARVELOUS
+			trigger = {
+				is_xenophobe = no
+				is_materialist = yes
+			}
+		}
+		name = {
+			text = GOOD
+			trigger = {
+				OR = {
+					AND = {
+						is_xenophobe = yes
+						is_materialist = yes
+					}
+					AND = {
+						is_xenophobe = no
+						is_spiritualist = no
+						is_materialist = no
+					}
+				}
+			}
+		}
+		name = {
+			text = DISCONCERTING
+			trigger = {
+				OR = {
+					is_xenophobe = yes
+					is_spiritualist = yes
+				}
+				is_materialist = no
+			}
+		}
+		custom_tooltip = ASSIMILATION_CITIZENSHIP_ENABLED_UNMACHINE
+	}
+}
+
+# triggered by on_yearly_pulse_country
+# intended to trigger after action.64
+country_event = {
+	id = deassimilate_machines.2
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		num_unique_species > 1
+		any_owned_leader = { species = { has_species_flag = assimilation_species_of_empire@ROOT } }
+	}
+	immediate = {
+		every_owned_leader = {
+			limit = { species = { has_species_flag = assimilation_species_of_empire@ROOT } }
+			fire_on_action = { on_action = on_leader_species_changed }
+		}
+	}
+}
