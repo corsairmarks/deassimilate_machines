@@ -45,7 +45,7 @@ set_post_assimilation_minimum_citizenship_pop = {
 			limit = {
 				OR = {
 					is_robotic_species = no
-					has_policy_flag = robots_allowed
+					owner = { has_policy_flag = robots_allowed }
 				}
 				has_citizenship_type = {
 					type = citizenship_purge
