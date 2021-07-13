@@ -21,7 +21,7 @@ This mod has to alter a number of built-in files and objects to implement its ga
 * Event `action.65` - main assimilation event, altered to use less duplicate code and pass two variables to its effect calls - the current number of assimiliated Pops and the total number allowed for the year
 * Event `utopia.2551` - Synthetic Evolution, altered to not change synthetic leaders of other species into the empire's main species (cyborgs are still fair game, however)
 * Citizenship `citizenship_assimilation` - assimilation citizenship, altered to allow machines to have this citizenship type (instead of only purge)
-* Living Standard `living_standard_deassimilation` - de-assimilation living standard, altered to be selectable for machines in regualr empires that has researched Positronic AI, added alternate description for machine deassimilation versus hive deassimilation
+* Living Standard `living_standard_deassimilation` - deassimilation living standard, altered to be selectable for machines in regualr empires that have researched Positronic AI, added alternate description for machine deassimilation versus hive deassimilation
 * Living Standard `living_standard_tech_assimilation` - synth/cybernetic assimilation, altered to explicitly disallow this living standard for machines/robots
 
 What this means to you is that this mod is not compatible with most other ascension path mods.  That is because its highly likely they are editing the same events and species rights.
@@ -50,7 +50,7 @@ This mod overwrites a number of core Stellaris files.  Expect to see seven error
 [17:05:44][game_singleobjectdatabase.h:147]: Object with key: living_standard_tech_assimilation already exists
 ```
 
-There are an overridden effect, three preempted events, and three overridden species rights.  These are necessary to implement the functionality of this mod.
+There are: one overridden effect, three preempted events, and three overridden species rights.  All of these are necessary to implement the functionality of this mod.
 
 ## Changelog
 
