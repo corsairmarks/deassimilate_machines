@@ -62,7 +62,6 @@ assimilation_effect = {
 								complete_crisis_objective = crisobj_purge_pops
 							}
 						}
-						log = "counter at \\[This.assimilation_counter]" # TODO: remove
 						change_variable = {
 							which = assimilation_counter
 							value = -1
