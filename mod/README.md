@@ -58,7 +58,7 @@ There are an overridden effect, three preempted events, and three overridden spe
 
 ## Source Code
 
-Hosted on [GitHub]()
+Hosted on [GitHub](https://github.com/corsairmarks/deassimilate_machines)
 
 ### Development Notes
 
