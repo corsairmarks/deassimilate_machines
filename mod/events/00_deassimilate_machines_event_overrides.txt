@@ -52,12 +52,6 @@ event = {
 						}
 					}
 					save_event_target_as = machine_species
-					PREV = {
-						if = {
-							limit = { has_built_species = no }
-							create_built_robot_species = yes
-						}
-					}
 					random_galaxy_species = {
 						limit = { has_species_flag = mechanical_species_of_machine_species@event_target:machine_species }
 						PREVPREV = { set_country_flag = found_assim_mech_species@event_target:machine_species }
@@ -81,7 +75,7 @@ event = {
 							}
 						}
 						modify_species = {
-							base = PREV.built_species
+							base = event_target:machine_species
 							species = event_target:mechanical_species
 							add_traits_at_start_of_list = yes
 							remove_trait = trait_machine_unit
