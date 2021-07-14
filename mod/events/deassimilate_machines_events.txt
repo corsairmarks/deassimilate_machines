@@ -13,7 +13,7 @@ event = {
 	}
 }
 
-# triggered by on_tech_increased
+# triggered by on_tech_increased or by passthrough deassimilate_machines.3 from on_post_communications_established
 country_event = {
 	id = deassimilate_machines.1
 	is_triggered_only = yes
@@ -22,12 +22,16 @@ country_event = {
 	picture = GFX_evt_robot_assembly_plant
 	show_sound = event_robot_encounter
 	trigger = {
+		has_synthethic_dawn = yes
 		has_utopia = yes
+		NOT = { has_country_flag = deasssimilate_machines_message }
+		is_ai = no
 		is_regular_empire = yes
-		last_increased_tech = tech_sapient_ai
+		has_ai_and_knows_machines = yes
 	}
 	immediate = {
 		log = "deassimilate_machines.1"
+		set_country_flag = deasssimilate_machines_message
 	}
 	option = {
 		name = {
@@ -81,6 +85,27 @@ country_event = {
 		every_owned_leader = {
 			limit = { species = { has_species_flag = assimilation_species_of_empire@ROOT } }
 			fire_on_action = { on_action = on_leader_species_changed }
+		}
+	}
+}
+
+# triggered by on_post_communications_established
+country_event = {
+	id = deassimilate_machines.3
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		has_synthethic_dawn = yes
+		has_utopia = yes
+	}
+	immediate = {
+		country_event = {
+			id = deassimilate_machines.1
+		}
+		FROM = {
+			country_event = {
+				id = deassimilate_machines.1
+			}
 		}
 	}
 }

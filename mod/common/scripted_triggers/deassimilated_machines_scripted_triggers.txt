@@ -1,0 +1,12 @@
+has_ai_and_knows_machines = {
+	OR = {
+		is_mechanical_empire = yes
+		has_technology = tech_sapient_ai
+		has_technology = tech_combat_computers_3
+		has_technology = tech_synthetic_workers
+	}
+	any_relation = {
+		has_communications = PREV
+		is_machine_empire = yes
+	}
+}

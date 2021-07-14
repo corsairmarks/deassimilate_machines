@@ -8,5 +8,5 @@
  living_standard_deassimilation_hive_tooltip: "This species is undergoing a difficult physiological separation from a Hive Mind."
  living_standard_deassimilation_machine: "Machine Dissociation"
  living_standard_deassimilation_machine_tooltip: "This species is being unlinked from a central §Y$auth_machine_intelligence$§!."
- deassimilate_machines.1.title: "title" # TODO
- deassimilate_machines.1.desc: "desc" # TODO
+ deassimilate_machines.1.title: "Synthetic Individuation"
+ deassimilate_machines.1.desc: "With the development of true artifical intelligence via §Y$tech_sapient_ai$§! and the discovery of §Y$trait_machine_unit$§! populations in other empires, our scientists and engineers have made further breakthroughs in robotics. Should we acquire any §Y$trait_machine_unit$§! Pops, it will be possible to dissociate them from their §Y$auth_machine_intelligence$§! and convert them into individual, productive §Y$ROBOT_POP_SPECIES_1_plural$§!.\n\nTo do this, we must of course adopt the §Y$robots_allowed_name$ $POLICY$§!. Due to the complexity of the Machine Units, we must also adopt §Y$ai_servitude_name$§! or §Y$ai_full_rights_name$§! - they simply cannot function without some level of artificial intelligence."

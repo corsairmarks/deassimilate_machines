@@ -12,12 +12,15 @@ on_single_player_save_game_load = {
 	}
 }
 
+# THIS = country
 on_yearly_pulse_country = {
 	events = {
 		deassimilate_machines.2
 	}
 }
 
+# fired when a country has increased the level of a tech, use last_increased_tech trigger to check tech and level
+# THIS = country
 on_tech_increased = {
 	events = {
 		deassimilate_machines.1
@@ -31,5 +34,14 @@ on_tech_increased = {
 # THIS = leader (post-modification)
 on_leader_species_changed = {
 	events = {
+	}
+}
+
+# fired right after country has established communications with another country
+# THIS = country which established the communications
+# FROM = country which communications were established with
+on_post_communications_established = {
+	events = {
+		deassimilate_machines.3
 	}
 }

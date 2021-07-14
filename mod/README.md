@@ -8,7 +8,7 @@ Oh, and this mod removes the restriction on psionically assimilating cyborg pops
 
 Enables "Gestalt Dissociation" assimilation living standard for Machine Unit Pops.  Hive Pops continue to be eligible for deassimilation with Evolutionary Mastery, but the living standard has been renamed to be more generic.  Updates the built-in assimilation mechanisms to understand this "new" (renamed and repurposed) assimilation type.
 
-A new event window will display when you research Positronic AI to tell you that machine deassimilation is now available.
+A new event window will display when you have Positronic AI and communications with a Machine Intelligence to tell you that machine deassimilation is available.
 
 And last, but not least, cybernetic Pops can be psionically assimilated via Transcendence.
 
