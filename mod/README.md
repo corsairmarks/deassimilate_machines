@@ -23,8 +23,14 @@ This mod has to alter a number of built-in files and objects to implement its ga
 * Citizenship `citizenship_assimilation` - assimilation citizenship, altered to allow machines to have this citizenship type (instead of only purge)
 * Living Standard `living_standard_deassimilation` - deassimilation living standard, altered to be selectable for machines in regular empires that have researched Positronic AI, added alternate description for machine deassimilation versus hive deassimilation
 * Living Standard `living_standard_tech_assimilation` - synth/cybernetic assimilation, altered to explicitly disallow this living standard for machines/robots
+* Species Control `population_control_yes` - deassimilating machines must have population controls
+* Species Control `population_control_no` - deassimilating machines are not allowed to reproduce
+* Species Control `colonization_control_yes` - deassimilating machines mush have colonization controls
+* Species Control `colonization_control_no` - deassimilating machines are not allowed to colonize
 
-What this means to you is that this mod is not compatible with most other ascension path mods.  That is because its highly likely they are editing the same events and species rights.
+What this means to you is that this mod is not compatible with most other ascension path mods and citizenship mods.  That is because its highly likely they are editing the same events and species rights.
+
+This mod is explicitly compatible with my mod [Full Military Service for Battle Thralls](https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447) despite both mods affecting full military service.
 
 ### Recommended Companion Mods
 
@@ -38,16 +44,20 @@ This mod can be safely added to your savegame after the game has started. It is 
 
 ## Known Issues
 
-This mod overwrites a number of core Stellaris files.  Expect to see seven errors in your error.log similar to these:
+This mod overwrites a number of core Stellaris files.  Expect to see eleven errors in your error.log similar to these:
 
 ```
-[17:05:43][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists
-[17:05:43][eventmanager.cpp:355]: an event with id [action.64] already exists!  file: events/on_action_events.txt line: 8009
-[17:05:43][eventmanager.cpp:355]: an event with id [action.65] already exists!  file: events/on_action_events.txt line: 8302
-[17:05:43][eventmanager.cpp:355]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 767
-[17:05:44][game_singleobjectdatabase.h:147]: Object with key: citizenship_assimilation already exists
-[17:05:44][game_singleobjectdatabase.h:147]: Object with key: living_standard_deassimilation already exists
-[17:05:44][game_singleobjectdatabase.h:147]: Object with key: living_standard_tech_assimilation already exists
+[14:18:48][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists
+[14:18:49][eventmanager.cpp:355]: an event with id [action.64] already exists!  file: events/on_action_events.txt line: 8009
+[14:18:49][eventmanager.cpp:355]: an event with id [action.65] already exists!  file: events/on_action_events.txt line: 8302
+[14:18:49][eventmanager.cpp:355]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 767
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: citizenship_assimilation already exists
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_deassimilation already exists
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_tech_assimilation already exists
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: military_service_full already exists
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: population_control_no already exists
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: colonization_control_yes already exists
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists
 ```
 
 There are: one overridden effect, three preempted events, and three overridden species rights.  All of these are necessary to implement the functionality of this mod.

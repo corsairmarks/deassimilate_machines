@@ -1,0 +1,141 @@
+# from = country
+# this = species
+
+# edited to disallow (de)assimilating machines full service - notably they generate leaders without the synthetic trait (they would eventually get it as the species is assimilated, but I feel it is bad UX)
+# also prohibits necrophages from having non-main-species military leaders, prevents nonsapients or syncretic proles from being military leaders, and allows my special necrophage/xenophobe bypass flags
+# does not include the translations or Battle Thrall changes from "Full Military Service for Battle Thralls" - this will will be overwritten by that one, which will properly support all of these features
+military_service_full = {
+	token = military_service_full
+	
+	potential = {
+		if = {
+			limit = {
+				from = { has_authority = auth_machine_intelligence }
+			}
+			OR = {
+				has_trait = trait_machine_unit
+				has_trait = trait_mechanical
+				has_trait = trait_cybernetic
+			}
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = MACHINE_NO_PURE_ORGANIC_SOLDIERS
+			if = {
+				limit = {
+					from = { has_authority = auth_machine_intelligence }
+				}
+				OR = {
+					has_trait = trait_mechanical
+					has_trait = trait_machine_unit
+					AND = {
+						has_trait = trait_cybernetic
+						from = {
+							has_civic = civic_machine_assimilator
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = is_undesirables_tooltip
+			NOR = {
+				has_citizenship_type = { country = from type = citizenship_purge_machine }
+				has_citizenship_type = { country = from type = citizenship_purge }
+			}
+		}
+		custom_tooltip = {
+			fail_text = is_slaves_tooltip
+			NOT = { has_citizenship_type = { country = from type = citizenship_slavery } }
+		}
+		custom_tooltip = {
+			fail_text = is_servitude_tooltip
+			NOT = { has_citizenship_type = { country = from type = citizenship_robot_servitude } }
+		}		
+		custom_tooltip = {
+			fail_text = too_alien
+			OR = {
+				is_same_species = FROM
+				has_species_flag = allow_military_leaders_for_xenophobe # surprise flag that will help us later
+				FROM = { is_xenophobe = no }
+			}
+		}
+		custom_tooltip = {
+			fail_text = too_alien
+			OR = {
+				is_same_species = FROM
+				has_species_flag = allow_military_leaders_for_necrophage # surprise flag that will help us later
+				FROM = {
+					NAND = {
+						has_origin = origin_necrophage
+						has_trait = trait_necrophage
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "HIVE_MIND_SPECIES_CITIZENS_ONLY"
+			OR = {
+				NOT = { from = { has_authority = auth_hive_mind } }
+				has_trait = trait_hive_mind
+			}
+		}
+		custom_tooltip = {
+			fail_text = NON_MACHINE_SPECIES_NEED_PREREQ_TECH
+			if = {
+				limit = {
+					OR = {
+						has_trait = trait_mechanical
+						has_trait = trait_machine_unit
+					}
+				}
+				from = {
+					OR = {
+						has_authority = auth_machine_intelligence
+						has_technology = tech_droid_workers
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = nerve_stapled_cannot_lead_armies
+			is_sapient = yes
+			NOR = {
+				has_trait = trait_syncretic_proles
+				has_trait = trait_nerve_stapled
+			}
+		}
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_NOT_BE_ASSIMILATING
+			if = {
+				limit = { has_global_flag = deassimilate_machines_installed }
+				NAND = {
+					has_trait = trait_machine_unit
+					has_living_standard = {
+						country = FROM
+						type = living_standard_deassimilation
+					}
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 0
+			from = { has_valid_ai_personality = no }
+		}
+		modifier = {
+			factor = 0
+			from = {
+				has_valid_ai_personality = yes
+				NOT = {
+					has_ai_personality_behaviour = multispecies
+				}
+			}
+		}
+	}
+}
