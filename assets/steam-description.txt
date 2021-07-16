@@ -37,9 +37,9 @@ This mod is explicitly compatible with my mod [url=https://steamcommunity.com/sh
 [h3]Recommended Companion Mods[/h3]
 
 [list]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499031295]Enable All Eligible Species Traits for Leaders[/url] will ensure your leaders get all their species-based traits when being assimilated (such as Psionic or Erudite).
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499031295]Leader Traits: All Eligible Species Traits[/url] will ensure your leaders get all their species-based traits when being assimilated (such as Psionic or Erudite).
 [*][url=]Leader Traits: Better Randomisation[/url] improves leader trait randomisation (primarily from level up, but not exclusively) and toggles traits from the biological version to machine traits (and back) if a leader becomes a robot and/or returns to a biological form.
-[*][url=]Retain Leaders from Integrated Subjects[/url] will allow you to keep Machine Unit leaders from integrated machine empire subjects by converting them to robots and setting their species to deassimilation.  Combined with Enable All Eligible Species Traits for Leaders, the leaders are converted to have synth leader traits if you have the right technology.
+[*][url=]Retain Leaders from Integrated Subjects[/url] will allow you to keep Machine Unit leaders from integrated machine empire subjects by converting them to robots and setting their species to deassimilation.  Combined with Leader Traits: All Eligible Species Traits, the leaders are converted to have synth leader traits if you have the right technology.
 [/list]
 
 [h3]When to Install[/h3]
