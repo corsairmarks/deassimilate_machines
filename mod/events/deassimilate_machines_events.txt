@@ -30,7 +30,6 @@ country_event = {
 		has_ai_and_knows_machines = yes
 	}
 	immediate = {
-		log = "deassimilate_machines.1"
 		set_country_flag = deasssimilate_machines_message
 	}
 	option = {
