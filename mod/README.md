@@ -35,7 +35,7 @@ This mod is explicitly compatible with my mod [Full Military Service for Battle 
 ### Recommended Companion Mods
 
 * [Leader Traits: All Eligible Species Traits](https://steamcommunity.com/sharedfiles/filedetails/?id=2499031295) will ensure your leaders get all their species-based traits when being assimilated (such as Psionic or Erudite).
-* [Leader Traits: Better Randomisation]() improves leader trait randomisation (primarily from level up, but not exclusively) and toggles traits from the biological version to machine traits (and back) if a leader becomes a robot and/or returns to a biological form.
+* [Leader Traits: Enhanced Randomisation]() improves leader trait randomisation (primarily from level up, but not exclusively) and toggles traits from the biological version to machine traits (and back) if a leader becomes a robot and/or returns to a biological form.
 * [Retain Leaders from Integrated Subjects]() will allow you to keep Machine Unit leaders from integrated machine empire subjects by converting them to robots and setting their species to deassimilation.  Combined with Leader Traits: All Eligible Species Traits, the leaders are converted to have synth leader traits if you have the right technology.
 
 ### When to Install
