@@ -64,7 +64,7 @@ This mod overwrites a number of core Stellaris files.  Expect to see eleven erro
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists
 [/code]
 
-There are: one overridden effect, three preempted events, and three overridden species rights.  All of these are necessary to implement the functionality of this mod.
+There are: one overridden effect, three preempted events, and seven (!) overridden species rights.  All of these are necessary to implement the functionality of this mod.
 
 [h2]Changelog[/h2]
 
