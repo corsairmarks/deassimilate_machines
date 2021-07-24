@@ -65,6 +65,7 @@ There are: one overridden effect, three preempted events, and seven (!) overridd
 ## Changelog
 
 * 1.0.0 Initial version
+* 1.0.1 Support updated flag from Full Military Service for Battle Thralls
 
 ## Source Code
 
