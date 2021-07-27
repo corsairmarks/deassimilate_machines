@@ -28,7 +28,7 @@ This mod has to alter a number of built-in files and objects to implement its ga
 * Species Control `colonization_control_yes` - deassimilating machines mush have colonization controls
 * Species Control `colonization_control_no` - deassimilating machines are not allowed to colonize
 
-What this means to you is that this mod is not compatible with most other ascension path mods and citizenship mods.  That is because its highly likely they are editing the same events and species rights.
+What this means to you is that this mod is not compatible with most other assimilation-altering mods and citizenship mods.  That is because its highly likely they are editing the same events and species rights.
 
 This mod is explicitly compatible with my mod [Full Military Service for Battle Thralls](https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447) despite both mods affecting full military service.
 

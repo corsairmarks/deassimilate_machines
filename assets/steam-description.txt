@@ -30,7 +30,7 @@ This mod has to alter a number of built-in files and objects to implement its ga
 [*]Species Control [b]colonization_control_no[/b] - deassimilating machines are not allowed to colonize
 [/list]
 
-What this means to you is that this mod is not compatible with most other ascension path mods and citizenship mods.  That is because its highly likely they are editing the same events and species rights.
+What this means to you is that this mod is not compatible with most other assimilation-altering mods and citizenship mods.  That is because its highly likely they are editing the same events and species rights.
 
 This mod is explicitly compatible with my mod [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447]Full Military Service for Battle Thralls[/url] despite both mods affecting full military service.
 
