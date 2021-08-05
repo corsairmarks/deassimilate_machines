@@ -24,6 +24,7 @@ This mod has to alter a number of built-in files and objects to implement its ga
 [*]Citizenship [b]citizenship_assimilation[/b] - assimilation citizenship, altered to allow machines to have this citizenship type (instead of only purge)
 [*]Living Standard [b]living_standard_deassimilation[/b] - deassimilation living standard, altered to be selectable for machines in regular empires that have researched Positronic AI, added alternate description for machine deassimilation versus hive deassimilation
 [*]Living Standard [b]living_standard_tech_assimilation[/b] - synth/cybernetic assimilation, altered to explicitly disallow this living standard for machines/robots
+[*]Living Standard [b]living_standard_psi_assimilation[/b] - psionic assimilation, altered to explicitly disallow this living standard for machines/robots
 [*]Species Control [b]population_control_yes[/b] - deassimilating machines must have population controls
 [*]Species Control [b]population_control_no[/b] - deassimilating machines are not allowed to reproduce
 [*]Species Control [b]colonization_control_yes[/b] - deassimilating machines mush have colonization controls
@@ -49,7 +50,7 @@ This mod can be safely added to your savegame after the game has started. It is 
 
 [h2]Known Issues[/h2]
 
-This mod overwrites a number of core Stellaris files.  Expect to see eleven errors in your error.log similar to these:
+This mod overwrites a number of core Stellaris files.  Expect to see thirteen errors in your error.log similar to these:
 
 [code]
 [14:18:48][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists
@@ -59,7 +60,9 @@ This mod overwrites a number of core Stellaris files.  Expect to see eleven erro
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: citizenship_assimilation already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_deassimilation already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_tech_assimilation already exists
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_psi_assimilation already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: military_service_full already exists
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: population_control_yes already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: population_control_no already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: colonization_control_yes already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists

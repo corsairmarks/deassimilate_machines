@@ -41,14 +41,41 @@ living_standard_tech_assimilation = {
 	}
 	potential = {
 		has_utopia = yes
-		exists = FROM
 		is_robotic_species = no
+		exists = FROM
 		FROM = {
 			OR = {
 				has_country_flag = flesh_weakened
 				has_country_flag = synthetic_empire
 			}
 		}
+	}
+	allow = {
+		hidden_trigger = { exists = FROM }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = FROM
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+living_standard_psi_assimilation = {
+	token = living_standard_psi_assimilation
+	name = living_standard_psi_assimilation
+	pop_modifier = {
+		pop_happiness = -0.25
+	}
+	potential = {
+		has_utopia = yes
+		is_robotic_species = no
+		exists = FROM
+		FROM = { has_ascension_perk = ap_transcendence }
 	}
 	allow = {
 		hidden_trigger = { exists = FROM }

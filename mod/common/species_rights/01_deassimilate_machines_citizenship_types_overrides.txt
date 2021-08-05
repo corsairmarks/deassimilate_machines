@@ -110,7 +110,13 @@ citizenship_assimilation = {
 			limit = { FROM = { has_ascension_perk = ap_transcendence } }
 			custom_tooltip = { # species must be organic to transcend
 				fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
-				is_robotic_species = no
+				OR = {
+					is_robotic_species = no
+					AND = {
+						has_trait = trait_machine_unit
+						FROM = { has_technology = tech_sapient_ai }
+					}
+				}
 				# NOT = { has_trait = trait_cybernetic } # cyborgs have enough organic parts left - just my judgment call
 			}
 			custom_tooltip = { # species already has psionic trait

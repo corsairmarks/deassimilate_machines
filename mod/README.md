@@ -23,6 +23,7 @@ This mod has to alter a number of built-in files and objects to implement its ga
 * Citizenship `citizenship_assimilation` - assimilation citizenship, altered to allow machines to have this citizenship type (instead of only purge)
 * Living Standard `living_standard_deassimilation` - deassimilation living standard, altered to be selectable for machines in regular empires that have researched Positronic AI, added alternate description for machine deassimilation versus hive deassimilation
 * Living Standard `living_standard_tech_assimilation` - synth/cybernetic assimilation, altered to explicitly disallow this living standard for machines/robots
+* Living Standard `living_standard_psi_assimilation` - psionic assimilation, altered to explicitly disallow this living standard for machines/robots
 * Species Control `population_control_yes` - deassimilating machines must have population controls
 * Species Control `population_control_no` - deassimilating machines are not allowed to reproduce
 * Species Control `colonization_control_yes` - deassimilating machines mush have colonization controls
@@ -45,7 +46,7 @@ This mod can be safely added to your savegame after the game has started. It is 
 
 ## Known Issues
 
-This mod overwrites a number of core Stellaris files.  Expect to see eleven errors in your error.log similar to these:
+This mod overwrites a number of core Stellaris files.  Expect to see thirteen errors in your error.log similar to these:
 
 ```
 [14:18:48][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists
@@ -55,7 +56,9 @@ This mod overwrites a number of core Stellaris files.  Expect to see eleven erro
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: citizenship_assimilation already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_deassimilation already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_tech_assimilation already exists
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_psi_assimilation already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: military_service_full already exists
+[14:18:50][game_singleobjectdatabase.h:147]: Object with key: population_control_yes already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: population_control_no already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: colonization_control_yes already exists
 [14:18:50][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists
@@ -67,6 +70,7 @@ There are: one overridden effect, three preempted events, and seven (!) overridd
 
 * 1.0.0 Initial version
 * 1.0.1 Support updated flag from Full Military Service for Battle Thralls
+* 1.0.2 Support Gestalt Dissociation when the player also has Transcendence (psionic assimilation)
 
 ## Source Code
 
