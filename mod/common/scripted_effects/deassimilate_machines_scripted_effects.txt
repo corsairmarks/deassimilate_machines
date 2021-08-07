@@ -12,12 +12,7 @@ set_post_assimilation_minimum_citizenship_pop = {
 		}
 	}
 	else_if = {
-		limit = {
-			owner = {
-				is_hive_empire = yes
-				NOT = { has_valid_civic = civic_hive_devouring_swarm }
-			}
-		}
+		limit = { owner = { is_hive_empire = yes } }
 		set_citizenship_type = {
 			type = citizenship_full
 			country = owner
@@ -253,6 +248,62 @@ set_post_assimilation_minimum_living_standard_pop = {
 				type = living_standard_subsistence
 				cooldown = no
 			}
+		}
+	}
+}
+
+# set up a machine species for deassimilation into a mechanical species
+# THIS = species
+# event_target:assimilating_country = country
+prepare_machine_species_to_mechanical_species = {
+	save_event_target_as = machine_species
+	random_galaxy_species = {
+		limit = { has_species_flag = mechanical_species_of_machine_species@event_target:machine_species }
+		event_target:assimilating_country = { set_country_flag = found_assim_mech_species@event_target:machine_species }
+		save_event_target_as = mechanical_species
+	}
+	if = {
+		limit = { event_target:assimilating_country = { NOT = { has_country_flag = found_assim_mech_species@event_target:machine_species } } }
+		event_target:machine_species = {
+			create_species = {
+				name = THIS
+				plural = THIS
+				adjective = THIS
+				name_list = THIS
+				class = ROBOT
+				portrait = THIS
+				homeworld = THIS
+				traits = THIS
+				effect = {
+					save_event_target_as = mechanical_species
+				}
+			}
+		}
+		swap_species_traits_machine_to_robot = yes
+		modify_species = {
+			base = event_target:machine_species
+			species = event_target:mechanical_species
+			add_traits_at_start_of_list = yes
+			remove_trait = trait_machine_unit
+			add_trait = trait_mechanical
+			effect = {
+				set_species_flag = mechanical_species_of_machine_species@event_target:machine_species
+				save_event_target_as = mechanical_species
+			}
+		}
+	}
+	else = {
+		# setup for next loop iteration
+		event_target:assimilating_country = { remove_country_flag = found_assim_mech_species@event_target:machine_species }
+	}
+	event_target:mechanical_species = {
+		set_timed_species_flag = {
+			flag = assimilation_species_of_species@PREV
+			days = 30
+		}
+		set_timed_species_flag = {
+			flag = assimilation_species_of_empire@event_target:assimilating_country
+			days = 30
 		}
 	}
 }

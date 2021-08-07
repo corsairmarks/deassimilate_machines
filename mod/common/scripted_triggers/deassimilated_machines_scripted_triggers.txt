@@ -1,3 +1,4 @@
+# THIS = country
 has_ai_and_knows_machines = {
 	OR = {
 		is_mechanical_empire = yes
@@ -8,5 +9,20 @@ has_ai_and_knows_machines = {
 	any_relation = {
 		has_communications = PREV
 		is_machine_empire = yes
+	}
+}
+
+# check whether the species qualifies for deassimilation (Machine)
+# THIS = species
+# event_target:assimilating_country = country
+is_eligible_for_deassimilation_machine_species = {
+	has_living_standard = {
+		country = event_target:assimilating_country
+		type = living_standard_deassimilation
+	}
+	has_trait = trait_machine_unit
+	event_target:assimilating_country = {
+		is_regular_empire = yes
+		has_technology = tech_sapient_ai
 	}
 }

@@ -21,7 +21,7 @@ citizenship_assimilation = {
 				}
 				AND = {
 					has_ascension_perk = ap_evolutionary_mastery
-					NOT = { has_ethic = ethic_gestalt_consciousness }
+					is_gestalt = no
 				}
 				AND = {
 					is_regular_empire = yes

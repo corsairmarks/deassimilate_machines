@@ -30,29 +30,29 @@ assimilation_effect = {
 			}
 		}
 		else = { # everything else - including synths assimilating machines (which have living_standard_deassimilation)
+			species = { save_event_target_as = assimilating_species }
 			random_galaxy_species = {
 				limit = {
 					has_species_flag = assimilation_species_of_species@PREV.species
 					has_species_flag = assimilation_species_of_empire@PREV.owner
 				}
-				save_event_target_as = convert_to_species
+				save_event_target_as = assimilated_species
 			}
-			species = { save_event_target_as = old_species }
 			if = {
-				limit = { exists = event_target:convert_to_species } # should always exist
+				limit = { exists = event_target:assimilated_species } # should always exist
 				PREV = {
 					while = { # to avoid doing the random_galaxy_species thing too many times
 						limit = {
-							exists = event_target:old_species
+							exists = event_target:assimilating_species
 							check_variable = {
 								which = assimilation_counter
 								value > 0
 							}
-							any_owned_pop = { is_exact_same_species = event_target:old_species }
+							any_owned_pop = { is_exact_same_species = event_target:assimilating_species }
 						}
 						random_owned_pop = {
-							limit = { is_exact_same_species = event_target:old_species }
-							change_species = event_target:convert_to_species
+							limit = { is_exact_same_species = event_target:assimilating_species }
+							change_species = event_target:assimilated_species
 							set_post_assimilation_minimum_citizenship_pop = yes
 							set_post_assimilation_minimum_living_standard_pop = yes
 						}
