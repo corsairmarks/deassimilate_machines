@@ -71,6 +71,7 @@ There are: one overridden effect, three preempted events, and seven (!) overridd
 * 1.0.0 Initial version
 * 1.0.1 Support updated flag from Full Military Service for Battle Thralls
 * 1.0.2 Support Gestalt Dissociation when the player also has Transcendence (psionic assimilation)
+* 1.0.3 Code refactoring - no functionality changes
 
 ## Source Code
 
