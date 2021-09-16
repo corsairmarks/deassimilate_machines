@@ -14,6 +14,8 @@ And last, but not least, cybernetic Pops can be psionically assimilated via Tran
 
 ## Compatibility
 
+Built for Stellaris version 3.1.\* "Lem."  Not compatible with achievements.
+
 This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
 
 * Effect `assimilation_effect` - main assimilation logic (called by `action.65`), altered so that deassimilated machines are not converted into the synthetic species for fully synthetic empires, also code de-duped
@@ -49,19 +51,19 @@ This mod can be safely added to your savegame after the game has started. It is 
 This mod overwrites a number of core Stellaris files.  Expect to see thirteen errors in your error.log similar to these:
 
 ```
-[14:18:48][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists
-[14:18:49][eventmanager.cpp:355]: an event with id [action.64] already exists!  file: events/on_action_events.txt line: 8009
-[14:18:49][eventmanager.cpp:355]: an event with id [action.65] already exists!  file: events/on_action_events.txt line: 8302
-[14:18:49][eventmanager.cpp:355]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 767
-[14:18:50][game_singleobjectdatabase.h:147]: Object with key: citizenship_assimilation already exists
-[14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_deassimilation already exists
-[14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_tech_assimilation already exists
-[14:18:50][game_singleobjectdatabase.h:147]: Object with key: living_standard_psi_assimilation already exists
-[14:18:50][game_singleobjectdatabase.h:147]: Object with key: military_service_full already exists
-[14:18:50][game_singleobjectdatabase.h:147]: Object with key: population_control_yes already exists
-[14:18:50][game_singleobjectdatabase.h:147]: Object with key: population_control_no already exists
-[14:18:50][game_singleobjectdatabase.h:147]: Object with key: colonization_control_yes already exists
-[14:18:50][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists
+[00:09:07][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists
+[00:09:08][eventmanager.cpp:355]: an event with id [action.64] already exists!  file: events/on_action_events_1.txt line: 8019
+[00:09:08][eventmanager.cpp:355]: an event with id [action.65] already exists!  file: events/on_action_events_1.txt line: 8312
+[00:09:08][eventmanager.cpp:355]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 769
+[00:09:09][game_singleobjectdatabase.h:147]: Object with key: citizenship_assimilation already exists
+[00:09:09][game_singleobjectdatabase.h:147]: Object with key: living_standard_deassimilation already exists
+[00:09:09][game_singleobjectdatabase.h:147]: Object with key: living_standard_tech_assimilation already exists
+[00:09:09][game_singleobjectdatabase.h:147]: Object with key: living_standard_psi_assimilation already exists
+[00:09:09][game_singleobjectdatabase.h:147]: Object with key: military_service_full already exists
+[00:09:09][game_singleobjectdatabase.h:147]: Object with key: population_control_yes already exists
+[00:09:09][game_singleobjectdatabase.h:147]: Object with key: population_control_no already exists
+[00:09:09][game_singleobjectdatabase.h:147]: Object with key: colonization_control_yes already exists
+[00:09:09][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists
 ```
 
 There are: one overridden effect, three preempted events, and seven (!) overridden species rights.  All of these are necessary to implement the functionality of this mod.
@@ -72,6 +74,7 @@ There are: one overridden effect, three preempted events, and seven (!) overridd
 * 1.0.1 Support updated flag from Full Military Service for Battle Thralls
 * 1.0.2 Support Gestalt Dissociation when the player also has Transcendence (psionic assimilation)
 * 1.0.3 Code refactoring - no functionality changes
+* 1.1.0 Update for Stellaris version 3.1.* "Lem" - no changes to what the mod does, just integrated a few minor underlying game changes
 
 ## Source Code
 
