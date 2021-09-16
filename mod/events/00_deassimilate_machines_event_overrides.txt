@@ -369,6 +369,39 @@ country_event = {
 	immediate = {
 		set_country_flag = synthetic_empire
 
+		if = {
+			limit = { has_policy_flag = robots_outlawed }
+			set_policy = {
+				policy = robot_pop_policy
+				option = robot_pops_allowed
+				cooldown = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_policy_flag = ai_servitude
+					has_policy_flag = ai_outlawed
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_full_rights
+				cooldown = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					is_active_resolution = "resolution_divinity_silence_the_soulless"
+					is_active_resolution = "resolution_divinity_a_defined_purpose"
+				}
+			}
+			owner = {
+				set_timed_country_flag = { flag = resolution_breached_synthetic_evolution days = 3600 }
+			}
+		}
+
 		give_technology = { tech = tech_bio_reactor message = no }
 
 		create_species = {
