@@ -2,7 +2,7 @@
 
 Ever been disappointed at all the wasted robots when you conquer or integrate a Machine Intelligence?  This mod is for you!  Now you can de-assimilate the Machine Units into Robots once you have discovered the Positronic AI technology.
 
-Oh, and this mod removes the restriction on psionically assimilating cyborg pops.  They have enough organic bits left to become psionic - epecially since the cybernetic species trait can be added to psionic species by default, cybernetic is compatible with brain slugs, and cybernetic is compatible with erudite.
+Oh, and this mod removes the restriction on psionically assimilating cyborg pops.  They have enough organic bits left to become psionic - especially since the cybernetic species trait can be added to psionic species by default, cybernetic is compatible with brain slugs, and cybernetic is compatible with erudite.
 
 [h1]Changes[/h1]
 
@@ -21,7 +21,7 @@ This mod has to alter a number of built-in files and objects to implement its ga
 [list]
 [*]Effect [b]assimilation_effect[/b] - main assimilation logic (called by [b]action.65[/b]), altered so that deassimilated machines are not converted into the synthetic species for fully synthetic empires, also code de-duped
 [*]Event [b]action.64[/b] - assimilation setup event, altered to allow machine deassimilation
-[*]Event [b]action.65[/b] - main assimilation event, altered to use less duplicate code and pass two variables to its effect calls - the current number of assimiliated Pops and the total number allowed for the year
+[*]Event [b]action.65[/b] - main assimilation event, altered to use less duplicate code and pass two variables to its effect calls - the current number of assimilated Pops and the total number allowed for the year
 [*]Event [b]utopia.2551[/b] - Synthetic Evolution, altered to not change synthetic leaders of other species into the empire's main species (cyborgs are still fair game, however)
 [*]Citizenship [b]citizenship_assimilation[/b] - assimilation citizenship, altered to allow machines to have this citizenship type (instead of only purge)
 [*]Living Standard [b]living_standard_deassimilation[/b] - deassimilation living standard, altered to be selectable for machines in regular empires that have researched Positronic AI, added alternate description for machine deassimilation versus hive deassimilation

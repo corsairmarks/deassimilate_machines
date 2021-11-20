@@ -2,7 +2,7 @@
 
 Ever been disappointed at all the wasted robots when you conquer or integrate a Machine Intelligence?  This mod is for you!  Now you can de-assimilate the Machine Units into Robots once you have discovered the Positronic AI technology.
 
-Oh, and this mod removes the restriction on psionically assimilating cyborg pops.  They have enough organic bits left to become psionic - epecially since the cybernetic species trait can be added to psionic species by default, cybernetic is compatible with brain slugs, and cybernetic is compatible with erudite.
+Oh, and this mod removes the restriction on psionically assimilating cyborg pops.  They have enough organic bits left to become psionic - especially since the cybernetic species trait can be added to psionic species by default, cybernetic is compatible with brain slugs, and cybernetic is compatible with erudite.
 
 # Changes
 
@@ -20,7 +20,7 @@ This mod has to alter a number of built-in files and objects to implement its ga
 
 * Effect `assimilation_effect` - main assimilation logic (called by `action.65`), altered so that deassimilated machines are not converted into the synthetic species for fully synthetic empires, also code de-duped
 * Event `action.64` - assimilation setup event, altered to allow machine deassimilation
-* Event `action.65` - main assimilation event, altered to use less duplicate code and pass two variables to its effect calls - the current number of assimiliated Pops and the total number allowed for the year
+* Event `action.65` - main assimilation event, altered to use less duplicate code and pass two variables to its effect calls - the current number of assimilated Pops and the total number allowed for the year
 * Event `utopia.2551` - Synthetic Evolution, altered to not change synthetic leaders of other species into the empire's main species (cyborgs are still fair game, however)
 * Citizenship `citizenship_assimilation` - assimilation citizenship, altered to allow machines to have this citizenship type (instead of only purge)
 * Living Standard `living_standard_deassimilation` - deassimilation living standard, altered to be selectable for machines in regular empires that have researched Positronic AI, added alternate description for machine deassimilation versus hive deassimilation
@@ -75,7 +75,7 @@ There are: one overridden effect, three preempted events, and seven (!) overridd
 * 1.0.2 Support Gestalt Dissociation when the player also has Transcendence (psionic assimilation)
 * 1.0.3 Code refactoring - no functionality changes
 * 1.1.0 Update for Stellaris version 3.1 "Lem" - no changes to what the mod does, just integrated a few minor underlying game changes
-* 1.1.0 Update for Stellaris version 3.2 "Herbert" - no changes
+* 1.2.0 Update for Stellaris version 3.2 "Herbert" - no script changes
 
 ## Source Code
 
