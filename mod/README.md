@@ -14,7 +14,7 @@ And last, but not least, cybernetic Pops can be psionically assimilated via Tran
 
 ## Compatibility
 
-Built for Stellaris version 3.1.\* "Lem."  Not compatible with achievements.
+Built for Stellaris version 3.2.\* "Herbert."  Not compatible with achievements.
 
 This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
 
@@ -75,6 +75,7 @@ There are: one overridden effect, three preempted events, and seven (!) overridd
 * 1.0.2 Support Gestalt Dissociation when the player also has Transcendence (psionic assimilation)
 * 1.0.3 Code refactoring - no functionality changes
 * 1.1.0 Update for Stellaris version 3.1.* "Lem" - no changes to what the mod does, just integrated a few minor underlying game changes
+* 1.1.0 Update for Stellaris version 3.2.* "Herbert" - no changes
 
 ## Source Code
 
