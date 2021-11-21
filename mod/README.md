@@ -75,7 +75,8 @@ There are: one overridden effect, three preempted events, and seven (!) overridd
 * 1.0.2 Support Gestalt Dissociation when the player also has Transcendence (psionic assimilation)
 * 1.0.3 Code refactoring - no functionality changes
 * 1.1.0 Update for Stellaris version 3.1 "Lem" - no changes to what the mod does, just integrated a few minor underlying game changes
-* 1.2.0 Update for Stellaris version 3.2 "Herbert" - no script changes
+* 2.0.0 Update for Stellaris version 3.2 "Herbert"
+    * Synthetic Age override accounts for Aquatic robots
 
 ## Source Code
 
