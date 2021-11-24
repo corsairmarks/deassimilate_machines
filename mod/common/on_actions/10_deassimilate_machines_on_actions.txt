@@ -12,7 +12,7 @@ on_single_player_save_game_load = {
 	}
 }
 
-# THIS = country
+# this = country
 on_yearly_pulse_country = {
 	events = {
 		deassimilate_machines.2
@@ -20,26 +20,27 @@ on_yearly_pulse_country = {
 }
 
 # fired when a country has increased the level of a tech, use last_increased_tech trigger to check tech and level
-# THIS = country
+# this = country
 on_tech_increased = {
 	events = {
 		deassimilate_machines.1
 	}
 }
 
-# Fires when my custom code changes a leader's species.  You might attach an event
+# fired when my custom code changes a leader's species.  You might attach an event
 # here to handle custom traits in another mod that should be added or removed (or
 # converted) based on information about the leader (possibly taking in to account
 # things like their owner).
-# THIS = leader (post-modification)
+# this = leader, post-modification
+# from = species, pre-modification (if known)
 on_leader_species_changed = {
 	events = {
 	}
 }
 
 # fired right after country has established communications with another country
-# THIS = country which established the communications
-# FROM = country which communications were established with
+# this = country which established the communications
+# from = country which communications were established with
 on_post_communications_established = {
 	events = {
 		deassimilate_machines.3
