@@ -6,12 +6,9 @@
 # does not include the translations or Battle Thrall changes from "Full Military Service for Battle Thralls" - this will will be overwritten by that one, which will properly support all of these features
 military_service_full = {
 	token = military_service_full
-	
 	potential = {
 		if = {
-			limit = {
-				from = { has_authority = auth_machine_intelligence }
-			}
+			limit = { from = { is_machine_empire = yes } }
 			OR = {
 				has_trait = trait_machine_unit
 				has_trait = trait_mechanical
@@ -19,23 +16,18 @@ military_service_full = {
 			}
 		}
 	}
-
 	allow = {
 		hidden_trigger = { exists = from }
 		custom_tooltip = {
 			fail_text = MACHINE_NO_PURE_ORGANIC_SOLDIERS
 			if = {
-				limit = {
-					from = { has_authority = auth_machine_intelligence }
-				}
+				limit = { from = { is_machine_empire = yes } }
 				OR = {
 					has_trait = trait_mechanical
 					has_trait = trait_machine_unit
 					AND = {
 						has_trait = trait_cybernetic
-						from = {
-							has_civic = civic_machine_assimilator
-						}
+						from = { has_civic = civic_machine_assimilator }
 					}
 				}
 			}
@@ -43,32 +35,46 @@ military_service_full = {
 		custom_tooltip = {
 			fail_text = is_undesirables_tooltip
 			NOR = {
-				has_citizenship_type = { country = from type = citizenship_purge_machine }
-				has_citizenship_type = { country = from type = citizenship_purge }
+				has_citizenship_type = {
+					country = from
+					type = citizenship_purge_machine
+				}
+				has_citizenship_type = {
+					country = from
+					type = citizenship_purge
+				}
 			}
 		}
 		custom_tooltip = {
 			fail_text = is_slaves_tooltip
-			NOT = { has_citizenship_type = { country = from type = citizenship_slavery } }
+			NOT = {
+				has_citizenship_type = {
+					country = from
+					type = citizenship_slavery }
+				}
 		}
 		custom_tooltip = {
 			fail_text = is_servitude_tooltip
-			NOT = { has_citizenship_type = { country = from type = citizenship_robot_servitude } }
-		}		
+			NOT = {
+				has_citizenship_type = {
+					country = from
+					type = citizenship_robot_servitude }
+				}
+		}
 		custom_tooltip = {
 			fail_text = too_alien
 			OR = {
-				is_same_species = FROM
-				has_species_flag = allow_military_leaders_honored_protectors@FROM # surprise flag that will help us later
-				FROM = { is_xenophobe = no }
+				is_same_species = from
+				has_species_flag = allow_military_leaders_honored_protectors@from # surprise flag that will help us later
+				from = { is_xenophobe = no }
 			}
 		}
 		custom_tooltip = {
 			fail_text = too_alien
 			OR = {
-				is_same_species = FROM
-				has_species_flag = allow_military_leaders_honored_protectors@FROM # surprise flag that will help us later
-				FROM = {
+				is_same_species = from
+				has_species_flag = allow_military_leaders_honored_protectors@from # surprise flag that will help us later
+				from = {
 					NAND = {
 						has_origin = origin_necrophage
 						has_trait = trait_necrophage
@@ -77,9 +83,9 @@ military_service_full = {
 			}
 		}
 		custom_tooltip = {
-			fail_text = "HIVE_MIND_SPECIES_CITIZENS_ONLY"
+			fail_text = HIVE_MIND_SPECIES_CITIZENS_ONLY
 			OR = {
-				NOT = { from = { has_authority = auth_hive_mind } }
+				from = { is_hive_empire = no }
 				has_trait = trait_hive_mind
 			}
 		}
@@ -94,8 +100,8 @@ military_service_full = {
 				}
 				from = {
 					OR = {
-						has_authority = auth_machine_intelligence
-						has_technology = tech_droid_workers
+						is_machine_empire = yes
+						has_technology = tech_synthetic_leaders
 					}
 				}
 			}
@@ -115,7 +121,7 @@ military_service_full = {
 				NAND = {
 					has_trait = trait_machine_unit
 					has_living_standard = {
-						country = FROM
+						country = from
 						type = living_standard_deassimilation
 					}
 				}
