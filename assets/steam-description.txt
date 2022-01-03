@@ -17,7 +17,6 @@ And last, but not least, cybernetic Pops can be psionically assimilated via Tran
 Built for Stellaris version 3.2.* "Herbert."  Not compatible with achievements.
 
 This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
-
 [list]
 [*]Effect [b]assimilation_effect[/b] - main assimilation logic (called by [b]action.65[/b]), altered so that deassimilated machines are not converted into the synthetic species for fully synthetic empires, also code de-duped
 [*]Event [b]action.64[/b] - assimilation setup event, altered to allow machine deassimilation
@@ -32,20 +31,17 @@ This mod has to alter a number of built-in files and objects to implement its ga
 [*]Species Control [b]colonization_control_yes[/b] - deassimilating machines mush have colonization controls
 [*]Species Control [b]colonization_control_no[/b] - deassimilating machines are not allowed to colonize
 [/list]
-
 What this means to you is that this mod is not compatible with most other assimilation-altering mods and citizenship mods.  That is because its highly likely they are editing the same events and species rights.
 
 This mod is explicitly compatible with my mod [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447]Full Military Service for Battle Thralls[/url] despite both mods affecting full military service.
 
 [h3]Recommended Companion Mods[/h3]
-
 [list]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499031295]Leader Traits: All Eligible Species Traits[/url] will ensure your leaders get all their species-based traits when being assimilated (such as Psionic or Erudite).
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2553806265]Leader Traits: Enhanced Randomisation[/url] improves leader trait randomisation (primarily from level up, but not exclusively) and toggles traits from the biological version to machine traits (and back) if a leader becomes a robot and/or returns to a biological form.
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2553818684]Retain Leaders from Integrated Subjects[/url] will allow you to keep Machine Unit leaders from integrated machine empire subjects by converting them to robots and setting their species to deassimilation.  Combined with Leader Traits: All Eligible Species Traits, the leaders are converted to have synth leader traits if you have the right technology.
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2558494770]corsairmarks's Leader Traits MOD Chinese patch[/url] by Hua Zhang - Chinese localisation
 [/list]
-
 [h3]When to Install[/h3]
 
 This mod can be safely added to your savegame after the game has started. It is implemented through events, effects, and species rights that alter game rules without adding object definitions. If you remove it, you will keep any machine Pops that have already been converted to robots, but any remaining machine Pops will probably revert to their default "disconnected machine" purge policy. Stellaris is fairly forgiving in situations like this - it's likely that error logs would be generated and the game would otherwise ignore the missing content. Back up your savegame before trying to remove a mod.
@@ -53,7 +49,6 @@ This mod can be safely added to your savegame after the game has started. It is 
 [h2]Known Issues[/h2]
 
 This mod overwrites a number of core Stellaris files.  Expect to see thirteen errors in your error.log similar to these:
-
 [code]
 [00:09:07][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists
 [00:09:08][eventmanager.cpp:355]: an event with id [action.64] already exists!  file: events/on_action_events_1.txt line: 8019
@@ -69,7 +64,6 @@ This mod overwrites a number of core Stellaris files.  Expect to see thirteen er
 [00:09:09][game_singleobjectdatabase.h:147]: Object with key: colonization_control_yes already exists
 [00:09:09][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists
 [/code]
-
 There are: one overridden effect, three preempted events, and seven (!) overridden species rights.  All of these are necessary to implement the functionality of this mod.
 
 [h2]Changelog[/h2]
