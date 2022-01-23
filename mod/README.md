@@ -14,7 +14,7 @@ And last, but not least, cybernetic Pops can be psionically assimilated via Tran
 
 ## Compatibility
 
-Built for Stellaris version 3.2.\* "Herbert."  Not compatible with achievements.
+Built for Stellaris version 3.3.\* "Libra."  Not compatible with achievements.
 
 This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
 
@@ -77,6 +77,7 @@ There are: one overridden effect, three preempted events, and seven (!) overridd
 * 1.1.0 Update for Stellaris version 3.1 "Lem" - no changes to what the mod does, just integrated a few minor underlying game changes
 * 2.0.0 Update for Stellaris version 3.2 "Herbert"
     * Synthetic Age override accounts for Aquatic robots
+* 3.0.0 Update for Stellaris version 3.3 "Libra" - no changes to what the mod does, just integrated a few minor underlying game changes
 
 ## Source Code
 

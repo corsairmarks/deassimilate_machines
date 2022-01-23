@@ -11,7 +11,7 @@ A new event window will display when you have Positronic AI and communications w
 And last, but not least, cybernetic Pops can be psionically assimilated via Transcendence.
 
 [h2]Compatibility[/h2]
-Built for Stellaris version 3.2.* "Herbert."  Not compatible with achievements.
+Built for Stellaris version 3.3.* "Libra."  Not compatible with achievements.
 
 This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
 [list]
