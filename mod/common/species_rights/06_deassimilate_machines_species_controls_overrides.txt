@@ -116,7 +116,7 @@ colonization_control_yes = {
 
 	potential = {
 		NAND = {
-			from = { has_authority = auth_machine_intelligence }
+			from = { is_machine_empire = yes }
 			OR = {
 				has_trait = trait_machine_unit
 				has_trait = trait_mechanical
@@ -179,7 +179,7 @@ colonization_control_no = {
 	potential = {
 		exists = from
 		NAND = {
-			from = { has_authority = auth_machine_intelligence }
+			from = { is_machine_empire = yes }
 			NOR = {
 				has_trait = trait_machine_unit
 				has_trait = trait_mechanical
@@ -213,7 +213,7 @@ colonization_control_no = {
 			OR = {
 				NOT = { has_trait = trait_mechanical }
 				from = { has_technology = tech_droid_workers }
-				from = { has_authority = auth_machine_intelligence }
+				from = { is_machine_empire = yes }
 			}
 		}
 		custom_tooltip = {

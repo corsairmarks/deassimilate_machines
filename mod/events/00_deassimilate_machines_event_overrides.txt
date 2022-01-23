@@ -53,7 +53,7 @@ event = {
 									NOT = { has_country_flag = synthetic_empire }
 								}
 								AND = {
-									has_authority = auth_machine_intelligence
+									is_machine_empire = yes
 									has_valid_civic = civic_machine_assimilator
 								}
 							}
