@@ -11,7 +11,7 @@ A new event window will display when you have Positronic AI and communications w
 And last, but not least, cybernetic Pops can be psionically assimilated via Transcendence.
 
 [h2]Compatibility[/h2]
-Built for Stellaris version 3.3.* "Libra."  Not compatible with achievements.
+Built for Stellaris version 3.3 "Libra."  Not compatible with achievements.
 
 This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
 [list]
@@ -45,21 +45,21 @@ This mod can be safely added to your savegame after the game has started. It is 
 [h2]Known Issues[/h2]
 This mod overwrites a number of core Stellaris files.  Expect to see thirteen errors in your error.log similar to these:
 [code]
-[00:09:07][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists
-[00:09:08][eventmanager.cpp:355]: an event with id [action.64] already exists!  file: events/on_action_events_1.txt line: 8019
-[00:09:08][eventmanager.cpp:355]: an event with id [action.65] already exists!  file: events/on_action_events_1.txt line: 8312
-[00:09:08][eventmanager.cpp:355]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 769
-[00:09:09][game_singleobjectdatabase.h:147]: Object with key: citizenship_assimilation already exists
-[00:09:09][game_singleobjectdatabase.h:147]: Object with key: living_standard_deassimilation already exists
-[00:09:09][game_singleobjectdatabase.h:147]: Object with key: living_standard_tech_assimilation already exists
-[00:09:09][game_singleobjectdatabase.h:147]: Object with key: living_standard_psi_assimilation already exists
-[00:09:09][game_singleobjectdatabase.h:147]: Object with key: military_service_full already exists
-[00:09:09][game_singleobjectdatabase.h:147]: Object with key: population_control_yes already exists
-[00:09:09][game_singleobjectdatabase.h:147]: Object with key: population_control_no already exists
-[00:09:09][game_singleobjectdatabase.h:147]: Object with key: colonization_control_yes already exists
-[00:09:09][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists
+[15:38:58][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists, using the one at  file: common/scripted_effects/deassimilate_machines_overrides_scripted_effects.txt line: 2
+[15:38:58][game_singleobjectdatabase.h:147]: Object with key: citizenship_assimilation already exists, using the one at  file: common/species_rights/01_deassimilate_machines_citizenship_types_overrides.txt line: 2
+[15:38:58][game_singleobjectdatabase.h:147]: Object with key: living_standard_deassimilation already exists, using the one at  file: common/species_rights/02_deassimilate_machines_living_standards_overrides.txt line: 1
+[15:38:58][game_singleobjectdatabase.h:147]: Object with key: living_standard_tech_assimilation already exists, using the one at  file: common/species_rights/02_deassimilate_machines_living_standards_overrides.txt line: 36
+[15:38:58][game_singleobjectdatabase.h:147]: Object with key: living_standard_psi_assimilation already exists, using the one at  file: common/species_rights/02_deassimilate_machines_living_standards_overrides.txt line: 68
+[15:38:58][game_singleobjectdatabase.h:147]: Object with key: military_service_full already exists, using the one at  file: common/species_rights/03_deassimilate_machines_military_service_overrides.txt line: 7
+[15:38:58][game_singleobjectdatabase.h:147]: Object with key: population_control_yes already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 5
+[15:38:58][game_singleobjectdatabase.h:147]: Object with key: population_control_no already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 69
+[15:38:58][game_singleobjectdatabase.h:147]: Object with key: colonization_control_yes already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 114
+[15:38:58][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 176
+[15:38:59][eventmanager.cpp:361]: an event with id [action.64] already exists!  file: events/on_action_events_1.txt line: 8015
+[15:38:59][eventmanager.cpp:361]: an event with id [action.65] already exists!  file: events/on_action_events_1.txt line: 8308
+[15:39:00][eventmanager.cpp:361]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 769
 [/code]
-There are: one overridden effect, three preempted events, and seven (!) overridden species rights.  All of these are necessary to implement the functionality of this mod.
+There are: one overridden effect, three preempted events, and nine (!) overridden species rights.  All of these are necessary to implement the functionality of this mod.
 
 [h2]Changelog[/h2]
 See [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2553812372]Change Notes[/url]
