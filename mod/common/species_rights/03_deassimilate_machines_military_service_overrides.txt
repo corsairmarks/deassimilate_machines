@@ -3,7 +3,7 @@
 
 # edited to disallow (de)assimilating machines full service - notably they generate leaders without the synthetic trait (they would eventually get it as the species is assimilated, but I feel it is bad UX)
 # also prohibits necrophages from having non-main-species military leaders, prevents nonsapients or syncretic proles from being military leaders, and allows my special necrophage/xenophobe bypass flags
-# does not include the translations or Battle Thrall changes from "Full Military Service for Battle Thralls" - this will will be overwritten by that one, which will properly support all of these features
+# does not include the translations or Battle Thrall changes from "Special Leadership Privileges for Battle Thralls and Bio-Trophies" - this will will be overwritten by that one, which properly supports all of these features
 military_service_full = {
 	token = military_service_full
 	potential = {
@@ -74,12 +74,7 @@ military_service_full = {
 			OR = {
 				is_same_species = from
 				has_species_flag = allow_military_leaders_honored_protectors@from # surprise flag that will help us later
-				from = {
-					NAND = {
-						has_origin = origin_necrophage
-						has_trait = trait_necrophage
-					}
-				}
+				from = { dm_is_necrophage_empire = no }
 			}
 		}
 		custom_tooltip = {
@@ -108,11 +103,7 @@ military_service_full = {
 		}
 		custom_tooltip = {
 			fail_text = nerve_stapled_cannot_lead_armies
-			is_sapient = yes
-			NOR = {
-				has_trait = trait_syncretic_proles
-				has_trait = trait_nerve_stapled
-			}
+			dm_is_species_smart_enough_for_leadership = yes
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_MUST_NOT_BE_ASSIMILATING

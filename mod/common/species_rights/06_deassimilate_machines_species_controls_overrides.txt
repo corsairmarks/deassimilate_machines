@@ -37,12 +37,7 @@ population_control_yes = {
 			}
 			custom_tooltip = {
 				fail_text = empire_xenophile
-				from = {
-					NOR = {
-						has_ethic = ethic_xenophile
-						has_ethic = ethic_fanatic_xenophile
-					}
-				}
+				from = { is_xenophile = yes }
 			}
 		}
 	}
@@ -87,8 +82,8 @@ population_control_no = {
 			OR = {
 				FROM = {
 					OR = {
-						NOT = { has_authority = auth_hive_mind }
-						has_origin = origin_necrophage
+						is_hive_empire = no
+						dm_is_necrophage_empire = yes
 					}
 				}
 				has_trait = trait_hive_mind
@@ -157,11 +152,8 @@ colonization_control_yes = {
 		modifier = {
 			factor = 0
 			from = {
-				NOR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_gestalt_consciousness
-				}
+				is_xenophobe = no
+				is_gestalt = no
 			}
 		}
 		modifier = {
@@ -204,7 +196,7 @@ colonization_control_no = {
 		custom_tooltip = {
 			fail_text = "HIVE_MIND_SPECIES_CITIZENS_ONLY"
 			OR = {
-				NOT = { from = { has_authority = auth_hive_mind } }
+				from = { is_hive_empire = no }
 				has_trait = trait_hive_mind
 			}
 		}
