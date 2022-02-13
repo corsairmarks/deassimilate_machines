@@ -30,7 +30,7 @@ This mod has to alter a number of built-in files and objects to implement its ga
 [/list]
 What this means to you is that this mod is not compatible with most other assimilation-altering mods and citizenship mods.  That is because its highly likely they are editing the same events and species rights.
 
-This mod is explicitly compatible with my mod [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447]Full Military Service for Battle Thralls[/url] despite both mods affecting full military service.
+This mod is explicitly compatible with my mod [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447]Special Leadership Privileges for Battle Thralls and Bio-Trophies[/url] despite both mods affecting full military service.
 
 [h3]Recommended Companion Mods[/h3]
 [list]

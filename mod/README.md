@@ -33,7 +33,7 @@ This mod has to alter a number of built-in files and objects to implement its ga
 
 What this means to you is that this mod is not compatible with most other assimilation-altering mods and citizenship mods.  That is because its highly likely they are editing the same events and species rights.
 
-This mod is explicitly compatible with my mod [Full Military Service for Battle Thralls](https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447) despite both mods affecting full military service.
+This mod is explicitly compatible with my mod [Special Leadership Privileges for Battle Thralls and Bio-Trophies](https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447) despite both mods affecting full military service.
 
 ### Recommended Companion Mods
 
@@ -71,7 +71,7 @@ There are: one overridden effect, three preempted events, and nine (!) overridde
 ## Changelog
 
 * 1.0.0 Initial version
-* 1.0.1 Support updated flag from Full Military Service for Battle Thralls
+* 1.0.1 Support updated flag from Full Military Service for Battle Thralls (now known as Special Leadership Privileges for Battle Thralls and Bio-Trophies)
 * 1.0.2 Support Gestalt Dissociation when the player also has Transcendence (psionic assimilation)
 * 1.0.3 Code refactoring - no functionality changes
 * 1.1.0 Update for Stellaris version 3.1 "Lem" - no changes to what the mod does, just integrated a few minor underlying game changes
