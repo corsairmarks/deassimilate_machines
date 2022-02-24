@@ -14,7 +14,7 @@ And last, but not least, cybernetic Pops can be psionically assimilated via Tran
 
 ## Compatibility
 
-Built for Stellaris version 3.3.\* "Libra."  Not compatible with achievements.
+Built for Stellaris version 3.3 "Libra."  Not compatible with achievements.
 
 This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
 
