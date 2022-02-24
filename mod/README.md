@@ -48,7 +48,7 @@ This mod can be safely added to your savegame after the game has started. It is 
 
 ## Known Issues
 
-This mod overwrites a number of core Stellaris files.  Expect to see thirteen errors in your error.log similar to these:
+This mod overwrites a number of core Stellaris game objects.  Expect to see thirteen errors in your error.log similar to these: one overridden effect, three preempted events, and nine (!) overridden species rights.  All of these are necessary to implement the functionality of this mod.
 
 ```
 [15:38:58][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists, using the one at  file: common/scripted_effects/deassimilate_machines_overrides_scripted_effects.txt line: 2
@@ -65,8 +65,6 @@ This mod overwrites a number of core Stellaris files.  Expect to see thirteen er
 [15:38:59][eventmanager.cpp:361]: an event with id [action.65] already exists!  file: events/on_action_events_1.txt line: 8308
 [15:39:00][eventmanager.cpp:361]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 769
 ```
-
-There are: one overridden effect, three preempted events, and nine (!) overridden species rights.  All of these are necessary to implement the functionality of this mod.
 
 ## Changelog
 
