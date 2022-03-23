@@ -51,6 +51,9 @@ This mod can be safely added to your savegame after the game has started. It is 
 This mod overwrites a number of core Stellaris game objects.  Expect to see thirteen errors in your error.log similar to these: one overridden effect, three preempted events, and nine (!) overridden species rights.  All of these are necessary to implement the functionality of this mod.
 
 ```
+[15:38:58][technology.cpp:1176]: Duplicate technology: tech_robomodding_m
+[15:38:58][technology.cpp:1176]: Duplicate technology: tech_binary_motivators
+[15:38:58][technology.cpp:1176]: Duplicate technology: tech_nanite_assemblers
 [15:38:58][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists, using the one at  file: common/scripted_effects/deassimilate_machines_overrides_scripted_effects.txt line: 2
 [15:38:58][game_singleobjectdatabase.h:147]: Object with key: citizenship_assimilation already exists, using the one at  file: common/species_rights/01_deassimilate_machines_citizenship_types_overrides.txt line: 2
 [15:38:58][game_singleobjectdatabase.h:147]: Object with key: living_standard_deassimilation already exists, using the one at  file: common/species_rights/02_deassimilate_machines_living_standards_overrides.txt line: 1
@@ -61,9 +64,10 @@ This mod overwrites a number of core Stellaris game objects.  Expect to see thir
 [15:38:58][game_singleobjectdatabase.h:147]: Object with key: population_control_no already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 69
 [15:38:58][game_singleobjectdatabase.h:147]: Object with key: colonization_control_yes already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 114
 [15:38:58][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 176
-[15:38:59][eventmanager.cpp:361]: an event with id [action.64] already exists!  file: events/on_action_events_1.txt line: 8015
-[15:38:59][eventmanager.cpp:361]: an event with id [action.65] already exists!  file: events/on_action_events_1.txt line: 8308
+[15:38:59][eventmanager.cpp:361]: an event with id [action.64] already exists!  file: events/on_action_events_1.txt line: 8008
+[15:38:59][eventmanager.cpp:361]: an event with id [action.65] already exists!  file: events/on_action_events_1.txt line: 8313
 [15:39:00][eventmanager.cpp:361]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 769
+[15:39:00][game_singleobjectdatabase.h:147]: Object with key: ap_synthetic_age already exists, using the one at  file: common/ascension_perks/10_deassimilate_machines_ascension_perk_overrides.txt line: 2
 ```
 
 ## Changelog
