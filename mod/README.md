@@ -76,6 +76,9 @@ This mod overwrites a number of core Stellaris game objects.  Expect to see thir
 * 2.0.0 Update for Stellaris version 3.2 "Herbert"
     * Synthetic Age override accounts for Aquatic robots
 * 3.0.0 Update for Stellaris version 3.3 "Libra" - no changes to what the mod does, just integrated a few minor underlying game changes
+* 3.1.0 Override game objects that grant MACHINE trait points, in order to have them grant the same amount of ROBOT trait points
+    * 3 technologies: Machine Template System (machine version), Binary Motivators, and Nanite Assemblers
+    * 1 ascension perk: Synthetic Age
 
 ## Source Code
 
