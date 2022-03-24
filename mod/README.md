@@ -2,13 +2,17 @@
 
 Ever been disappointed at all the wasted robots when you conquer or integrate a Machine Intelligence?  This mod is for you!  Now you can de-assimilate the Machine Units into Robots once you have discovered the Positronic AI technology.
 
-Oh, and this mod removes the restriction on psionically assimilating cyborg pops.  They have enough organic bits left to become psionic - especially since the cybernetic species trait can be added to psionic species by default, cybernetic is compatible with brain slugs, and cybernetic is compatible with erudite.
+Now also featuring an enhancement for machine empires - robot Pops not also gain bonus trait points from the relevant machine-trait-point-boosting technologies and ascension perk.  Thus robot Pops will be just as useful as machine Pops to machine empires.
+
+This mod removes the restriction on psionically assimilating cyborg pops.  They have enough organic bits left to become psionic - especially since the cybernetic species trait can be added to psionic species by default, cybernetic is compatible with brain slugs, and cybernetic is compatible with erudite.
 
 # Changes
 
 Enables "Gestalt Dissociation" assimilation living standard for Machine Unit Pops.  Hive Pops continue to be eligible for deassimilation with Evolutionary Mastery, but the living standard has been renamed to be more generic.  Updates the built-in assimilation mechanisms to understand this "new" (renamed and repurposed) assimilation type.
 
 A new event window will display when you have Positronic AI and communications with a Machine Intelligence to tell you that machine deassimilation is available.
+
+Overrides the robomodding series of technologies for machine empires (Machine Template System (machine), Binary Motivators, and Nanite Assemblers) and the Synthetic Age ascension perk to all grant both machine and robot trait points.
 
 And last, but not least, cybernetic Pops can be psionically assimilated via Transcendence.
 
@@ -18,6 +22,7 @@ Built for Stellaris version 3.3 "Libra."  Not compatible with achievements.
 
 This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
 
+* Ascension Perk `ap_synthetic_age` - Synthetic Age in order to grant trait points to both machines and robots
 * Effect `assimilation_effect` - main assimilation logic (called by `action.65`), altered so that deassimilated machines are not converted into the synthetic species for fully synthetic empires, also code de-duped
 * Event `action.64` - assimilation setup event, altered to allow machine deassimilation
 * Event `action.65` - main assimilation event, altered to use less duplicate code and pass two variables to its effect calls - the current number of assimilated Pops and the total number allowed for the year
@@ -30,6 +35,9 @@ This mod has to alter a number of built-in files and objects to implement its ga
 * Species Control `population_control_no` - deassimilating machines are not allowed to reproduce
 * Species Control `colonization_control_yes` - deassimilating machines mush have colonization controls
 * Species Control `colonization_control_no` - deassimilating machines are not allowed to colonize
+* Technology `tech_robomodding_m` - Machine Template System (machine) in order to grant trait points to both machines and robots
+* Technology `tech_binary_motivators` - Binary Motivators in order to grant trait points to both machines and robots
+* Technology `tech_nanite_assemblers` - Nanite Assemblers in order to grant trait points to both machines and robots
 
 What this means to you is that this mod is not compatible with most other assimilation-altering mods and citizenship mods.  That is because its highly likely they are editing the same events and species rights.
 
@@ -48,7 +56,7 @@ This mod can be safely added to your savegame after the game has started. It is 
 
 ## Known Issues
 
-This mod overwrites a number of core Stellaris game objects.  Expect to see thirteen errors in your error.log similar to these: one overridden effect, three preempted events, and nine (!) overridden species rights.  All of these are necessary to implement the functionality of this mod.
+This mod overwrites a number of core Stellaris game objects.  Expect to see seventeen errors in your error.log similar to these for many types of game object.  All are necessary to implement the functionality of this mod.
 
 ```
 [15:38:58][technology.cpp:1176]: Duplicate technology: tech_robomodding_m
