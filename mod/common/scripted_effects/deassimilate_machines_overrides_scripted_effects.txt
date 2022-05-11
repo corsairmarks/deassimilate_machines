@@ -1,5 +1,6 @@
 # THIS = planet
 assimilation_effect = {
+	optimize_memory
 	random_owned_pop = {
 		limit = {
 			has_citizenship_type = {

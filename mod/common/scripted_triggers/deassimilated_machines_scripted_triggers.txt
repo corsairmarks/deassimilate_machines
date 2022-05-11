@@ -1,5 +1,6 @@
 # THIS = country
 has_ai_and_knows_machines = {
+	optimize_memory
 	OR = {
 		is_mechanical_empire = yes
 		has_technology = tech_sapient_ai
@@ -16,6 +17,7 @@ has_ai_and_knows_machines = {
 # THIS = species
 # event_target:assimilating_country = country
 is_eligible_for_deassimilation_machine_species = {
+	optimize_memory
 	has_living_standard = {
 		country = event_target:assimilating_country
 		type = living_standard_deassimilation
@@ -29,6 +31,7 @@ is_eligible_for_deassimilation_machine_species = {
 
 # this = species
 dm_is_species_smart_enough_for_leadership = {
+	optimize_memory
 	is_sapient = yes
 	NOR = {
 		has_trait = trait_syncretic_proles
@@ -39,6 +42,7 @@ dm_is_species_smart_enough_for_leadership = {
 
 # this = country
 dm_is_necrophage_empire = {
+	optimize_memory
 	has_origin = origin_necrophage
 	has_trait = trait_necrophage
 }

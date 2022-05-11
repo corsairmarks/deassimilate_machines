@@ -1,5 +1,6 @@
 # pop
 set_post_assimilation_minimum_citizenship_pop = {
+	optimize_memory
 	if = {
 		limit = { owner = { is_machine_empire = yes } }
 		set_citizenship_type = {
@@ -106,6 +107,7 @@ set_post_assimilation_minimum_citizenship_pop = {
 
 # pop
 set_post_assimilation_minimum_living_standard_pop = {
+	optimize_memory
 	if = {
 		limit = {
 			owner = {
@@ -256,6 +258,7 @@ set_post_assimilation_minimum_living_standard_pop = {
 # THIS = species
 # event_target:assimilating_country = country
 prepare_machine_species_to_mechanical_species = {
+	optimize_memory
 	save_event_target_as = machine_species
 	random_galaxy_species = {
 		limit = { has_species_flag = mechanical_species_of_machine_species@event_target:machine_species }
@@ -310,6 +313,7 @@ prepare_machine_species_to_mechanical_species = {
 
 # event_target:mechanical_species - used as the base species to be modified, will be overwritten with the new specis if one or more traits had to be swapped
 swap_species_traits_machine_to_robot = {
+	optimize_memory
 	if = {
 		limit = { has_trait = trait_robot_emotion_emulators }
 		modify_species = {
