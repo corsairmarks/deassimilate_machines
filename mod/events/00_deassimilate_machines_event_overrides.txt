@@ -416,7 +416,7 @@ country_event = {
 			}
 
 			effect = {
-				if = { limit = { host_has_dlc = "Synthetic Dawn Story Pack" }
+				if = { limit = { has_synthethic_dawn = yes }
 					prev = {
 						switch = {
 							trigger = is_species_class
@@ -452,7 +452,7 @@ country_event = {
 			change_species = event_target:new_robotic_species
 		}
 
-		every_owned_ship = {
+		every_controlled_ship = {
 			limit = {
 				is_ship_class = shipclass_colonizer
 				species = {
