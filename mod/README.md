@@ -18,7 +18,7 @@ And last, but not least, cybernetic Pops can be psionically assimilated via Tran
 
 ## Compatibility
 
-Built for Stellaris version 3.3 "Libra."  Not compatible with achievements.
+Built for Stellaris version 3.4 "Cepheus."  Not compatible with achievements.
 
 This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
 
@@ -91,6 +91,9 @@ This mod overwrites a number of core Stellaris game objects.  Expect to see seve
 * 3.1.0 Override game objects that grant MACHINE trait points, in order to have them grant the same amount of ROBOT trait points
     * 3 technologies: Machine Template System (machine version), Binary Motivators, and Nanite Assemblers
     * 1 ascension perk: Synthetic Age
+* 4.0.0 Update for Stellaris version 3.4 "Cepheus"
+    * Use memory optimization feature for effects and triggers
+    * Update code to account for hired (mercenary) fleets
 
 ## Source Code
 
