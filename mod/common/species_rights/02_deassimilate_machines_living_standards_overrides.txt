@@ -4,27 +4,47 @@ living_standard_deassimilation = {
 	pop_modifier = {}
 	potential = {
 		has_utopia = yes
-		exists = FROM
+		exists = from
 		OR = {
 			# original condition - hive deassimilation
 			AND = {
 				is_lonely_hive_mind_pop = yes
-				FROM = { has_ascension_perk = ap_evolutionary_mastery }
+				from = { has_ascension_perk = ap_evolutionary_mastery }
 			}
 			# new condition - machine deassimilation
 			AND = {
 				is_disconnected_machine_pop = yes
-				FROM = { has_technology = tech_sapient_ai }
+				from = { has_technology = tech_sapient_ai }
 			}
 		}
 	}
 	allow = {
-		hidden_trigger = { exists = FROM }
+		hidden_trigger = { exists = from }
 		custom_tooltip = {
 			fail_text = SPECIES_MUST_BE_ASSIMILATING
 			has_citizenship_type = {
 				type = citizenship_assimilation
-				country = FROM
+				country = from
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = civic_organic_zealots_installed
+				is_disconnected_machine_pop = yes
+				from = { has_technology = tech_sapient_ai }
+			}
+			custom_tooltip = {
+				fail_text = lost_robot_policy_war_fail
+				from = { NOT = { has_country_flag = lost_robot_policy_war } }
+			}
+			custom_tooltip = {
+				fail_text = is_overlord_organic_zealots_fail
+				from = {
+					NAND = {
+						exists = overlord
+						overlord = { has_valid_civic = civic_organic_zealots }
+					}
+				}
 			}
 		}
 	}
@@ -42,21 +62,38 @@ living_standard_tech_assimilation = {
 	potential = {
 		has_utopia = yes
 		is_robotic_species = no
-		exists = FROM
-		FROM = {
+		exists = from
+		from = {
+			is_gestalt = no
 			OR = {
 				has_country_flag = flesh_weakened
-				has_country_flag = synthetic_empire
+				is_synthetic_empire = yes
 			}
 		}
 	}
 	allow = {
-		hidden_trigger = { exists = FROM }
+		hidden_trigger = { exists = from }
 		custom_tooltip = {
 			fail_text = SPECIES_MUST_BE_ASSIMILATING
 			has_citizenship_type = {
 				type = citizenship_assimilation
-				country = FROM
+				country = from
+			}
+		}
+		if = {
+			limit = { has_global_flag = civic_organic_zealots_installed }
+			custom_tooltip = {
+				fail_text = lost_robot_policy_war_fail
+				from = { NOT = { has_country_flag = lost_robot_policy_war } }
+			}
+			custom_tooltip = {
+				fail_text = is_overlord_organic_zealots_fail
+				from = {
+					NAND = {
+						exists = overlord
+						overlord = { has_valid_civic = civic_organic_zealots }
+					}
+				}
 			}
 		}
 	}
@@ -74,16 +111,16 @@ living_standard_psi_assimilation = {
 	potential = {
 		has_utopia = yes
 		is_robotic_species = no
-		exists = FROM
-		FROM = { has_ascension_perk = ap_transcendence }
+		exists = from
+		from = { has_ascension_perk = ap_transcendence }
 	}
 	allow = {
-		hidden_trigger = { exists = FROM }
+		hidden_trigger = { exists = from }
 		custom_tooltip = {
 			fail_text = SPECIES_MUST_BE_ASSIMILATING
 			has_citizenship_type = {
 				type = citizenship_assimilation
-				country = FROM
+				country = from
 			}
 		}
 	}
