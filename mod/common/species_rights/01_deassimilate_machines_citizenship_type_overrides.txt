@@ -1,4 +1,5 @@
-# Modified: allows assimilating machine units, fanatic purifiers can assimilate, psionics can assimilate cyborgs
+# Modified: allows assimilating machine units, tech assimilation is restricted (with Civic: Organic Zealots),
+# fanatic purifiers can assimilate, psionics can assimilate cyborgs
 citizenship_assimilation = {
 	token = citizenship_assimilation
 	potential = {

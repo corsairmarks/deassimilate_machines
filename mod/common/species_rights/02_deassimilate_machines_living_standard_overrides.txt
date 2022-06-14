@@ -1,3 +1,4 @@
+# Modified: allow machine deassimilation
 living_standard_deassimilation = {
 	token = living_standard_deassimilation
 	name = living_standard_deassimilation
@@ -53,6 +54,7 @@ living_standard_deassimilation = {
 	}
 }
 
+# Modified: robotic species cannot be tech assimilated, restrict tech assimilation (with Civic: Organic Zealots)
 living_standard_tech_assimilation = {
 	token = living_standard_tech_assimilation
 	name = living_standard_tech_assimilation
