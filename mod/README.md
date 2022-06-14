@@ -95,6 +95,7 @@ This mod overwrites a number of core Stellaris game objects.  Expect to see seve
     * Use memory optimization feature for effects and triggers
     * Update code to account for hired (mercenary) fleets
 * 4.1.0 Code refinement for more precise checks
+* 4.2.0 Support "Civic: Organic Zealots"
 
 ## Source Code
 
