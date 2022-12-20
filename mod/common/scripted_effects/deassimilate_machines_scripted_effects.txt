@@ -133,7 +133,11 @@ set_post_assimilation_minimum_living_standard_pop = {
 			owner = { is_regular_empire = yes }
 			OR = {
 				has_living_standard = {
-					type = living_standard_none
+					type = living_standard_deassimilation
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_deassimilation_machine
 					country = owner
 				}
 				has_living_standard = {
@@ -141,7 +145,15 @@ set_post_assimilation_minimum_living_standard_pop = {
 					country = owner
 				}
 				has_living_standard = {
-					type = living_standard_psi_assimilation
+					type = living_standard_ego_assimilation_psionic
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_cyborg_ego_assimilation
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_cyborg_ego_assimilation_psionic
 					country = owner
 				}
 				has_living_standard = {
@@ -149,7 +161,23 @@ set_post_assimilation_minimum_living_standard_pop = {
 					country = owner
 				}
 				has_living_standard = {
-					type = living_standard_deassimilation
+					type = living_standard_cyborg_assimilation
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_cyborg_assimilation_psionic
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_psi_assimilation
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_psi_assimilation_cyborg
+					country = owner
+				}
+				has_living_standard = {
+					type = living_standard_none
 					country = owner
 				}
 			}
@@ -216,6 +244,14 @@ set_post_assimilation_minimum_living_standard_pop = {
 			}
 		}
 		else_if = {
+			limit = { owner = { is_pleasure_seeker = yes } }
+			set_living_standard = {
+				country = owner
+				type = living_standard_decadent
+				cooldown = no
+			}
+		}
+		else_if = {
 			limit = { owner = { is_materialist = yes } }
 			set_living_standard = {
 				country = owner
@@ -236,7 +272,7 @@ set_post_assimilation_minimum_living_standard_pop = {
 				has_citizenship_type = {
 					country = owner
 					type = citizenship_full
-				} 
+				}
 			}
 			set_living_standard = {
 				country = owner
@@ -255,7 +291,7 @@ set_post_assimilation_minimum_living_standard_pop = {
 }
 
 # set up a machine species for deassimilation into a mechanical species
-# THIS = species
+# this = species
 # event_target:assimilating_country = country
 prepare_machine_species_to_mechanical_species = {
 	optimize_memory
@@ -269,14 +305,14 @@ prepare_machine_species_to_mechanical_species = {
 		limit = { event_target:assimilating_country = { NOT = { has_country_flag = found_assim_mech_species@event_target:machine_species } } }
 		event_target:machine_species = {
 			create_species = {
-				name = THIS
-				plural = THIS
-				adjective = THIS
-				name_list = THIS
+				name = this
+				plural = this
+				adjective = this
+				name_list = this
 				class = ROBOT
-				portrait = THIS
-				homeworld = THIS
-				traits = THIS
+				portrait = this
+				homeworld = this
+				traits = this
 				effect = {
 					save_event_target_as = mechanical_species
 				}
@@ -301,7 +337,7 @@ prepare_machine_species_to_mechanical_species = {
 	}
 	event_target:mechanical_species = {
 		set_timed_species_flag = {
-			flag = assimilation_species_of_species@PREV
+			flag = assimilation_species_of_species@prev
 			days = 30
 		}
 		set_timed_species_flag = {
