@@ -3,8 +3,7 @@
 
 # modified to always allow (de)assimilating machines to have this right
 population_control_yes = {
-	token = population_control_yes
-
+	can_reproduce = no
 	pop_modifier = {
 		pop_happiness = -0.1
 	}
@@ -62,8 +61,6 @@ population_control_yes = {
 
 # modified to prevent (de)assimilating machines having this right
 population_control_no = {
-	token = population_control_no
-
 	potential = {
 		always = yes
 	}
@@ -107,8 +104,7 @@ population_control_no = {
 
 # modified to always allow (de)assimilating machines to have this right
 colonization_control_yes = {
-	token = colonization_control_yes
-
+	can_colonize = no
 	potential = {
 		NAND = {
 			from = { is_machine_empire = yes }
@@ -161,13 +157,15 @@ colonization_control_yes = {
 			has_trait = trait_cybernetic
 			from = { has_valid_civic = civic_machine_assimilator }
 		}
+		modifier = {
+			factor = 0
+			has_slavery_type = { country = from type = slavery_indentured }
+		}
 	}
 }
 
 # modified to prevent (de)assimilating machines having this right
 colonization_control_no = {
-	token = colonization_control_no
-
 	potential = {
 		exists = from
 		NAND = {
