@@ -410,6 +410,7 @@ country_event = {
 			namelist = this
 			plural = this
 			class = "ROBOT"
+			homeworld = root.species
 			portrait = "default_robot"
 			traits = {
 				trait = "trait_mechanical"
@@ -431,6 +432,7 @@ country_event = {
 							LITHOID = { prev = { change_species_characteristics = { portrait = "lith_machine" } } }
 							NECROID = { prev = { change_species_characteristics = { portrait = "nec_machine" } } }
 							AQUATIC = { prev = { change_species_characteristics = { portrait = "aqu_machine" } } }
+							TOX = { prev = { change_species_characteristics = { portrait = "tox_machine" } } }
 						}
 					}
 				}
@@ -445,8 +447,10 @@ country_event = {
 		}
 		every_owned_pop = {
 			limit = {
+				is_being_purged = no
 				species = {
-					has_trait = trait_cybernetic
+					is_robotic = no
+					is_livestock = no
 				}
 			}
 			change_species = event_target:new_robotic_species
@@ -456,7 +460,8 @@ country_event = {
 			limit = {
 				is_ship_class = shipclass_colonizer
 				species = {
-					has_trait = trait_cybernetic
+					is_robotic = no
+					is_livestock = no
 				}
 			}
 			change_species = event_target:new_robotic_species
@@ -467,7 +472,8 @@ country_event = {
 				exists = species
 				exists = planet
 				species = {
-					has_trait = trait_cybernetic
+					is_robotic = no
+					is_livestock = no
 				}
 				army_type = assault_army
 			}
@@ -483,7 +489,8 @@ country_event = {
 				exists = species
 				exists = planet
 				species = {
-					has_trait = trait_cybernetic
+					is_robotic = no
+					is_livestock = no
 				}
 				army_type = defense_army
 			}
@@ -497,11 +504,15 @@ country_event = {
 		every_owned_leader = {
 			limit = {
 				OR = {
-					has_trait = leader_trait_admiral_cyborg
-					has_trait = leader_trait_general_cyborg
-					has_trait = leader_trait_governor_cyborg
-					has_trait = leader_trait_scientist_cyborg
-					has_trait = leader_trait_ruler_cyborg
+					species = {
+						is_robotic = no
+						is_livestock = no
+					}
+					has_trait = leader_trait_admiral_synthetic
+					has_trait = leader_trait_ruler_synthetic
+					has_trait = leader_trait_general_synthetic
+					has_trait = leader_trait_governor_synthetic
+					has_trait = leader_trait_scientist_synthetic
 				}
 			}
 			change_species = event_target:new_robotic_species
@@ -510,11 +521,15 @@ country_event = {
 		every_pool_leader = {
 			limit = {
 				OR = {
-					has_trait = leader_trait_admiral_cyborg
-					has_trait = leader_trait_general_cyborg
-					has_trait = leader_trait_governor_cyborg
-					has_trait = leader_trait_scientist_cyborg
-					has_trait = leader_trait_ruler_cyborg
+					species = {
+						is_robotic = no
+						is_livestock = no
+					}
+					has_trait = leader_trait_admiral_synthetic
+					has_trait = leader_trait_ruler_synthetic
+					has_trait = leader_trait_general_synthetic
+					has_trait = leader_trait_governor_synthetic
+					has_trait = leader_trait_scientist_synthetic
 				}
 			}
 			change_species = event_target:new_robotic_species
@@ -538,32 +553,22 @@ country_event = {
 				admiral = {
 					add_trait = leader_trait_admiral_synthetic
 					add_ruler_trait = leader_trait_ruler_synthetic
-					remove_trait = leader_trait_admiral_cyborg
-					remove_ruler_trait = leader_trait_ruler_cyborg
 				}
 				general = {
 					add_trait = leader_trait_general_synthetic
 					add_ruler_trait = leader_trait_ruler_synthetic
-					remove_trait = leader_trait_general_cyborg
-					remove_ruler_trait = leader_trait_ruler_cyborg
 				}
 				governor = {
 					add_trait = leader_trait_governor_synthetic
 					add_ruler_trait = leader_trait_ruler_synthetic
-					remove_trait = leader_trait_governor_cyborg
-					remove_ruler_trait = leader_trait_ruler_cyborg
 				}
 				scientist = {
 					add_trait = leader_trait_scientist_synthetic
 					add_ruler_trait = leader_trait_ruler_synthetic
-					remove_trait = leader_trait_scientist_cyborg
-					remove_ruler_trait = leader_trait_ruler_cyborg
 				}
 				ruler = {
 					add_trait = leader_trait_ruler_synthetic
 					add_ruler_trait = leader_trait_ruler_synthetic
-					remove_trait = leader_trait_ruler_cyborg
-					remove_ruler_trait = leader_trait_ruler_cyborg
 				}
 			}
 		}
@@ -583,34 +588,34 @@ country_event = {
 				admiral = {
 					add_trait = leader_trait_admiral_synthetic
 					add_ruler_trait = leader_trait_ruler_synthetic
-					remove_trait = leader_trait_admiral_cyborg
-					remove_ruler_trait = leader_trait_ruler_cyborg
 				}
 				general = {
 					add_trait = leader_trait_general_synthetic
 					add_ruler_trait = leader_trait_ruler_synthetic
-					remove_trait = leader_trait_general_cyborg
-					remove_ruler_trait = leader_trait_ruler_cyborg
 				}
 				governor = {
 					add_trait = leader_trait_governor_synthetic
 					add_ruler_trait = leader_trait_ruler_synthetic
-					remove_trait = leader_trait_governor_cyborg
-					remove_ruler_trait = leader_trait_ruler_cyborg
 				}
 				scientist = {
 					add_trait = leader_trait_scientist_synthetic
 					add_ruler_trait = leader_trait_ruler_synthetic
-					remove_trait = leader_trait_scientist_cyborg
-					remove_ruler_trait = leader_trait_ruler_cyborg
 				}
 				ruler = {
 					add_trait = leader_trait_ruler_synthetic
 					add_ruler_trait = leader_trait_ruler_synthetic
-					remove_trait = leader_trait_ruler_cyborg
-					remove_ruler_trait = leader_trait_ruler_cyborg
 				}
 			}
+		}
+		every_envoy = {
+			limit = {
+				species = {
+					is_robotic = no
+					is_livestock = no
+				}
+			}
+			change_species = event_target:new_robotic_species
+			change_leader_portrait = species
 		}
 
 		observer_event = { id = observer.4 }
@@ -660,13 +665,21 @@ country_event = {
 			}
 		}
 
-		ROOT = {
-			set_country_flag = synthetic_age
+		root = {
+			set_country_flag = synth_assimilation
 		}
 	}
-
 	option = {
+		trigger = {
+			is_homicidal = no
+		}
 		name = "utopia.2551.a"
 		custom_tooltip = SYNTH_ASSIMILATION_CITIZENSHIP_ENABLED
+	}
+	option = {
+		trigger = {
+			is_homicidal = yes
+		}
+		name = "utopia.2551.a"
 	}
 }
