@@ -1,4 +1,4 @@
-# THIS = country
+# this = country
 has_ai_and_knows_machines = {
 	optimize_memory
 	OR = {
@@ -8,25 +8,123 @@ has_ai_and_knows_machines = {
 		has_technology = tech_synthetic_workers
 	}
 	any_relation = {
-		has_communications = PREV
+		has_communications = prev
 		is_robot_empire = yes
 	}
 }
 
-# check whether the species qualifies for deassimilation (Machine)
-# THIS = species
-# event_target:assimilating_country = country
-is_eligible_for_deassimilation_machine_species = {
+# check whether the species qualifies for synthetic assimilation
+# this = species (current)
+# prev = country (assimilator)
+is_eligible_for_assimilation_synthetic_species = {
 	optimize_memory
 	has_living_standard = {
-		country = event_target:assimilating_country
+		type = living_standard_tech_assimilation
+		country = prev
+	}
+}
+
+# check whether the species qualifies for machine deassimilation
+# this = species (current)
+# prev = country (assimilator)
+is_eligible_for_assimilation_unmachine_species = {
+	optimize_memory
+	has_living_standard = {
 		type = living_standard_deassimilation_machine
+		country = prev
 	}
-	has_trait = trait_machine_unit
-	event_target:assimilating_country = {
-		is_regular_empire = yes
-		has_technology = tech_sapient_ai
+}
+
+# set up a species for cybernetic assimilation (non-hive)
+# this = species (current)
+# prev = country (assimilator)
+is_eligible_for_assimilation_cybernetic_species = {
+	optimize_memory
+	OR = {
+		AND = {
+			prev = { is_machine_empire = yes }
+			OR = {
+				has_living_standard = {
+					type = living_standard_cyborg_ego_assimilation
+					country = prev
+				}
+				has_living_standard = {
+					type = living_standard_cyborg_ego_assimilation_psionic
+					country = prev
+				}
+			}
+		}
+		AND = {
+			prev = { is_gestalt = no }
+			OR = {
+				has_living_standard = {
+					type = living_standard_cyborg_assimilation
+					country = prev
+				}
+				has_living_standard = {
+					type = living_standard_cyborg_assimilation_psionic
+					country = prev
+				}
+			}
+		}
 	}
+}
+
+# set up a species for hive assimilation
+# this = species (current)
+# prev = country (assimilator)
+is_eligible_for_assimilation_hive_species = {
+	optimize_memory
+	OR = {
+		has_living_standard = {
+			type = living_standard_ego_assimilation
+			country = prev
+		}
+		has_living_standard = {
+			type = living_standard_ego_assimilation_psionic
+			country = prev
+		}
+	}
+}
+
+# set up a species for cybernetic assimilation (hive)
+# this = species (current)
+# prev = country (assimilator)
+is_eligible_for_assimilation_hive_cybernetic_species = {
+	optimize_memory
+	prev = { is_hive_empire = yes }
+	OR = {
+		has_living_standard = {
+			type = living_standard_cyborg_ego_assimilation
+			country = prev
+		}
+		has_living_standard = {
+			type = living_standard_cyborg_ego_assimilation_psionic
+			country = prev
+		}
+	}
+}
+
+# set up a species for hive deassimilation
+# this = species (current)
+# prev = country (assimilator)
+is_eligible_for_assimilation_unhive_species = {
+	optimize_memory
+	has_living_standard = {
+		type = living_standard_deassimilation
+		country = prev
+	}
+	OR = {
+		is_same_species = prev.owner_main_species
+		prev = { is_homicidal = no }
+	}
+}
+
+# set up a species for psionic assimilation
+# this = species (current)
+# prev = country (assimilator)
+is_eligible_for_assimilation_psionic_species = {
+	optimize_memory
 }
 
 # this = species
