@@ -326,6 +326,13 @@ planet_event = {
 				}
 			}
 		}
+		if = {
+			limit = { owner = { has_tradition = tr_cybernetics_assimilator_inevitable_assimilation } }
+			change_variable = {
+				which = assimilation_maximum
+				value = 1
+			}
+		}
 		set_variable = {
 			which = assimilation_counter
 			value = assimilation_maximum
