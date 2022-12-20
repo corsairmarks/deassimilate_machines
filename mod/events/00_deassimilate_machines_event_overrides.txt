@@ -12,7 +12,7 @@ event = {
 			any_owned_pop_species = {
 				has_citizenship_type = {
 					type = citizenship_assimilation
-					country = PREV
+					country = prev
 				}
 			}
 		}
@@ -26,20 +26,20 @@ event = {
                 any_owned_pop_species = {
                     has_citizenship_type = {
 						type = citizenship_assimilation
-						country = PREV
+						country = prev
                     }
                 }
             }
 			save_event_target_as = assimilating_country
-			log = "action.64.epc: [assimilating_country.GetRealName]"
+			log = "action.64.every_playable_country: [assimilating_country.GetRealName]"
 			every_owned_pop_species = {
 				limit = {
 					has_citizenship_type = {
 						type = citizenship_assimilation
-						country = PREV
+						country = prev
 					}
 				}
-				log = "action.64.eops: [This.GetName]"
+				log = "action.64.every_owned_pop_species: [This.GetName]"
 				if = { # deassimilate machines
 					limit = { is_eligible_for_deassimilation_machine_species = yes }
 					prepare_machine_species_to_mechanical_species = yes
@@ -49,7 +49,7 @@ event = {
 						prev = {
 							OR = {
 								AND = {
-									has_country_flag = flesh_weakened
+									has_country_flag = cyborg_empire
 									NOT = { has_country_flag = synthetic_empire }
 								}
 								AND = {
@@ -207,7 +207,7 @@ event = {
 							NOR = {
 								has_ethic = ethic_gestalt_consciousness
 								has_country_flag = synthetic_empire
-								has_country_flag = flesh_weakened
+								has_country_flag = cyborg_empire
 							}
 						}
 						has_trait = trait_hive_mind
@@ -230,11 +230,7 @@ event = {
 					}
 				}
 				else_if = { #### Psionic Assimilation ADD OTHER RANDOM OPTIONS TOO
-					limit = {
-						prev = {
-							has_ascension_perk = ap_transcendence
-						}
-					}
+					limit = { prev = { has_active_tradition = tr_psionics_psionic_assimilation } }
 					if = {
 						limit = {
 							NOR = {
@@ -304,7 +300,7 @@ planet_event = {
 		any_owned_pop = {
 			has_citizenship_type = {
 				type = citizenship_assimilation
-				country = ROOT.owner
+				country = root.owner
 			}
 		}
 	}
@@ -340,7 +336,7 @@ planet_event = {
 				any_owned_pop = {
 					has_citizenship_type = {
 						type = citizenship_assimilation
-						country = ROOT.owner
+						country = root.owner
 					}
 				}
 				check_variable = {
