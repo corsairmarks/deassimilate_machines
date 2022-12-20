@@ -1,11 +1,14 @@
 # from = country
 # this = species
+# triggered_pop_modifier = {
+#	potential = { is_pop_category = ruler }
+#	pop_happiness = 0.15
+# }
 
 # edited to disallow (de)assimilating machines full service - notably they generate leaders without the synthetic trait (they would eventually get it as the species is assimilated, but I feel it is bad UX)
 # also prohibits necrophages from having non-main-species military leaders, prevents nonsapients or syncretic proles from being military leaders, and allows my special necrophage/xenophobe bypass flags
 # does not include the translations or Battle Thrall changes from "Special Leadership Privileges for Battle Thralls and Bio-Trophies" - this will will be overwritten by that one, which properly supports all of these features
 military_service_full = {
-	token = military_service_full
 	potential = {
 		if = {
 			limit = { from = { is_machine_empire = yes } }
@@ -13,6 +16,10 @@ military_service_full = {
 				has_trait = trait_machine_unit
 				has_trait = trait_mechanical
 				has_trait = trait_cybernetic
+				AND = {
+					has_global_flag = battle_thrall_military_leaders_installed
+					from = { has_valid_civic = civic_machine_servitor }
+				}
 			}
 		}
 	}
@@ -28,6 +35,15 @@ military_service_full = {
 					AND = {
 						has_trait = trait_cybernetic
 						from = { has_civic = civic_machine_assimilator }
+					}
+					AND = {
+						has_global_flag = battle_thrall_military_leaders_installed
+						has_species_flag = allow_leaders_organic_advisors@from
+						has_citizenship_type = {
+							country = from
+							type = citizenship_organic_trophy
+						}
+						from = { has_valid_civic = civic_machine_servitor }
 					}
 				}
 			}
@@ -52,14 +68,22 @@ military_service_full = {
 					country = from
 					type = citizenship_slavery }
 				}
+				AND = {
+					has_global_flag = battle_thrall_military_leaders_installed
+					has_slavery_type = {
+						country = from
+						type = slavery_military
+					}
+				}
 		}
 		custom_tooltip = {
 			fail_text = is_servitude_tooltip
 			NOT = {
 				has_citizenship_type = {
 					country = from
-					type = citizenship_robot_servitude }
+					type = citizenship_robot_servitude
 				}
+			}
 		}
 		custom_tooltip = {
 			fail_text = too_alien
@@ -119,6 +143,15 @@ military_service_full = {
 			}
 		}
 	}
+	triggered_pop_modifier = {
+		potential = {
+			has_global_flag = battle_thrall_military_leaders_installed
+			has_slavery_type = { type = slavery_military }
+		}
+		modifier = {
+			pop_cat_slave_happiness = 0.1
+		}
+	}
 	ai_will_do = {
 		factor = 5
 		modifier = {
@@ -127,11 +160,21 @@ military_service_full = {
 		}
 		modifier = {
 			factor = 0
+			has_global_flag = battle_thrall_military_leaders_installed
+			from = { has_valid_civic = civic_machine_servitor }
+			NOR = {
+				has_trait = trait_mechanical
+				has_trait = trait_machine_unit
+			}
+			dm_is_species_smart_enough_for_leadership = no
+			# note: does not include the more complex criteria from BTML because this version gets overwritten anyway
+		}
+		modifier = {
+			factor = 0
+			NOT = { has_species_flag = allow_military_leaders_honored_protectors@from }
 			from = {
 				has_valid_ai_personality = yes
-				NOT = {
-					has_ai_personality_behaviour = multispecies
-				}
+				has_ai_personality_behaviour = multispecies
 			}
 		}
 	}
