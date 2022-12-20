@@ -23,7 +23,6 @@ country_event = {
 	show_sound = event_robot_encounter
 	trigger = {
 		has_synthethic_dawn = yes
-		has_utopia = yes
 		NOT = { has_country_flag = deasssimilate_machines_message }
 		is_ai = no
 		is_regular_empire = yes
@@ -95,7 +94,6 @@ country_event = {
 	hide_window = yes
 	trigger = {
 		has_synthethic_dawn = yes
-		has_utopia = yes
 	}
 	immediate = {
 		country_event = {
