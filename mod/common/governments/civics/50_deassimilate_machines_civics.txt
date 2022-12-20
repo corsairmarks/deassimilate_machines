@@ -1,0 +1,11 @@
+# dummy civic to avoid error log spam
+civic_organic_zealots = {
+	icon = gfx/interface/icons/governments/civics/unknown.dds
+	playable = { always = no }
+	ai_playable = { always = no }
+	potential = { always = no }
+	possible = { always = no }
+	random_weight = {
+		base = 0
+	}
+}
