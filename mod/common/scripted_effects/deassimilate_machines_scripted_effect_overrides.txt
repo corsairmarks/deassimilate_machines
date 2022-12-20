@@ -11,7 +11,15 @@ assimilation_effect = {
 		if = { # synthetic assimilation
 			limit = {
 				OR = {
-					owner = { has_country_flag = synth_assimilation }
+					AND = {
+						owner = { has_country_flag = synth_assimilation }
+						NOT = {
+							has_living_standard = {
+								type = living_standard_deassimilation_machine
+								country = owner
+							}
+						}
+					}
 					AND = {
 						is_robot_pop = yes
 						owner = {
