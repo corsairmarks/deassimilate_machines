@@ -1,0 +1,46 @@
+living_standard_deassimilation_machine = {
+	pop_modifier = {}
+	potential = {
+		has_synthethic_dawn = yes
+		exists = from
+		is_disconnected_machine_pop = yes
+		from = {
+			OR = {
+				has_technology = tech_sapient_ai
+			}
+		}
+	}
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+		if = {
+			limit = { has_global_flag = civic_organic_zealots_installed }
+			custom_tooltip = {
+				fail_text = lost_robot_policy_war_fail
+				from = { NOT = { has_country_flag = lost_robot_policy_war } }
+			}
+			custom_tooltip = {
+				fail_text = is_organic_zealots_fail
+				from = { NOT = { has_valid_civic = civic_organic_zealots } }
+			}
+			custom_tooltip = {
+				fail_text = is_overlord_organic_zealots_fail
+				from = {
+					NAND = {
+						exists = overlord
+						overlord = { has_valid_civic = civic_organic_zealots }
+					}
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+}
