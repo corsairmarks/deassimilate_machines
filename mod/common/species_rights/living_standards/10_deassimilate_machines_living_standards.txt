@@ -4,11 +4,7 @@ living_standard_deassimilation_machine = {
 		has_synthethic_dawn = yes
 		exists = from
 		is_disconnected_machine_pop = yes
-		from = {
-			OR = {
-				has_technology = tech_sapient_ai
-			}
-		}
+		from = { has_technology = tech_sapient_ai }
 	}
 	allow = {
 		hidden_trigger = { exists = from }
