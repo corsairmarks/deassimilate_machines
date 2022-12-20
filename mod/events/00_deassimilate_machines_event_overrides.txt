@@ -40,183 +40,32 @@ event = {
 					}
 				}
 				log = "action.64.every_owned_pop_species: [This.GetName]"
-				if = { # deassimilate machines
+				# synthetic assimilation deliberately does nothing here, see assimilation_effect
+				if = { # machine deassimilation
 					limit = { is_eligible_for_deassimilation_machine_species = yes }
 					prepare_machine_species_to_mechanical_species = yes
 				}
-				else_if = { # assimilator empire or cyborg empire
+				else_if = { # regular and machine cybernetic assimilation
 					limit = {
 						prev = {
 							OR = {
 								AND = {
-									has_country_flag = cyborg_empire
-									NOT = { has_country_flag = synthetic_empire }
+									is_hive_empire = no
+									has_tradition = tr_cybernetics_transubstantiation_synthesis
 								}
-								AND = {
-									is_machine_empire = yes
-									has_valid_civic = civic_machine_assimilator
-								}
+								has_valid_civic = civic_machine_assimilator
 							}
 						}
-					}
-					if = {
-						limit = { NOT = { has_trait = trait_cybernetic } }
-						if = {
-							limit = {
-								has_trait = trait_hive_mind
-								has_trait = trait_self_modified
-							}
-							modify_species = {
-								species = this
-								add_trait = trait_cybernetic
-								add_traits_at_start_of_list = yes
-								remove_trait = trait_hive_mind
-								remove_trait = trait_self_modified
-								change_scoped_species = no
-
-								effect = {
-									set_timed_species_flag = {
-										flag = assimilation_species_of_species@prev
-										days = 30
-									}
-									set_timed_species_flag = {
-										flag = assimilation_species_of_empire@prevprev
-										days = 30
-									}
-								}
-							}
-						}
-						else_if = {
-							limit = {
-								has_trait = trait_hive_mind
-							}
-							modify_species = {
-								species = this
-								add_trait = trait_cybernetic
-								add_traits_at_start_of_list = yes
-								remove_trait = trait_hive_mind
-								change_scoped_species = no
-
-								effect = {
-									set_timed_species_flag = {
-										flag = assimilation_species_of_species@prev
-										days = 30
-									}
-									set_timed_species_flag = {
-										flag = assimilation_species_of_empire@prevprev
-										days = 30
-									}
-								}
-							}
-						}
-						else_if = {
-							limit = {
-								has_trait = trait_self_modified
-							}
-							modify_species = {
-								species = this
-								add_trait = trait_cybernetic
-								add_traits_at_start_of_list = yes
-								remove_trait = trait_self_modified
-								change_scoped_species = no
-
-								effect = {
-									set_timed_species_flag = {
-										flag = assimilation_species_of_species@prev
-										days = 30
-									}
-									set_timed_species_flag = {
-										flag = assimilation_species_of_empire@prevprev
-										days = 30
-									}
-								}
-							}
-						}
-						else = {
-							modify_species = {
-								species = this
-								add_trait = trait_cybernetic
-								add_traits_at_start_of_list = yes
-								change_scoped_species = no
-
-								effect = {
-									set_timed_species_flag = {
-										flag = assimilation_species_of_species@prev
-										days = 30
-									}
-									set_timed_species_flag = {
-										flag = assimilation_species_of_empire@prevprev
-										days = 30
-									}
-								}
-							}
-						}
-					}
-				}
-				else_if = { # hive mind
-					limit = {
-						prev = {
-							is_hive_empire = yes
-							NOT = { has_civic = civic_hive_devouring_swarm }
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_self_modified
-						}
-						modify_species = {
-							species = this
-							add_trait = trait_hive_mind
-							remove_trait = trait_self_modified
-							change_scoped_species = no
-
-							effect = {
-								set_timed_species_flag = {
-									flag = assimilation_species_of_species@prev
-									days = 30
-								}
-								set_timed_species_flag = {
-									flag = assimilation_species_of_empire@prevprev
-									days = 30
-								}
-							}
-						}
-					}
-					else = {
-						modify_species = {
-							species = this
-							add_trait = trait_hive_mind
-							change_scoped_species = no
-
-							effect = {
-								set_timed_species_flag = {
-									flag = assimilation_species_of_species@prev
-									days = 30
-								}
-								set_timed_species_flag = {
-									flag = assimilation_species_of_empire@prevprev
-									days = 30
-								}
-							}
-						}
-					}
-				}
-				else_if = {
-					limit = {
-						prev = {
-							NOR = {
-								has_ethic = ethic_gestalt_consciousness
-								has_country_flag = synthetic_empire
-								has_country_flag = cyborg_empire
-							}
-						}
-						has_trait = trait_hive_mind
 					}
 					modify_species = {
 						species = this
+						add_trait = trait_cybernetic
+						add_traits_at_start_of_list = yes
 						remove_trait = trait_hive_mind
+						remove_trait = trait_self_modified
+						remove_trait = trait_latent_psionic
+						remove_trait = trait_psionic
 						change_scoped_species = no
-
 						effect = {
 							set_timed_species_flag = {
 								flag = assimilation_species_of_species@prev
@@ -229,61 +78,128 @@ event = {
 						}
 					}
 				}
-				else_if = { #### Psionic Assimilation ADD OTHER RANDOM OPTIONS TOO
-					limit = { prev = { has_active_tradition = tr_psionics_psionic_assimilation } }
-					if = {
-						limit = {
-							NOR = {
-								has_trait = trait_psionic
-								has_trait = trait_latent_psionic
-							}
+				else_if = { # hive assimilation
+					limit = {
+						prev = {
+							is_hive_empire = yes
+							NOT = { has_civic = civic_hive_devouring_swarm }
+							has_tradition = tr_genetics_creation
 						}
-						modify_species = {
-							species = this
-							add_trait = trait_psionic
-							add_traits_at_start_of_list = yes
-							change_scoped_species = no
-
-							effect = {
-								set_timed_species_flag = {
-									flag = assimilation_species_of_species@prev
-									days = 30
-								}
-								set_timed_species_flag = {
-									flag = assimilation_species_of_empire@prevprev
-									days = 30
-								}
+					}
+					modify_species = {
+						species = this
+						add_trait = trait_hive_mind
+						add_traits_at_start_of_list = yes
+						remove_trait = trait_self_modified
+						remove_trait = trait_latent_psionic
+						remove_trait = trait_psionic
+						change_scoped_species = no
+						effect = {
+							set_timed_species_flag = {
+								flag = assimilation_species_of_species@prev
+								days = 30
+							}
+							set_timed_species_flag = {
+								flag = assimilation_species_of_empire@prevprev
+								days = 30
 							}
 						}
 					}
-					else_if = {
-						limit = {
-							NOT = { has_trait = trait_psionic}
-							has_trait = trait_latent_psionic
+				}
+				else_if = { # hive cybernetic assimilation
+					limit = {
+						prev = {
+							is_hive_empire = yes
+							NOT = { has_civic = civic_hive_devouring_swarm }
+							has_tradition = tr_cybernetics_transubstantiation_synthesis
 						}
-						modify_species = {
-							species = this
-							remove_trait = trait_latent_psionic
-							add_trait = trait_psionic
-							add_traits_at_start_of_list = yes
-							change_scoped_species = no
-
-							effect = {
-								set_timed_species_flag = {
-									flag = assimilation_species_of_species@prev
-									days = 30
-								}
-								set_timed_species_flag = {
-									flag = assimilation_species_of_empire@prevprev
-									days = 30
-								}
+					}
+					modify_species = {
+						species = this
+						add_trait = trait_cybernetic
+						add_trait = trait_hive_mind
+						add_traits_at_start_of_list = yes
+						remove_trait = trait_self_modified
+						remove_trait = trait_latent_psionic
+						remove_trait = trait_psionic
+						change_scoped_species = no
+						effect = {
+							set_timed_species_flag = {
+								flag = assimilation_species_of_species@prev
+								days = 30
+							}
+							set_timed_species_flag = {
+								flag = assimilation_species_of_empire@prevprev
+								days = 30
+							}
+						}
+					}
+				}
+				else_if = { # hive deassimilation
+					limit = {
+						prev = {
+							is_gestalt = no
+							has_tradition = tr_genetics_creation
+						}
+						has_trait = trait_hive_mind
+					}
+					modify_species = {
+						species = this
+						remove_trait = trait_hive_mind
+						change_scoped_species = no
+						effect = {
+							set_timed_species_flag = {
+								flag = assimilation_species_of_species@prev
+								days = 30
+							}
+							set_timed_species_flag = {
+								flag = assimilation_species_of_empire@prevprev
+								days = 30
+							}
+						}
+					}
+				}
+				else_if = { # psionic assimilation
+					limit = { prev = { has_active_tradition = tr_psionics_psionic_assimilation } }
+					modify_species = {
+						species = this
+						add_trait = trait_psionic
+						add_traits_at_start_of_list = yes
+						remove_trait = trait_latent_psionic
+						remove_trait = trait_cybernetic
+						remove_trait = trait_cyborg_power_drills
+						remove_trait = trait_cyborg_harvesters
+						remove_trait = trait_cyborg_superconductive
+						remove_trait = trait_cyborg_efficient_processors
+						remove_trait = trait_cyborg_logic_engines
+						remove_trait = trait_cyborg_loyalty_circuits
+						remove_trait = trait_cyborg_double_jointed
+						remove_trait = trait_cyborg_bulky
+						remove_trait = trait_cyborg_enhanced_memory
+						remove_trait = trait_cyborg_durable
+						remove_trait = trait_cyborg_high_maintenance
+						remove_trait = trait_cyborg_learning_algorithms
+						remove_trait = trait_cyborg_power_intensive
+						remove_trait = trait_cyborg_neural_limiters
+						remove_trait = trait_cyborg_streamlined_protocols
+						remove_trait = trait_cyborg_high_bandwidth
+						remove_trait = trait_cyborg_trading_algorithms
+						change_scoped_species = no
+						effect = {
+							set_timed_species_flag = {
+								flag = assimilation_species_of_species@prev
+								days = 30
+							}
+							set_timed_species_flag = {
+								flag = assimilation_species_of_empire@prevprev
+								days = 30
 							}
 						}
 					}
 				}
 			}
             every_owned_planet = {
-				log = "action.64.eop: [This.GetName]"
+				log = "action.64.every_owned_planet: [This.GetName]"
                 planet_event = { id = action.65 }
             }
         }
