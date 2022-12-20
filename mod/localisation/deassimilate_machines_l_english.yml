@@ -5,6 +5,8 @@
  living_standard_deassimilation_machine: "Machine Dissociation"
  living_standard_deassimilation_machine_tooltip: "This species is being unlinked from a central §Y$auth_machine_intelligence$§!."
  living_standard_deassimilation_machine_tooltip_delayed: "$living_standard_deassimilation_tooltip_delayed$"
+ MACHINE_SPECIES_ORGANIC: "$TRIGGER_FAIL$Organics suffer an inherent incompatibility with our hardware."
+ MACHINE_SPECIES_ORGANIC_TERMINATOR: "$TRIGGER_FAIL$$TRIGGER_FAIL$§YDetermined Exterminators§! cannot tolerate the existence of fleshlings."
  deassimilate_machines.1.title: "Synthetic Individuation"
  deassimilate_machines.1.desc: "With the development of true artificial intelligence via §Y$tech_sapient_ai$§! and the discovery of §Y$trait_machine_unit$§! populations in other empires, our scientists and engineers have made further breakthroughs in robotics. Should we acquire any §Y$trait_machine_unit$§! Pops, it will be possible to dissociate them from their §Y$auth_machine_intelligence$§! and convert them into individual, productive §Y$ROBOT_POP_SPECIES_1_plural$§!.\n\nTo do this, we must of course adopt the §Y$robots_allowed_name$ $POLICY$§!. Due to the complexity of the Machine Units, we must also adopt §Y$ai_servitude_name$§! or §Y$ai_full_rights_name$§! - they simply cannot function without some level of artificial intelligence."
  # localisation to make the game happy with the dummy civic - matches the content from  Civic: Organic Zealots so that it won't matter which mod loads first
