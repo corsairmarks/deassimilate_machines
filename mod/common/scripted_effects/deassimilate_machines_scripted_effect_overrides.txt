@@ -1,4 +1,4 @@
-# THIS = planet
+# this = planet
 assimilation_effect = {
 	optimize_memory
 	random_owned_pop = {
@@ -8,16 +8,21 @@ assimilation_effect = {
 				country = owner
 			}
 		}
-		if = { # ascended synths
+		if = { # synthetic assimilation
 			limit = {
-				owner = { has_country_flag = synthetic_empire }
-				has_living_standard = {
-					type = living_standard_tech_assimilation
-					country = PREV
+				OR = {
+					owner = { has_country_flag = synth_assimilation }
+					AND = {
+						is_robot_pop = yes
+						owner = {
+							is_machine_empire = yes
+							has_active_tradition = tr_synthetics_adopt_machine
+						}
+					}
 				}
 			}
 			kill_pop = yes
-			PREV = {
+			prev = {
 				create_pop = {
 					species = owner
 					ethos = owner
@@ -30,18 +35,18 @@ assimilation_effect = {
 				}
 			}
 		}
-		else = { # everything else - including synths assimilating machines (which have living_standard_deassimilation)
+		else = { # everything else
 			species = { save_event_target_as = assimilating_species }
 			random_galaxy_species = {
 				limit = {
-					has_species_flag = assimilation_species_of_species@PREV.species
-					has_species_flag = assimilation_species_of_empire@PREV.owner
+					has_species_flag = assimilation_species_of_species@prev.species
+					has_species_flag = assimilation_species_of_empire@prev.owner
 				}
 				save_event_target_as = assimilated_species
 			}
 			if = {
 				limit = { exists = event_target:assimilated_species } # should always exist
-				PREV = {
+				prev = {
 					while = { # to avoid doing the random_galaxy_species thing too many times
 						limit = {
 							exists = event_target:assimilating_species
