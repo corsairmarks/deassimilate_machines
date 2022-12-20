@@ -36,7 +36,7 @@ population_control_yes = {
 			}
 			custom_tooltip = {
 				fail_text = empire_xenophile
-				from = { is_xenophile = yes }
+				from = { is_xenophile = no }
 			}
 		}
 	}
