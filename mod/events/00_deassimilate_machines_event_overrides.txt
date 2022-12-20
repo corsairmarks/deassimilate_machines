@@ -451,7 +451,6 @@ country_event = {
 			}
 			change_species = event_target:new_robotic_species
 		}
-
 		every_controlled_ship = {
 			limit = {
 				is_ship_class = shipclass_colonizer
@@ -462,11 +461,10 @@ country_event = {
 			}
 			change_species = event_target:new_robotic_species
 		}
-
 		every_owned_army = {
 			limit = {
-				exists = species
 				exists = planet
+				exists = species
 				species = {
 					is_robotic = no
 					is_livestock = no
@@ -479,11 +477,10 @@ country_event = {
 				species = event_target:new_robotic_species
 			}
 		}
-
 		every_owned_army = {
 			limit = {
-				exists = species
 				exists = planet
+				exists = species
 				species = {
 					is_robotic = no
 					is_livestock = no
@@ -496,40 +493,56 @@ country_event = {
 				species = event_target:new_robotic_species
 			}
 		}
-
 		every_owned_leader = {
 			limit = {
-				OR = {
-					species = {
-						is_robotic = no
-						is_livestock = no
-					}
-					has_trait = leader_trait_admiral_synthetic
-					has_trait = leader_trait_ruler_synthetic
-					has_trait = leader_trait_general_synthetic
-					has_trait = leader_trait_governor_synthetic
-					has_trait = leader_trait_scientist_synthetic
+				species = {
+					is_robotic = no
+					is_livestock = no
 				}
 			}
+			save_event_target_as = previous_leader_species
 			change_species = event_target:new_robotic_species
 			change_leader_portrait = species
+			fire_on_action = {
+				on_action = on_leader_species_changed
+				scopes = {
+					from = event_target:previous_leader_species
+				}
+			}
 		}
 		every_pool_leader = {
 			limit = {
-				OR = {
-					species = {
-						is_robotic = no
-						is_livestock = no
-					}
-					has_trait = leader_trait_admiral_synthetic
-					has_trait = leader_trait_ruler_synthetic
-					has_trait = leader_trait_general_synthetic
-					has_trait = leader_trait_governor_synthetic
-					has_trait = leader_trait_scientist_synthetic
+				species = {
+					is_robotic = no
+					is_livestock = no
 				}
 			}
+			save_event_target_as = previous_leader_species
 			change_species = event_target:new_robotic_species
 			change_leader_portrait = species
+			fire_on_action = {
+				on_action = on_leader_species_changed
+				scopes = {
+					from = event_target:previous_leader_species
+				}
+			}
+		}
+		every_envoy = {
+			limit = {
+				species = {
+					is_robotic = no
+					is_livestock = no
+				}
+			}
+			save_event_target_as = previous_leader_species
+			change_species = event_target:new_robotic_species
+			change_leader_portrait = species
+			fire_on_action = {
+				on_action = on_leader_species_changed
+				scopes = {
+					from = event_target:previous_leader_species
+				}
+			}
 		}
 		change_dominant_species = { species = event_target:new_robotic_species }
 
@@ -603,16 +616,6 @@ country_event = {
 				}
 			}
 		}
-		every_envoy = {
-			limit = {
-				species = {
-					is_robotic = no
-					is_livestock = no
-				}
-			}
-			change_species = event_target:new_robotic_species
-			change_leader_portrait = species
-		}
 
 		observer_event = { id = observer.4 }
 		every_country = {
@@ -627,22 +630,14 @@ country_event = {
 		if = {
 			limit = {
 				any_country = {
-					OR = {
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
-					}
-					has_ethic = ethic_fanatic_spiritualist
+					is_fallen_empire_spiritualist = yes
 					has_communications = root
 					NOT = { is_same_value = root }
 				}
 			}
 			random_country = {
 				limit = {
-					OR = {
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
-					}
-					has_ethic = ethic_fanatic_spiritualist
+					is_fallen_empire_spiritualist = yes
 					has_communications = root
 					NOT = { is_same_value = root }
 				}
