@@ -37,6 +37,6 @@ living_standard_deassimilation_machine = {
 		}
 	}
 	ai_will_do = {
-		factor = 100
+		factor = 50
 	}
 }
