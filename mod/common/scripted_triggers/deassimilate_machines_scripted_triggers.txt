@@ -125,6 +125,16 @@ is_eligible_for_assimilation_unhive_species = {
 # prev = country (assimilator)
 is_eligible_for_assimilation_psionic_species = {
 	optimize_memory
+	OR = {
+		has_living_standard = {
+			type = living_standard_psi_assimilation
+			country = prev
+		}
+		has_living_standard = {
+			type = living_standard_psi_assimilation_cyborg
+			country = prev
+		}
+	}
 }
 
 # this = species
