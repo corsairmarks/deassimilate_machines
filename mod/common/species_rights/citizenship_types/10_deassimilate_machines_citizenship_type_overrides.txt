@@ -125,105 +125,137 @@ citizenship_assimilation = {
 		}
 		if = {
 			limit = { from = { is_machine_empire = yes } }
-			if = {
-				limit = { from = { has_valid_civic = civic_machine_assimilator } }
-				custom_tooltip = {
-					fail_text = CYBORG_SPECIES_MUST_BE_ORGANIC
+			OR = {
+				AND = {
+					from = { has_valid_civic = civic_machine_assimilator }
 					OR = {
-						NOT = { has_trait = trait_cybernetic }
-						AND = {
-							from = { has_active_tradition = tr_cybernetics_assimilator_inevitable_assimilation }
-							NAND = {
+						custom_tooltip = {
+							fail_text = CYBORG_SPECIES_MUST_BE_NON_CYBORG_AND_NON_HIVE
+							NOR = {
 								has_trait = trait_cybernetic
 								has_trait = trait_hive_mind
 							}
 						}
+						AND = {
+							from = { has_active_tradition = tr_cybernetics_assimilator_inevitable_assimilation }
+							custom_tooltip = {
+								fail_text = CYBORG_SPECIES_MUST_BE_NON_CYBORG_OR_NON_HIVE
+								NAND = {
+									has_trait = trait_cybernetic
+									has_trait = trait_hive_mind
+								}
+							}
+						}
+					}
+					custom_tooltip = {
+						fail_text = ASSIM_SPECIES_MUST_BE_NON_MACHINE
+						is_robotic_species = no
 					}
 				}
-			}
-			if = {
-				limit = { is_robotic_species = yes }
-				custom_tooltip = {
-					fail_text = requires_tradition_tr_synthetics_adopt
+				AND = {
 					from = { has_active_tradition = tr_synthetics_adopt_machine }
+					custom_tooltip = {
+						fail_text = SYNTH_SPECIES_MUST_BE_MACHINE
+						is_robotic_species = yes
+					}
 				}
 			}
 		}
 		else_if = {
 			limit = { from = { is_hive_empire = yes } }
-			if = {
-				limit = { from = { has_active_tradition = tr_genetics_creation } }
-				custom_tooltip = {
-					fail_text = HIVE_SPECIES_MUST_BE_NON_HIVE
-					NOT = { has_trait = trait_hive_mind }
+			OR = {
+				AND = {
+					from = { has_active_tradition = tr_genetics_creation }
+					custom_tooltip = {
+						fail_text = HIVE_SPECIES_CANT_BE_HIVE
+						NOT = { has_trait = trait_hive_mind }
+					}
 				}
-			}
-			if = {
-				limit = { from = { has_active_tradition = tr_cybernetics_transubstantiation_synthesis } }
-				custom_tooltip = {
-					fail_text = CYBORG_SPECIES_MUST_BE_NON_CYBORG_OR_NON_HIVE
-					NAND = {
-						has_trait = trait_hive_mind
-						has_trait = trait_cybernetic
+				AND = {
+					from = { has_active_tradition = tr_cybernetics_transubstantiation_synthesis }
+					custom_tooltip = {
+						fail_text = CYBORG_SPECIES_MUST_BE_NON_CYBORG_OR_NON_HIVE
+						NAND = {
+							has_trait = trait_hive_mind
+							has_trait = trait_cybernetic
+						}
 					}
 				}
 			}
 			custom_tooltip = {
-				fail_text = MACHINE_SPECIES_MACHINE
+				fail_text = ASSIM_SPECIES_MUST_BE_NON_MACHINE
 				is_robotic_species = no
 			}
 		}
 		else_if = {
 			limit = { from = { is_gestalt = no } }
-			# machine deassimilation
-			if = {
-				limit = {
-					has_trait = trait_machine_unit
+			OR = {
+				# machine deassimilation
+				AND = {
 					from = { has_technology = tech_sapient_ai }
-				}
-				custom_tooltip = {
-					fail_text = ROBOTS_ARE_OUTLAWED
-					from = { has_policy_flag = robots_allowed }
-				}
-				custom_tooltip = {
-					fail_text = AI_IS_OUTLAWED_POP
-					from = { NOT = { has_policy_flag = ai_outlawed } }
-				}
-			}
-			# cybernetic assimilation
-			else_if = {
-				limit = { from = { has_active_tradition = tr_cybernetics_transubstantiation_synthesis } }
-				custom_tooltip = {
-					fail_text = CYBORG_SPECIES_MUST_BE_ORGANIC
-					OR = {
-						has_trait = trait_hive_mind
-						is_robotic_species = no
-						NOT = { has_trait = trait_cybernetic }
+					custom_tooltip = {
+						text = UNMACHINE_SPECIES_MUST_BE_MACHINE
+						has_trait = trait_machine_unit
+					}
+					custom_tooltip = {
+						text = ROBOTS_ARE_ALLOWED
+						from = { has_policy_flag = robots_allowed }
+					}
+					custom_tooltip = {
+						text = AI_IS_ALLOWED
+						from = { NOT = { has_policy_flag = ai_outlawed } }
 					}
 				}
-			}
-			# psionic assimilation
-			else_if = {
-				limit = { from = { has_active_tradition = tr_psionics_psionic_assimilation } }
-				custom_tooltip = {
-					fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
-					is_robotic_species = no
+				# synthetic assimilation (regular)
+				AND = {
+					from = {
+						has_active_tradition = tr_synthetics_adopt
+						custom_tooltip = {
+							text = REQUIRES_SYNTH_PROJECT_COMPLETE
+							has_country_flag = synth_assimilation
+						}
+					}
+					custom_tooltip = {
+						text = SYNTH_SPECIES_MUST_BE_NON_HIVE
+						NOT = { has_trait = trait_hive_mind }
+					}
 				}
-				custom_tooltip = {
-					fail_text = TRANSCENDING_SPECIES_IS_ALREADY_PSIONIC
-					NOT = { has_trait = trait_psionic }
+				# cybernetic assimilation (regular)
+				AND = {
+					from = { has_active_tradition = tr_cybernetics_transubstantiation_synthesis }
+					custom_tooltip = {
+						fail_text = CYBORG_SPECIES_MUST_BE_FULL_ORGANIC
+						is_robotic_species = no
+						OR = {
+							has_trait = trait_hive_mind
+							NOT = { has_trait = trait_cybernetic }
+							is_robotic_species = no
+						}
+					}
 				}
-				custom_tooltip = {
-					fail_text = TRANSCENDING_SPECIES_CANT_BE_HIVE
-					NOT = { has_trait = trait_hive_mind }
+				# psionic assimilation
+				AND = {
+					from = { has_active_tradition = tr_psionics_psionic_assimilation }
+					custom_tooltip = {
+						fail_text = PSI_SPECIES_MUST_BE_ORGANIC
+						is_robotic_species = no
+					}
+					custom_tooltip = {
+						fail_text = PSI_SPECIES_IS_ALREADY_PSIONIC
+						NOT = { has_trait = trait_psionic }
+					}
+					custom_tooltip = {
+						fail_text = PSI_SPECIES_CANT_BE_HIVE
+						NOT = { has_trait = trait_hive_mind }
+					}
 				}
-			}
-			# hive deassimilation
-			else_if = {
-				limit = { from = { has_active_tradition = tr_genetics_creation } }
-				custom_tooltip = {
-					fail_text = CAN_ONLY_ASSIMILATE_HIVES
-					has_trait = trait_hive_mind
+				# hive deassimilation
+				AND = {
+					from = { has_active_tradition = tr_genetics_creation }
+					custom_tooltip = {
+						fail_text = UNHIVE_SPECIES_MUST_BE_HIVE
+						has_trait = trait_hive_mind
+					}
 				}
 			}
 		}
