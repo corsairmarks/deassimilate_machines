@@ -1,7 +1,9 @@
-# Modified: allows assimilating machine units, tech assimilation is restricted (with Civic: Organic Zealots),
-# fanatic purifiers can assimilate, psionics can assimilate cyborgs
+# Modified:
+# * homicidals are not blanket-denied from assimilating (potential)
+# * non-gestalt empires with tech_sapient_ai are allowed to (de)assimilate machine units
+# * cybernetic/synthetic assimilation can be restricted (with Civic: Organic Zealots)
 citizenship_assimilation = {
-	token = citizenship_assimilation
+	is_assimilation = yes
 	potential = {
 		OR = {
 			has_synthethic_dawn = yes
@@ -10,26 +12,43 @@ citizenship_assimilation = {
 		exists = from
 		from = {
 			OR = {
-				has_valid_civic = civic_machine_assimilator # machine assimilator
-				AND = { # non-devouring hive mind
-					is_hive_empire = yes
-					NOT = { has_valid_civic = civic_hive_devouring_swarm }
-					root = { is_robotic_species = no }
-				}
+				# driven assimilator cybernetic assimilation
 				AND = {
-					is_gestalt = no
-					OR = {
-						has_ascension_perk = ap_evolutionary_mastery # genetically ascended empire
-						is_synthetic_empire = yes # synthetically ascended empire
+					has_valid_civic = civic_machine_assimilator
+					prev = {
+						NOT = { has_trait = trait_cybernetic }
+						is_robotic_species = no
 					}
 				}
+				# machine synthetic assimilation (includes determined exterminators)
 				AND = {
-					is_regular_empire = yes
-					has_technology = tech_sapient_ai
-					root = { has_trait = trait_machine_unit }
+					is_machine_empire = yes
+					prev = { is_robotic_species = yes }
 				}
-				has_country_flag = flesh_weakened # cyborg empire
-				has_ascension_perk = ap_transcendence # psionic assimilation
+				AND = {
+					is_hive_empire = yes
+					NOT = { has_valid_civic = civic_hive_devouring_swarm }
+					OR = {
+						has_tradition = tr_genetics_creation # hive assimilation
+						has_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation
+					}
+				}
+				# non-gestalts
+				AND = {
+					is_gestalt = no
+					NOT = { has_valid_civic = civic_fanatic_purifiers }
+					OR = {
+						# machine deassimilation
+						AND = {
+							has_technology = tech_sapient_ai
+							prev = { has_trait = trait_machine_unit }
+						}
+						has_country_flag = synth_assimilation # synthetic assimilation
+						has_active_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation
+						has_active_tradition = tr_psionics_psionic_assimilation # psionic assimilation
+						has_active_tradition = tr_genetics_creation # hive deassimilation
+					}
+				}
 			}
 		}
 	}
@@ -39,141 +58,179 @@ citizenship_assimilation = {
 			fail_text = MUST_NOT_BE_DOMINANT_SPECIES
 			NOT = { is_exact_same_species = from }
 		}
-		custom_tooltip = {
-			fail_text = lonely_hive_mind_pops_kill_themselves_citizenship_assimilation
-			if = {
-				limit = { is_lonely_hive_mind_pop = yes }
-				from = { has_ascension_perk = ap_evolutionary_mastery }
+		if = {
+			limit = { is_lonely_hive_mind_pop = yes }
+			custom_tooltip = {
+				fail_text = lonely_hive_mind_pops_kill_themselves_citizenship_assimilation
+				from = {
+					OR = {
+						has_tradition = tr_genetics_creation
+						has_tradition = tr_cybernetics_transubstantiation_synthesis
+						has_tradition = tr_cybernetics_assimilator_inevitable_assimilation
+					}
+				}
 			}
 		}
 		if = {
-			limit = { is_disconnected_machine_pop = yes }
+			limit = { from = { is_gestalt = yes } }
+			custom_tooltip = {
+				fail_text = disconnected_machine_pops_collapse_citizenship
+				is_disconnected_machine_pop = no
+			}
+		}
+		else = {
 			custom_tooltip = {
 				fail_text = disconnected_machine_pops_collapse_without_ai_citizenship
-				from = { has_technology = tech_sapient_ai }
+				from = {
+					OR = {
+						prev = { is_disconnected_machine_pop = no }
+						has_country_flag = synth_assimilation
+						has_technology = tech_sapient_ai
+					}
+				}
 			}
-			custom_tooltip = {
-				fail_text = ROBOTS_ARE_OUTLAWED
-				from = { has_policy_flag = robots_allowed }
-			}
-			custom_tooltip = {
-				fail_text = AI_IS_OUTLAWED_POP
-				from = { NOT = { has_policy_flag = ai_outlawed } }
+			if = {
+				limit = {
+					has_trait = trait_machine_unit
+					from = { has_technology = tech_sapient_ai }
+				}
+				custom_tooltip = {
+					fail_text = ROBOTS_ARE_OUTLAWED
+					from = { has_policy_flag = robots_allowed }
+				}
+				custom_tooltip = {
+					fail_text = AI_IS_OUTLAWED_POP
+					from = { NOT = { has_policy_flag = ai_outlawed } }
+				}
 			}
 		}
 		if = {
-			limit = { from = { has_valid_civic = civic_machine_assimilator } }
-			custom_tooltip = { # machine assimilator
-				fail_text = MACHINE_SPECIES_MUST_BE_ORGANIC
-				NOR = {
-					has_trait = trait_mechanical
-					has_trait = trait_machine_unit
-					has_trait = trait_cybernetic
+			limit = {
+				has_global_flag = civic_organic_zealots_installed
+				from = {
+					is_machine_empire = no
+					OR = {
+						# machine deassimilation
+						AND = {
+							is_gestalt = no
+							has_technology = tech_sapient_ai
+							prev = { has_trait = trait_machine_unit }
+						}
+						has_country_flag = synth_assimilation # synthetic assimilation (regular)
+						# cybernetic assimilation (regular/hive)
+						AND = {
+							has_active_tradition = tr_cybernetics_transubstantiation_synthesis
+							prev = {
+								is_robotic_species = no
+								NOT = { has_trait = trait_cybernetic }
+							}
+						}
+					}
+				}
+			}
+			# TODO: needs more refining if I want to enable multiple assimilation types!
+			custom_tooltip = {
+				fail_text = lost_robot_policy_war_fail
+				from = { NOT = { has_country_flag = lost_robot_policy_war } }
+			}
+			custom_tooltip = {
+				fail_text = is_organic_zealots_fail
+				from = { NOT = { has_valid_civic = civic_organic_zealots } }
+			}
+			custom_tooltip = {
+				fail_text = is_overlord_organic_zealots_fail
+				from = {
+					NAND = {
+						exists = overlord
+						overlord = { has_valid_civic = civic_organic_zealots }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { from = { is_machine_empire = yes } }
+			if = {
+				limit = { from = { has_valid_civic = civic_machine_assimilator } }
+				custom_tooltip = {
+					fail_text = CYBORG_SPECIES_MUST_BE_ORGANIC
+					NOT = { has_trait = trait_cybernetic }
+				}
+				OR = {
+					NOT = { has_trait = trait_hive_mind }
+					from = { has_active_tradition = tr_cybernetics_assimilator_inevitable_assimilation }
+				}
+			}
+			if = {
+				limit = { is_robotic_species = yes }
+				custom_tooltip = {
+					fail_text = requires_tradition_tr_synthetics_adopt
+					from = { has_active_tradition = tr_synthetics_adopt_machine }
 				}
 			}
 		}
 		else_if = {
 			limit = { from = { is_hive_empire = yes } }
-			custom_tooltip = { # non-devouring hive mind
-				fail_text = HIVE_SPECIES_MUST_BE_NON_HIVE
-				from = { has_ascension_perk = ap_evolutionary_mastery }
-				NOR = {
-					has_trait = trait_hive_mind
-					has_trait = trait_mechanical
-					has_trait = trait_machine_unit
+			if = {
+				limit = { from = { has_active_tradition = tr_genetics_creation } }
+				custom_tooltip = {
+					fail_text = HIVE_SPECIES_MUST_BE_NON_HIVE
+					NOT = { has_trait = trait_hive_mind }
 				}
+			}
+			if = {
+				limit = { from = { has_active_tradition = tr_cybernetics_transubstantiation_synthesis } }
+				custom_tooltip = {
+					fail_text = HIVE_SPECIES_MUST_BE_NON_HIVE_CYBORG
+					NAND = {
+						has_trait = trait_hive_mind
+						has_trait = trait_cybernetic
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = MACHINE_SPECIES_MACHINE
+				is_robotic_species = no
 			}
 		}
 		else_if = {
 			limit = {
-				from = {
-					is_gestalt = no
-					is_synthetic_empire = yes
-				}
+				is_disconnected_machine_pop = no # excluded so I don't have to write lots of exceptions
+				from = { is_gestalt = no }
 			}
-			custom_tooltip = { # synthetically ascended empire
-				fail_text = SYNTH_SPECIES_MUST_BE_ORGANIC
-				NOT = { has_trait = trait_mechanical }
-			}
+			# cybernetic assimilation
 			if = {
-				limit = { has_global_flag = civic_organic_zealots_installed }
+				limit = { from = { has_active_tradition = tr_cybernetics_transubstantiation_synthesis } }
 				custom_tooltip = {
-					fail_text = lost_robot_policy_war_fail
-					from = { NOT = { has_country_flag = lost_robot_policy_war } }
-				}
-				custom_tooltip = {
-					fail_text = is_overlord_organic_zealots_fail
-					from = {
-						NAND = {
-							exists = overlord
-							overlord = { has_valid_civic = civic_organic_zealots }
-						}
+					fail_text = CYBORG_SPECIES_MUST_BE_ORGANIC
+					OR = {
+						has_trait = trait_hive_mind
+						is_robotic_species = no
+						NOT = { has_trait = trait_cybernetic }
 					}
 				}
 			}
-		}
-		else_if = {
-			limit = { from = { has_country_flag = flesh_weakened } }
-			custom_tooltip = { # cyborg empire
-				fail_text = CYBORG_SPECIES_MUST_BE_ORGANIC
-				NOR = {
-					has_trait = trait_mechanical
-					has_trait = trait_cybernetic
-				}
-				OR = {
-					NOT = { has_trait = trait_machine_unit }
-					from = { has_technology = tech_sapient_ai }
-				}
-			}
-			if = {
-				limit = { has_global_flag = civic_organic_zealots_installed }
+			# psionic assimilation
+			else_if = {
+				limit = { from = { has_active_tradition = tr_psionics_psionic_assimilation } }
 				custom_tooltip = {
-					fail_text = lost_robot_policy_war_fail
-					from = { NOT = { has_country_flag = lost_robot_policy_war } }
-				}
-				custom_tooltip = {
-					fail_text = is_overlord_organic_zealots_fail
-					from = {
-						NAND = {
-							exists = overlord
-							overlord = { has_valid_civic = civic_organic_zealots }
-						}
-					}
-				}
-			}
-		}
-		else_if = {
-			limit = { from = { has_ascension_perk = ap_transcendence } }
-			custom_tooltip = { # species must be organic to transcend
-				fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
-				OR = {
+					fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
 					is_robotic_species = no
-					AND = {
-						has_trait = trait_machine_unit
-						from = { has_technology = tech_sapient_ai }
-					}
 				}
-				# NOT = { has_trait = trait_cybernetic } # cyborgs have enough organic parts left - just my judgment call
+				custom_tooltip = {
+					fail_text = TRANSCENDING_SPECIES_IS_ALREADY_PSIONIC
+					NOT = { has_trait = trait_psionic }
+				}
+				custom_tooltip = {
+					fail_text = TRANSCENDING_SPECIES_CANT_BE_HIVE
+					NOT = { has_trait = trait_hive_mind }
+				}
 			}
-			custom_tooltip = { # species already has psionic trait
-				fail_text = TRANSCENDING_SPECIES_IS_ALREADY_PSIONIC
-				NOT = { has_trait = trait_psionic }
-			}
-			custom_tooltip = { # transcending species cannot be gestalt consciousness
-				fail_text = TRANSCENDING_SPECIES_CANT_BE_HIVE
-				NOT = { has_trait = trait_hive_mind }
-			}
-		}
-		else_if = {
-			limit = { from = { has_ascension_perk = ap_evolutionary_mastery } }
-			custom_tooltip = {
-				fail_text = CAN_ONLY_ASSIMILATE_HIVES
-				OR = {
+			# hive deassimilation
+			else_if = {
+				limit = { from = { has_active_tradition = tr_genetics_creation } }
+				custom_tooltip = {
+					fail_text = CAN_ONLY_ASSIMILATE_HIVES
 					has_trait = trait_hive_mind
-					AND = {
-						has_trait = trait_machine_unit
-						from = { has_technology = tech_sapient_ai }
-					}
 				}
 			}
 		}
@@ -182,10 +239,18 @@ citizenship_assimilation = {
 		factor = 100
 		modifier = {
 			factor = 0
+			# modified so terminator AIs can assimilate other machines/robots
 			from = {
 				OR = {
+					AND = {
+						has_valid_civic = civic_machine_terminator
+						NAND = {
+							has_active_tradition = tr_synthetics_adopt_machine
+							prev = { is_robotic_species = yes }
+						}
+					}
 					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
+					has_valid_civic = civic_fanatic_purifiers
 				}
 			}
 		}
