@@ -13,10 +13,10 @@ has_ai_and_knows_machines = {
 	}
 }
 
-# check whether the species qualifies for synthetic assimilation
+# check whether the species is undergoing synthetic assimilation
 # this = species (current)
 # prev = country (assimilator)
-is_eligible_for_assimilation_synthetic_species = {
+is_undergoing_assimilation_synthetic_species = {
 	optimize_memory
 	has_living_standard = {
 		type = living_standard_tech_assimilation
@@ -24,10 +24,10 @@ is_eligible_for_assimilation_synthetic_species = {
 	}
 }
 
-# check whether the species qualifies for machine deassimilation
+# check whether the species is undergoing machine deassimilation
 # this = species (current)
 # prev = country (assimilator)
-is_eligible_for_assimilation_unmachine_species = {
+is_undergoing_assimilation_unmachine_species = {
 	optimize_memory
 	has_living_standard = {
 		type = living_standard_deassimilation_machine
@@ -35,10 +35,10 @@ is_eligible_for_assimilation_unmachine_species = {
 	}
 }
 
-# set up a species for cybernetic assimilation (non-hive)
+# check whether the species is undergoing cybernetic assimilation (non-hive)
 # this = species (current)
 # prev = country (assimilator)
-is_eligible_for_assimilation_cybernetic_species = {
+is_undergoing_assimilation_cybernetic_species = {
 	optimize_memory
 	OR = {
 		AND = {
@@ -70,10 +70,10 @@ is_eligible_for_assimilation_cybernetic_species = {
 	}
 }
 
-# set up a species for hive assimilation
+# check whether the species is undergoing hive assimilation
 # this = species (current)
 # prev = country (assimilator)
-is_eligible_for_assimilation_hive_species = {
+is_undergoing_assimilation_hive_species = {
 	optimize_memory
 	OR = {
 		has_living_standard = {
@@ -87,10 +87,10 @@ is_eligible_for_assimilation_hive_species = {
 	}
 }
 
-# set up a species for cybernetic assimilation (hive)
+# check whether the species is undergoing cybernetic assimilation (hive)
 # this = species (current)
 # prev = country (assimilator)
-is_eligible_for_assimilation_hive_cybernetic_species = {
+is_undergoing_assimilation_hive_cybernetic_species = {
 	optimize_memory
 	prev = { is_hive_empire = yes }
 	OR = {
@@ -105,10 +105,10 @@ is_eligible_for_assimilation_hive_cybernetic_species = {
 	}
 }
 
-# set up a species for hive deassimilation
+# check whether the species is undergoing hive deassimilation
 # this = species (current)
 # prev = country (assimilator)
-is_eligible_for_assimilation_unhive_species = {
+is_undergoing_assimilation_unhive_species = {
 	optimize_memory
 	has_living_standard = {
 		type = living_standard_deassimilation
@@ -120,10 +120,10 @@ is_eligible_for_assimilation_unhive_species = {
 	}
 }
 
-# set up a species for psionic assimilation
+# check whether the species is undergoing psionic assimilation
 # this = species (current)
 # prev = country (assimilator)
-is_eligible_for_assimilation_psionic_species = {
+is_undergoing_assimilation_psionic_species = {
 	optimize_memory
 	OR = {
 		has_living_standard = {
