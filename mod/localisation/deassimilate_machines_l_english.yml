@@ -11,6 +11,9 @@
  # localisation to make the game happy with the dummy civic - matches the content from  Civic: Organic Zealots so that it won't matter which mod loads first
  civic_organic_zealots: "Organic Zealots"
  civic_organic_zealots_desc: "TODO: desc"
+ is_organic_zealots: "Is §Y$civic_organic_zealots$§!"
+ is_organic_zealots_fail: "$TRIGGER_FAIL$$is_organic_zealots$"
+ is_organic_zealots_pass: "$TRIGGER_PASS$$is_organic_zealots$"
  is_overlord_organic_zealots: "Overlord is §Y$civic_organic_zealots$§!"
  is_overlord_organic_zealots_fail: "$TRIGGER_FAIL$$is_overlord_organic_zealots$"
  is_overlord_organic_zealots_pass: "$TRIGGER_PASS$$is_overlord_organic_zealots$"
