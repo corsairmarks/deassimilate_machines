@@ -106,10 +106,6 @@ citizenship_assimilation = {
 			}
 			# TODO: needs more refining if I want to enable multiple assimilation types!
 			custom_tooltip = {
-				fail_text = lost_robot_policy_war_fail
-				from = { NOT = { has_country_flag = lost_robot_policy_war } }
-			}
-			custom_tooltip = {
 				fail_text = is_organic_zealots_fail
 				from = { NOT = { has_valid_civic = civic_organic_zealots } }
 			}
@@ -121,6 +117,10 @@ citizenship_assimilation = {
 						overlord = { has_valid_civic = civic_organic_zealots }
 					}
 				}
+			}
+			custom_tooltip = {
+				fail_text = lost_robot_policy_war_fail
+				from = { NOT = { has_country_flag = lost_robot_policy_war } }
 			}
 		}
 		if = {
