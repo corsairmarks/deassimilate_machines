@@ -294,6 +294,7 @@ set_post_assimilation_minimum_living_standard_pop = {
 # prev = species (current)
 # prevprev = country (assimilator)
 set_assimilation_flags = {
+	optimize_memory
 	set_timed_species_flag = {
 		flag = assimilation_species_of_species@prev
 		days = 30
@@ -356,6 +357,7 @@ prepare_machine_species_to_mechanical_species = {
 # this = species (current)
 # prev = country (assimilator)
 prepare_cybernetic_species = {
+	optimize_memory
 	modify_species = {
 		species = this
 		add_trait = trait_cybernetic
@@ -375,6 +377,7 @@ prepare_cybernetic_species = {
 # this = species (current)
 # prev = country (assimilator)
 prepare_hive_species = {
+	optimize_memory
 	modify_species = {
 		species = this
 		add_trait = trait_hive_mind
@@ -393,6 +396,7 @@ prepare_hive_species = {
 # this = species (current)
 # prev = country (assimilator)
 prepare_hive_cybernetic_species = {
+	optimize_memory
 	modify_species = {
 		species = this
 		add_trait = trait_cybernetic
@@ -412,6 +416,7 @@ prepare_hive_cybernetic_species = {
 # this = species (current)
 # prev = country (assimilator)
 prepare_unhive_species = {
+	optimize_memory
 	modify_species = {
 		species = this
 		remove_trait = trait_hive_mind
@@ -426,6 +431,7 @@ prepare_unhive_species = {
 # this = species (current)
 # prev = country (assimilator)
 prepare_psionic_species = {
+	optimize_memory
 	modify_species = {
 		species = this
 		add_trait = trait_psionic
