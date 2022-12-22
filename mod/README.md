@@ -1,45 +1,39 @@
 # Overview
 
-Ever been disappointed at all the wasted robots when you conquer or integrate a Machine Intelligence?  This mod is for you!  Now you can de-assimilate the Machine Units into Robots once you have discovered the Positronic AI technology.
+Ever been disappointed at all the wasted Pops when you conquer or integrate a Machine Intelligence?  This mod is for you!  Now you can de-assimilate the Machine Units into Robots once you have discovered the Positronic AI technology.
 
-Now also featuring an enhancement for machine empires - robot Pops not also gain bonus trait points from the relevant machine-trait-point-boosting technologies and ascension perk.  Thus robot Pops will be just as useful as machine Pops to machine empires.
-
-This mod removes the restriction on psionically assimilating cyborg pops.  They have enough organic bits left to become psionic - especially since the cybernetic species trait can be added to psionic species by default, cybernetic is compatible with brain slugs, and cybernetic is compatible with erudite.
+This mod also features an enhancement for machine empires - robot Pops also gain bonus trait picks and points from the machine-boosting relevant technologies and traditions.  Thus robot Pops will be just as useful as machine Pops to machine empires.
 
 # Changes
 
-Enables "Gestalt Dissociation" assimilation living standard for Machine Unit Pops.  Hive Pops continue to be eligible for deassimilation with Evolutionary Mastery, but the living standard has been renamed to be more generic.  Updates the built-in assimilation mechanisms to understand this "new" (renamed and repurposed) assimilation type.
+Adds the "Machine Dissociation" assimilation living standard for Machine Unit Pops. Coupled with an override of the "Assimilation" citizenship and related events, this enables you to convert machines into robots as a regular, non-gestalt empire (as long as you have Positronic AI).
 
-A new event window will display when you have Positronic AI and communications with a Machine Intelligence to tell you that machine deassimilation is available.
+An event window will display when you have Positronic AI and communications with a Machine Intelligence to tell you that machine deassimilation is available.
 
-Overrides the robomodding series of technologies for machine empires (Machine Template System (machine), Binary Motivators, and Nanite Assemblers) and the Synthetic Age ascension perk to all grant both machine and robot trait points.
-
-And last, but not least, cybernetic Pops can be psionically assimilated via Transcendence.
+Overrides the robomodding series of technologies for machine empires (Machine Template System, Binary Motivators, and Nanite Assemblers), the Synthetic Age tradition, and the Solid State Actuators tradition to grant both machine and robot trait picks/points.
 
 ## Compatibility
 
-Built for Stellaris version 3.4 "Cepheus."  Not compatible with achievements.
+Built for Stellaris version 3.6 "Orion."  Not compatible with achievements.
 
 This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
 
-* Ascension Perk `ap_synthetic_age` - Synthetic Age in order to grant trait points to both machines and robots
-* Effect `assimilation_effect` - main assimilation logic (called by `action.65`), altered so that deassimilated machines are not converted into the synthetic species for fully synthetic empires, also code de-duped
 * Event `action.64` - assimilation setup event, altered to allow machine deassimilation
 * Event `action.65` - main assimilation event, altered to use less duplicate code and pass two variables to its effect calls - the current number of assimilated Pops and the total number allowed for the year
 * Event `utopia.2551` - Synthetic Evolution, altered to not change synthetic leaders of other species into the empire's main species (cyborgs are still fair game, however)
-* Citizenship `citizenship_assimilation` - assimilation citizenship, altered to allow machines to have this citizenship type (instead of only purge)
-* Living Standard `living_standard_deassimilation` - deassimilation living standard, altered to be selectable for machines in regular empires that have researched Positronic AI, added alternate description for machine deassimilation versus hive deassimilation
-* Living Standard `living_standard_tech_assimilation` - synth/cybernetic assimilation, altered to explicitly disallow this living standard for machines/robots
-* Living Standard `living_standard_psi_assimilation` - psionic assimilation, altered to explicitly disallow this living standard for machines/robots
-* Species Control `population_control_yes` - deassimilating machines must have population controls
-* Species Control `population_control_no` - deassimilating machines are not allowed to reproduce
-* Species Control `colonization_control_yes` - deassimilating machines mush have colonization controls
-* Species Control `colonization_control_no` - deassimilating machines are not allowed to colonize
-* Technology `tech_robomodding_m` - Machine Template System (machine) in order to grant trait points to both machines and robots
-* Technology `tech_binary_motivators` - Binary Motivators in order to grant trait points to both machines and robots
-* Technology `tech_nanite_assemblers` - Nanite Assemblers in order to grant trait points to both machines and robots
+* Effect `assimilation_effect` - main assimilation logic (called by `action.65`), altered so that deassimilated machines are not converted into the synthetic species for fully synthetic empires, also code de-duped
+* Citizenship `citizenship_assimilation` - Assimilation, altered to allow machines to be deassimilated by non-gestalt empires
+* Species Population Control `population_control_yes` - deassimilating machines must have population controls
+* Species Population Control `population_control_no` - deassimilating machines are not allowed to reproduce
+* Species Colonization Control `colonization_control_yes` - deassimilating machines must have colonization controls
+* Species Colonization Control `colonization_control_no` - deassimilating machines are not allowed to colonize
+* Technology `tech_robomodding_m` - Machine Template System in order to grant machine empires trait points to both machines and robots
+* Technology `tech_binary_motivators` - Binary Motivators in order to grant machine empires trait points to both machines and robots
+* Technology `tech_nanite_assemblers` - Nanite Assemblers in order to grant machine empires trait points to both machines and robots
+* Tradition `tr_synthetics_synthetic_age` - Synthetic Age in order to grant machine empires trait picks for both machines and robots
+* Tradition `tr_synthetics_solid_state_actuators` - Solid State Actuators in order to grant machine empires trait points for both machines and robots
 
-What this means to you is that this mod is not compatible with most other assimilation-altering mods and citizenship mods.  That is because its highly likely they are editing the same events and species rights.
+What this means to you is that this mod is not compatible with most other assimilation-altering mods.  That is because its highly likely they are editing the same events and species rights.
 
 This mod is explicitly compatible with my mod [Special Leadership Privileges for Battle Thralls and Bio-Trophies](https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447) despite both mods affecting full military service.
 
@@ -56,26 +50,21 @@ This mod can be safely added to your savegame after the game has started. It is 
 
 ## Known Issues
 
-This mod overwrites a number of core Stellaris game objects.  Expect to see seventeen errors in your error.log similar to these for many types of game object.  All are necessary to implement the functionality of this mod.
+This mod overwrites a number of core Stellaris game objects.  Expect to see twelve errors in your error.log similar to these for many types of game object.  All are necessary to implement the functionality of this mod.
 
 ```
-[15:38:58][technology.cpp:1176]: Duplicate technology: tech_robomodding_m
-[15:38:58][technology.cpp:1176]: Duplicate technology: tech_binary_motivators
-[15:38:58][technology.cpp:1176]: Duplicate technology: tech_nanite_assemblers
-[15:38:58][game_singleobjectdatabase.h:147]: Object with key: assimilation_effect already exists, using the one at  file: common/scripted_effects/deassimilate_machines_overrides_scripted_effects.txt line: 2
-[15:38:58][game_singleobjectdatabase.h:147]: Object with key: citizenship_assimilation already exists, using the one at  file: common/species_rights/01_deassimilate_machines_citizenship_types_overrides.txt line: 2
-[15:38:58][game_singleobjectdatabase.h:147]: Object with key: living_standard_deassimilation already exists, using the one at  file: common/species_rights/02_deassimilate_machines_living_standards_overrides.txt line: 1
-[15:38:58][game_singleobjectdatabase.h:147]: Object with key: living_standard_tech_assimilation already exists, using the one at  file: common/species_rights/02_deassimilate_machines_living_standards_overrides.txt line: 36
-[15:38:58][game_singleobjectdatabase.h:147]: Object with key: living_standard_psi_assimilation already exists, using the one at  file: common/species_rights/02_deassimilate_machines_living_standards_overrides.txt line: 68
-[15:38:58][game_singleobjectdatabase.h:147]: Object with key: military_service_full already exists, using the one at  file: common/species_rights/03_deassimilate_machines_military_service_overrides.txt line: 7
-[15:38:58][game_singleobjectdatabase.h:147]: Object with key: population_control_yes already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 5
-[15:38:58][game_singleobjectdatabase.h:147]: Object with key: population_control_no already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 69
-[15:38:58][game_singleobjectdatabase.h:147]: Object with key: colonization_control_yes already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 114
-[15:38:58][game_singleobjectdatabase.h:147]: Object with key: colonization_control_no already exists, using the one at  file: common/species_rights/06_deassimilate_machines_species_controls_overrides.txt line: 176
-[15:38:59][eventmanager.cpp:361]: an event with id [action.64] already exists!  file: events/on_action_events_1.txt line: 8008
-[15:38:59][eventmanager.cpp:361]: an event with id [action.65] already exists!  file: events/on_action_events_1.txt line: 8313
-[15:39:00][eventmanager.cpp:361]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 769
-[15:39:00][game_singleobjectdatabase.h:147]: Object with key: ap_synthetic_age already exists, using the one at  file: common/ascension_perks/10_deassimilate_machines_ascension_perk_overrides.txt line: 2
+[12:30:26][technology.cpp:1154]: Duplicate technology: tech_robomodding_m
+[12:30:26][technology.cpp:1154]: Duplicate technology: tech_binary_motivators
+[12:30:26][technology.cpp:1154]: Duplicate technology: tech_nanite_assemblers
+[12:30:26][game_singleobjectdatabase.h:165]: Object with key: assimilation_effect already exists, using the one at  file: common/scripted_effects/deassimilate_machines_scripted_effect_overrides.txt line: 2
+[12:30:27][game_singleobjectdatabase.h:165]: Object with key: citizenship_assimilation already exists, using the one at  file: common/species_rights/citizenship_types/10_deassimilate_machines_citizenship_type_overrides.txt line: 5
+[12:30:27][trigger.cpp:603]: Invalid Scope type for trigger has_valid_civic in common/species_rights/citizenship_types/10_deassimilate_machines_citizenship_type_overrides.txt line : 127. Got species
+[12:30:27][game_singleobjectdatabase.h:165]: Object with key: military_service_full already exists, using the one at  file: common/species_rights/military_service_types/10_deassimilate_machines_military_service_overrides.txt line: 11
+[12:30:28][eventmanager.cpp:368]: an event with id [action.64] already exists!  file: events/on_action_events_1.txt line: 7950
+[12:30:28][eventmanager.cpp:368]: an event with id [action.65] already exists!  file: events/on_action_events_1.txt line: 8187
+[12:30:28][eventmanager.cpp:368]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 825
+[12:30:30][game_singleobjectdatabase.h:165]: Object with key: tr_synthetics_synthetic_age already exists, using the one at  file: common/traditions/11_deassimilate_machines_synthetics_traditions_overrides.txt line: 2
+[12:30:30][game_singleobjectdatabase.h:165]: Object with key: tr_synthetics_solid_state_actuators already exists, using the one at  file: common/traditions/11_deassimilate_machines_synthetics_traditions_overrides.txt line: 70
 ```
 
 ## Changelog
@@ -95,7 +84,14 @@ This mod overwrites a number of core Stellaris game objects.  Expect to see seve
     * Use memory optimization feature for effects and triggers
     * Update code to account for hired (mercenary) fleets
 * 4.1.0 Code refinement for more precise checks
-* 4.2.0 Support "Civic: Organic Zealots"
+* 5.0.0 Update for Stellaris version 3.6 "Orion" (and changes from version 3.5 "Fornax")
+    * Integrate underlying game changes
+    * Paradox has refined Psionics and Cybernetics to be mutually exclusive - you can assimilate between types, but Psionic removes Cybernetic and vice versa
+    * Remove override of Synthetic Age ascension perk - it no longer affects MACHINE/ROBOT trait points
+    * Add overrides of two Synthetics traditions in order to provide MACHINE and ROBOT bonuses for machine Empires
+    * Refactor `species_rights` overrides to follow new file paths
+    * Creating a brand-new living standard for Machine Dissociation instead of using a workaround with the existing living standard Hive Dissociation
+    * No longer requires Utopia (but still requires Synthetic Dawn)
 
 ## Source Code
 
@@ -104,3 +100,14 @@ Hosted on [GitHub](https://github.com/corsairmarks/deassimilate_machines)
 ### Development Notes
 
 It is best to clone this repository into `<Stellaris User's Directory>/Paradox Interactive/Stellaris/mod`, and then make a connection to the `mod` folder via a `*.mod` file's `path` property.  That will ensure the game can see the files, and also that CWTools will parse them.  Also note that the README.md file exists in the `mod` directory but is symbolically linked in the root directory.
+
+# TODO
+
+Submod:
+
+Requires MD as dependency
+Override triggers/effects from parent mod as needed (might only be a few effects!)
+Override all assimilation living standard to be unlocked and as loosely limited as possible
+Override all assimilation ascension perks to allow choosing multiple
+Verify that traditions do not need further overwrites
+Add links on All Leader Traits, Psionic Whole Galaxy, Machine Deassim, maybe Keep Leaders
