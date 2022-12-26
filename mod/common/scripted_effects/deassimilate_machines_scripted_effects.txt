@@ -305,19 +305,19 @@ set_assimilation_flags = {
 	}
 }
 
-# set up a machine species for deassimilation into a mechanical species
-# this = species (current)
+# set up a machine species for deassimilation into a mechanical species, saved as event_target:mechanical_species
+# this = something with a species (country, leader, pop, etc)
 # prev = country (assimilator)
-prepare_machine_species_to_mechanical_species = {
+dm_prepare_machine_to_mechanical_species = {
 	optimize_memory
-	save_event_target_as = machine_species
+	species = { save_event_target_as = machine_species }
 	random_galaxy_species = {
 		limit = { has_species_flag = mechanical_species_of_machine_species@event_target:machine_species }
-		event_target:assimilating_country = { set_country_flag = found_assim_mech_species@event_target:machine_species }
+		prev = { set_country_flag = found_assim_mech_species@event_target:machine_species }
 		save_event_target_as = mechanical_species
 	}
 	if = {
-		limit = { event_target:assimilating_country = { NOT = { has_country_flag = found_assim_mech_species@event_target:machine_species } } }
+		limit = { prev = { NOT = { has_country_flag = found_assim_mech_species@event_target:machine_species } } }
 		event_target:machine_species = {
 			create_species = {
 				name = this
@@ -340,6 +340,7 @@ prepare_machine_species_to_mechanical_species = {
 			add_traits_at_start_of_list = yes
 			remove_trait = trait_machine_unit
 			add_trait = trait_mechanical
+			change_scoped_species = no
 			effect = {
 				set_species_flag = mechanical_species_of_machine_species@event_target:machine_species
 				save_event_target_as = mechanical_species
@@ -348,38 +349,54 @@ prepare_machine_species_to_mechanical_species = {
 	}
 	else = {
 		# setup for next loop iteration
-		event_target:assimilating_country = { remove_country_flag = found_assim_mech_species@event_target:machine_species }
+		prev = { remove_country_flag = found_assim_mech_species@event_target:machine_species }
 	}
 	event_target:mechanical_species = { set_assimilation_flags = yes }
 }
 
 # set up a species for cybernetic assimilation (non-hive)
-# this = species (current)
+# this = something with a species (country, leader, pop, etc)
 # prev = country (assimilator)
-prepare_cybernetic_species = {
+dm_prepare_cybernetic_species = {
 	optimize_memory
-	modify_species = {
-		species = this
-		add_trait = trait_cybernetic
-		add_traits_at_start_of_list = yes
-		remove_trait = trait_self_modified
-		remove_trait = trait_hive_mind
-		remove_trait = trait_latent_psionic
-		remove_trait = trait_psionic
-		change_scoped_species = no
-		effect = {
-			set_assimilation_flags = yes
+	if = {
+		limit = { NOT = { has_global_flag = assimilate_all_the_things_installed } }
+		modify_species = {
+			species = species
+			add_trait = trait_cybernetic
+			add_traits_at_start_of_list = yes
+			remove_trait = trait_self_modified
+			remove_trait = trait_hive_mind
+			remove_trait = trait_latent_psionic
+			remove_trait = trait_psionic
+			change_scoped_species = no
+			effect = {
+				set_assimilation_flags = yes
+			}
+		}
+	}
+	else = {
+		modify_species = {
+			species = species
+			add_trait = trait_cybernetic
+			add_traits_at_start_of_list = yes
+			remove_trait = trait_self_modified
+			remove_trait = trait_hive_mind
+			change_scoped_species = no
+			effect = {
+				set_assimilation_flags = yes
+			}
 		}
 	}
 }
 
 # set up a species for hive assimilation
-# this = species (current)
+# this = something with a species (country, leader, pop, etc)
 # prev = country (assimilator)
-prepare_hive_species = {
+dm_prepare_hive_species = {
 	optimize_memory
 	modify_species = {
-		species = this
+		species = species
 		add_trait = trait_hive_mind
 		add_traits_at_start_of_list = yes
 		remove_trait = trait_self_modified
@@ -393,12 +410,12 @@ prepare_hive_species = {
 }
 
 # set up a species for cybernetic assimilation (hive)
-# this = species (current)
+# this = something with a species (country, leader, pop, etc)
 # prev = country (assimilator)
-prepare_hive_cybernetic_species = {
+dm_prepare_hive_cybernetic_species = {
 	optimize_memory
 	modify_species = {
-		species = this
+		species = species
 		add_trait = trait_cybernetic
 		add_trait = trait_hive_mind
 		add_traits_at_start_of_list = yes
@@ -413,12 +430,12 @@ prepare_hive_cybernetic_species = {
 }
 
 # set up a species for hive deassimilation
-# this = species (current)
+# this = something with a species (country, leader, pop, etc)
 # prev = country (assimilator)
-prepare_unhive_species = {
+dm_prepare_unhive_species = {
 	optimize_memory
 	modify_species = {
-		species = this
+		species = species
 		remove_trait = trait_self_modified
 		remove_trait = trait_hive_mind
 		change_scoped_species = no
@@ -429,37 +446,53 @@ prepare_unhive_species = {
 }
 
 # set up a species for psionic assimilation
-# this = species (current)
+# this = something with a species (country, leader, pop, etc)
 # prev = country (assimilator)
-prepare_psionic_species = {
+dm_prepare_psionic_species = {
 	optimize_memory
-	modify_species = {
-		species = this
-		add_trait = trait_psionic
-		add_traits_at_start_of_list = yes
-		remove_trait = trait_self_modified
-		remove_trait = trait_latent_psionic
-		remove_trait = trait_cybernetic
-		remove_trait = trait_cyborg_power_drills
-		remove_trait = trait_cyborg_harvesters
-		remove_trait = trait_cyborg_superconductive
-		remove_trait = trait_cyborg_efficient_processors
-		remove_trait = trait_cyborg_logic_engines
-		remove_trait = trait_cyborg_loyalty_circuits
-		remove_trait = trait_cyborg_double_jointed
-		remove_trait = trait_cyborg_bulky
-		remove_trait = trait_cyborg_enhanced_memory
-		remove_trait = trait_cyborg_durable
-		remove_trait = trait_cyborg_high_maintenance
-		remove_trait = trait_cyborg_learning_algorithms
-		remove_trait = trait_cyborg_power_intensive
-		remove_trait = trait_cyborg_neural_limiters
-		remove_trait = trait_cyborg_streamlined_protocols
-		remove_trait = trait_cyborg_high_bandwidth
-		remove_trait = trait_cyborg_trading_algorithms
-		change_scoped_species = no
-		effect = {
-			set_assimilation_flags = yes
+	if = {
+		limit = { NOT = { has_global_flag = assimilate_all_the_things_installed } }
+		modify_species = {
+			species = species
+			add_trait = trait_psionic
+			add_traits_at_start_of_list = yes
+			remove_trait = trait_self_modified
+			remove_trait = trait_latent_psionic
+			remove_trait = trait_cybernetic
+			remove_trait = trait_cyborg_power_drills
+			remove_trait = trait_cyborg_harvesters
+			remove_trait = trait_cyborg_superconductive
+			remove_trait = trait_cyborg_efficient_processors
+			remove_trait = trait_cyborg_logic_engines
+			remove_trait = trait_cyborg_loyalty_circuits
+			remove_trait = trait_cyborg_double_jointed
+			remove_trait = trait_cyborg_bulky
+			remove_trait = trait_cyborg_enhanced_memory
+			remove_trait = trait_cyborg_durable
+			remove_trait = trait_cyborg_high_maintenance
+			remove_trait = trait_cyborg_learning_algorithms
+			remove_trait = trait_cyborg_power_intensive
+			remove_trait = trait_cyborg_neural_limiters
+			remove_trait = trait_cyborg_streamlined_protocols
+			remove_trait = trait_cyborg_high_bandwidth
+			remove_trait = trait_cyborg_trading_algorithms
+			change_scoped_species = no
+			effect = {
+				set_assimilation_flags = yes
+			}
+		}
+	}
+	else = {
+		modify_species = {
+			species = species
+			add_trait = trait_psionic
+			add_traits_at_start_of_list = yes
+			remove_trait = trait_self_modified
+			remove_trait = trait_latent_psionic
+			change_scoped_species = no
+			effect = {
+				set_assimilation_flags = yes
+			}
 		}
 	}
 }
@@ -473,6 +506,7 @@ swap_species_traits_machine_to_robot = {
 			species = event_target:mechanical_species
 			add_trait = trait_robot_domestic_protocols
 			remove_trait = trait_robot_emotion_emulators
+			change_scoped_species = no
 			effect = {
 				save_event_target_as = mechanical_species
 			}
@@ -483,6 +517,7 @@ swap_species_traits_machine_to_robot = {
 		modify_species = {
 			species = event_target:mechanical_species
 			remove_trait = trait_robot_uncanny
+			change_scoped_species = no
 			effect = {
 				save_event_target_as = mechanical_species
 			}

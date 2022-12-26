@@ -43,27 +43,27 @@ event = {
 				# synthetic assimilation deliberately does nothing here, see assimilation_effect
 				if = { # machine deassimilation
 					limit = { is_undergoing_assimilation_unmachine_species = yes }
-					prepare_machine_species_to_mechanical_species = yes
+					dm_prepare_machine_to_mechanical_species = yes
 				}
 				else_if = { # regular and machine cybernetic assimilation
 					limit = { is_undergoing_assimilation_cybernetic_species = yes }
-					prepare_cybernetic_species = yes
+					dm_prepare_cybernetic_species = yes
 				}
 				else_if = { # hive assimilation
 					limit = { is_undergoing_assimilation_hive_species = yes }
-					prepare_hive_species = yes
+					dm_prepare_hive_species = yes
 				}
 				else_if = { # hive cybernetic assimilation
 					limit = { is_undergoing_assimilation_hive_cybernetic_species = yes }
-					prepare_hive_cybernetic_species = yes
+					dm_prepare_hive_cybernetic_species = yes
 				}
 				else_if = { # hive deassimilation
 					limit = { is_undergoing_assimilation_unhive_species = yes }
-					prepare_unhive_species = yes
+					dm_prepare_unhive_species = yes
 				}
 				else_if = { # psionic assimilation
 					limit = { is_undergoing_assimilation_psionic_species = yes }
-					prepare_psionic_species = yes
+					dm_prepare_psionic_species = yes
 				}
 			}
             every_owned_planet = {
