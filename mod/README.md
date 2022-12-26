@@ -100,14 +100,3 @@ Hosted on [GitHub](https://github.com/corsairmarks/deassimilate_machines)
 ### Development Notes
 
 It is best to clone this repository into `<Stellaris User's Directory>/Paradox Interactive/Stellaris/mod`, and then make a connection to the `mod` folder via a `*.mod` file's `path` property.  That will ensure the game can see the files, and also that CWTools will parse them.  Also note that the README.md file exists in the `mod` directory but is symbolically linked in the root directory.
-
-# TODO
-
-Submod:
-
-Requires MD as dependency
-Override triggers/effects from parent mod as needed (might only be a few effects!)
-Override all assimilation living standard to be unlocked and as loosely limited as possible
-Override all assimilation ascension perks to allow choosing multiple
-Verify that traditions do not need further overwrites
-Add links on All Leader Traits, Psionic Whole Galaxy, Machine Deassim, maybe Keep Leaders
