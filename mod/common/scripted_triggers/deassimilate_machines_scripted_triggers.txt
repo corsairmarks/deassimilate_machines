@@ -138,6 +138,35 @@ is_undergoing_assimilation_psionic_species = {
 }
 
 # this = species
+has_any_ascension_species_traits = {
+	optimize_memory
+	OR = {
+		has_trait = trait_latent_psionic
+		has_trait = trait_psionic
+		has_trait = trait_cybernetic
+		has_trait = trait_adaptive_lithoid
+		has_trait = trait_rapid_breeders_lithoid
+		has_trait = trait_delicious
+		has_trait = trait_nerve_stapled
+		has_trait = trait_fertile
+		has_trait = trait_robust
+		has_trait = trait_erudite
+		has_trait = trait_advanced_scintillating
+		has_trait = trait_advanced_gaseous_byproducts
+		has_trait = trait_advanced_volatile_excretions
+		has_trait = trait_advanced_phototrophic
+		has_trait = trait_advanced_radiotrophic
+		has_trait = trait_advanced_budding
+		has_trait = trait_vat_grown
+		has_trait = trait_felsic
+		has_trait = trait_natural_machinist
+		has_trait = trait_drake_scaled
+		has_trait = trait_voidling
+		has_trait = trait_tiyanki
+	}
+}
+
+# this = species
 dm_is_species_smart_enough_for_leadership = {
 	optimize_memory
 	is_sapient = yes

@@ -1,7 +1,9 @@
 namespace = action
 namespace = utopia
 
-# Assimilate Pops on Yearly Pulse
+# Modified:
+# * use triggers to test whether a species is undergoing a particular form of assimilation
+# * use effects to set up the corresponding assimilated species
 event = {
 	id = action.64
 	hide_window = yes
@@ -75,7 +77,9 @@ event = {
     }
 }
 
-# Assimilate Pops
+# Modified:
+# * use variables as a max
+# * reduce code duplication
 planet_event = {
 	id = action.65
 	hide_window = yes
@@ -142,20 +146,18 @@ planet_event = {
 	}
 }
 
-# overridden to not convert already-existing synthetics into the changed species
-# The Synthetic Age
+# Modified:
+# * do no convert already-existing synthetics into the changed species
+# * do not set the dominant species if it already has ascension-related traits
 country_event = {
 	id = utopia.2551
-	title = "utopia.2551.name"
-	desc = "utopia.2551.desc"
+	title = utopia.2551.name
+	desc = utopia.2551.desc
 	picture = GFX_evt_robot_assembly_plant
 	show_sound = event_synthetic_evolution
-
 	is_triggered_only = yes
-
 	immediate = {
 		set_country_flag = synthetic_empire
-
 		if = {
 			limit = { has_policy_flag = robots_outlawed }
 			set_policy = {
@@ -180,8 +182,8 @@ country_event = {
 		if = {
 			limit = {
 				OR = {
-					is_active_resolution = "resolution_divinity_silence_the_soulless"
-					is_active_resolution = "resolution_divinity_a_defined_purpose"
+					is_active_resolution = resolution_divinity_silence_the_soulless
+					is_active_resolution = resolution_divinity_a_defined_purpose
 				}
 			}
 			owner = {
@@ -189,20 +191,22 @@ country_event = {
 			}
 		}
 
-		give_technology = { tech = tech_bio_reactor message = no }
+		give_technology = {
+			tech = tech_bio_reactor
+			message = no
+		}
 
 		create_species = {
 			is_mod = yes
 			name = this
 			namelist = this
 			plural = this
-			class = "ROBOT"
+			class = ROBOT
 			homeworld = root.species
-			portrait = "default_robot"
+			portrait = default_robot
 			traits = {
-				trait = "trait_mechanical"
+				trait = trait_mechanical
 			}
-
 			effect = {
 				if = { limit = { has_synthethic_dawn = yes }
 					prev = {
@@ -223,12 +227,10 @@ country_event = {
 						}
 					}
 				}
-
 				rename_species = {
-					prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+					prompt_country = root # If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
 					name_list = ascension_list
 				}
-
 				save_event_target_as = new_robotic_species
 			}
 		}
@@ -236,6 +238,7 @@ country_event = {
 			limit = {
 				is_being_purged = no
 				species = {
+					has_any_ascension_species_traits = no
 					is_robotic = no
 					is_livestock = no
 				}
@@ -246,6 +249,7 @@ country_event = {
 			limit = {
 				is_ship_class = shipclass_colonizer
 				species = {
+					has_any_ascension_species_traits = no
 					is_robotic = no
 					is_livestock = no
 				}
@@ -254,9 +258,9 @@ country_event = {
 		}
 		every_owned_army = {
 			limit = {
-				exists = planet
 				exists = species
 				species = {
+					has_any_ascension_species_traits = no
 					is_robotic = no
 					is_livestock = no
 				}
@@ -264,15 +268,15 @@ country_event = {
 			}
 			modify_army = {
 				name = random
-				type = "robotic_army"
+				type = robotic_army
 				species = event_target:new_robotic_species
 			}
 		}
 		every_owned_army = {
 			limit = {
-				exists = planet
 				exists = species
 				species = {
+					has_any_ascension_species_traits = no
 					is_robotic = no
 					is_livestock = no
 				}
@@ -280,20 +284,20 @@ country_event = {
 			}
 			modify_army = {
 				name = random
-				type = "robotic_defense_army"
+				type = robotic_defense_army
 				species = event_target:new_robotic_species
 			}
 		}
 		every_owned_leader = {
 			limit = {
 				species = {
+					has_any_ascension_species_traits = no
 					is_robotic = no
 					is_livestock = no
 				}
 			}
 			save_event_target_as = previous_leader_species
 			change_species = event_target:new_robotic_species
-			change_leader_portrait = species
 			fire_on_action = {
 				on_action = on_leader_species_changed
 				scopes = {
@@ -304,13 +308,13 @@ country_event = {
 		every_pool_leader = {
 			limit = {
 				species = {
+					has_any_ascension_species_traits = no
 					is_robotic = no
 					is_livestock = no
 				}
 			}
 			save_event_target_as = previous_leader_species
 			change_species = event_target:new_robotic_species
-			change_leader_portrait = species
 			fire_on_action = {
 				on_action = on_leader_species_changed
 				scopes = {
@@ -321,13 +325,13 @@ country_event = {
 		every_envoy = {
 			limit = {
 				species = {
+					has_any_ascension_species_traits = no
 					is_robotic = no
 					is_livestock = no
 				}
 			}
 			save_event_target_as = previous_leader_species
 			change_species = event_target:new_robotic_species
-			change_leader_portrait = species
 			fire_on_action = {
 				on_action = on_leader_species_changed
 				scopes = {
@@ -335,8 +339,10 @@ country_event = {
 				}
 			}
 		}
-		change_dominant_species = { species = event_target:new_robotic_species }
-
+		if = {
+			limit = { owner_species = { has_any_ascension_species_traits = no } }
+			change_dominant_species = { species = event_target:new_robotic_species }
+		}
 		every_owned_leader = {
 			limit = {
 				species = { has_trait = trait_mechanical }
@@ -408,15 +414,23 @@ country_event = {
 			}
 		}
 
-		observer_event = { id = observer.4 }
+		observer_event = {
+			id = observer.4
+		}
 		every_country = {
 			limit = {
 				is_ai = no
 				NOT = { is_same_value = root }
 				has_communications = root
 			}
-			country_event = { id = utopia.2555 days = 5 }
-			country_event = { id = utopia.2556 days = 10 }
+			country_event = {
+				id = utopia.2555
+				days = 5
+			}
+			country_event = {
+				id = utopia.2556
+				days = 10
+			}
 		}
 		if = {
 			limit = {
@@ -432,7 +446,10 @@ country_event = {
 					has_communications = root
 					NOT = { is_same_value = root }
 				}
-				country_event = { id = utopia.2557 days = 15 }
+				country_event = {
+					id = utopia.2557
+					days = 15
+				}
 			}
 		}
 		else = {
@@ -443,7 +460,10 @@ country_event = {
 					has_communications = root
 					NOT = { is_same_value = root }
 				}
-				country_event = { id = utopia.2557 days = 15 }
+				country_event = {
+					id = utopia.2557
+					days = 15
+				}
 			}
 		}
 
@@ -455,13 +475,13 @@ country_event = {
 		trigger = {
 			is_homicidal = no
 		}
-		name = "utopia.2551.a"
+		name = utopia.2551.a
 		custom_tooltip = SYNTH_ASSIMILATION_CITIZENSHIP_ENABLED
 	}
 	option = {
 		trigger = {
 			is_homicidal = yes
 		}
-		name = "utopia.2551.a"
+		name = utopia.2551.a
 	}
 }
