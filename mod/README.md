@@ -4,6 +4,8 @@ Ever been disappointed at all the wasted Pops when you conquer or integrate a Ma
 
 This mod also features an enhancement for machine empires - robot Pops also gain bonus trait picks and points from the machine-boosting relevant technologies and traditions.  Thus robot Pops will be just as useful as machine Pops to machine empires.
 
+New with the mod update for Stellaris version 3.6 "Orion," completing the Synthetic Evolution special project creates the initial Synthetic species with robotic traits similar to your organic species. For example, Industrious is converted to Power Drills.
+
 # Changes
 
 Adds the "Machine Dissociation" assimilation living standard for Machine Unit Pops. Coupled with an override of the "Assimilation" citizenship and related events, this enables you to convert machines into robots as a regular, non-gestalt empire (as long as you have Positronic AI).
