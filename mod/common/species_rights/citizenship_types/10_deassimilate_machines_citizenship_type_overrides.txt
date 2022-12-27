@@ -98,7 +98,7 @@ citizenship_assimilation = {
 						AND = {
 							has_active_tradition = tr_cybernetics_transubstantiation_synthesis
 							prev = {
-								is_robotic_species = no
+								is_robotic = no
 								NOT = { has_trait = trait_cybernetic }
 							}
 						}
@@ -131,7 +131,7 @@ citizenship_assimilation = {
 					has_valid_civic = civic_machine_assimilator
 					custom_tooltip = {
 						fail_text = CYBORG_SPECIES_CANT_BE_MACHINE
-						prev = { is_robotic_species = no }
+						prev = { is_robotic = no }
 					}
 					# tradition checked multiple times to make tooltips easier to read
 					custom_tooltip = {
@@ -165,7 +165,7 @@ citizenship_assimilation = {
 					has_active_tradition = tr_synthetics_adopt_machine
 					custom_tooltip = {
 						fail_text = SYNTH_SPECIES_MUST_BE_MACHINE
-						prev = { is_robotic_species = yes }
+						prev = { is_robotic = yes }
 					}
 				}
 			}
@@ -246,11 +246,11 @@ citizenship_assimilation = {
 					custom_tooltip = {
 						fail_text = CYBORG_SPECIES_MUST_BE_FULL_ORGANIC
 						prev = {
-							is_robotic_species = no
+							is_robotic = no
 							OR = {
 								has_trait = trait_hive_mind
 								NOT = { has_trait = trait_cybernetic }
-								is_robotic_species = no
+								is_robotic = no
 							}
 						}
 					}
@@ -260,7 +260,7 @@ citizenship_assimilation = {
 					has_active_tradition = tr_psionics_psionic_assimilation
 					custom_tooltip = {
 						fail_text = PSI_SPECIES_MUST_BE_ORGANIC
-						prev = { is_robotic_species = no }
+						prev = { is_robotic = no }
 					}
 					custom_tooltip = {
 						fail_text = PSI_SPECIES_IS_ALREADY_PSIONIC
@@ -293,7 +293,7 @@ citizenship_assimilation = {
 						has_valid_civic = civic_machine_terminator
 						NAND = {
 							has_active_tradition = tr_synthetics_adopt_machine
-							prev = { is_robotic_species = yes }
+							prev = { is_robotic = yes }
 						}
 					}
 					has_valid_civic = civic_hive_devouring_swarm
