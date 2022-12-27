@@ -524,3 +524,232 @@ swap_species_traits_machine_to_robot = {
 		}
 	}
 }
+
+# species - the (original) species to inspect for traits to apply the robotic to event_target:new_robotic_species
+# event_target:new_robotic_species - used as the base species to be modified, will be overwritten with the new specis if one or more traits are added
+swap_species_traits_organic_to_robotic = {
+	optimize_memory
+	if = {
+		limit = { has_trait = trait_agrarian }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_harvesters
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_ingenious }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_superconductive
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_industrious }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_power_drills
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_intelligent }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_logic_engines
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_thrifty }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_trading_algorithms
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_trait = trait_rapid_breeders
+				has_trait = trait_rapid_breeders_lithoid
+				has_trait = trait_plantoid_budding
+				has_trait = trait_lithoid_budding
+				has_trait = trait_fertile
+			}
+		}
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_mass_produced
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_slow_breeders }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_custom_made
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_conservational }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_durable
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_wasteful }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_high_maintenance
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_talented }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_enhanced_memory
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_quick_learners }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_learning_algorithms
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_slow_learners }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_repurposed_hardware
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_traditional }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_propaganda_machines
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_docile }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_streamlined_protocols
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_unruly }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_high_bandwidth
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_communal }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_double_jointed
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_solitary }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_bulky
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_charismatic }
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_domestic_protocols
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_trait = trait_nonadaptive
+				has_trait = trait_repugnant
+			}
+		}
+		# no direct equivalent, but luxurious at least refunds the same amount of points
+		modify_species = {
+			species = event_target:new_robotic_species
+			add_trait = trait_robot_luxurious
+			change_scoped_species = no
+			effect = {
+				save_event_target_as = new_robotic_species
+			}
+		}
+	}
+}
