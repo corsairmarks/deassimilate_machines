@@ -339,10 +339,7 @@ country_event = {
 				}
 			}
 		}
-		if = {
-			limit = { owner_species = { has_any_ascension_species_traits = no } }
-			change_dominant_species = { species = event_target:new_robotic_species }
-		}
+		change_dominant_species = { species = event_target:new_robotic_species }
 		every_owned_leader = {
 			limit = {
 				species = { has_trait = trait_mechanical }
