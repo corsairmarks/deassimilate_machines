@@ -70,7 +70,9 @@ event = {
 			}
             every_owned_planet = {
 				log = "action.64.every_owned_planet: [This.GetName]"
-                planet_event = { id = action.65 }
+                planet_event = {
+					id = action.65
+				}
             }
         }
 		set_update_modifiers_batch = end
