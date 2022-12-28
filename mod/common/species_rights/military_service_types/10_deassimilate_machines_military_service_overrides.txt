@@ -63,10 +63,12 @@ military_service_full = {
 		}
 		custom_tooltip = {
 			fail_text = is_slaves_tooltip
-			NOT = {
-				has_citizenship_type = {
-					country = from
-					type = citizenship_slavery }
+			OR = {
+				NOT = {
+					has_citizenship_type = {
+						country = from
+						type = citizenship_slavery
+					}
 				}
 				AND = {
 					has_global_flag = battle_thrall_military_leaders_installed
@@ -75,6 +77,7 @@ military_service_full = {
 						type = slavery_military
 					}
 				}
+			}
 		}
 		custom_tooltip = {
 			fail_text = is_servitude_tooltip
