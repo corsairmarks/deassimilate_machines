@@ -333,7 +333,7 @@ dm_prepare_machine_to_mechanical_species = {
 				}
 			}
 		}
-		swap_species_traits_machine_to_robot = yes
+		swap_species_traits_machine_to_robotic = yes
 		modify_species = {
 			base = event_target:machine_species
 			species = event_target:mechanical_species
@@ -498,7 +498,7 @@ dm_prepare_psionic_species = {
 }
 
 # event_target:mechanical_species - used as the base species to be modified, will be overwritten with the new specis if one or more traits had to be swapped
-swap_species_traits_machine_to_robot = {
+swap_species_traits_machine_to_robotic = {
 	optimize_memory
 	if = {
 		limit = { has_trait = trait_robot_emotion_emulators }
