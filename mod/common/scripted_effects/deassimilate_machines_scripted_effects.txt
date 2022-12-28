@@ -497,7 +497,7 @@ dm_prepare_psionic_species = {
 	}
 }
 
-# event_target:mechanical_species - used as the base species to be modified, will be overwritten with the new specis if one or more traits had to be swapped
+# event_target:mechanical_species = used as the base species to be modified, will be overwritten with the new specis if one or more traits had to be swapped
 swap_species_traits_machine_to_robotic = {
 	optimize_memory
 	if = {
@@ -525,8 +525,8 @@ swap_species_traits_machine_to_robotic = {
 	}
 }
 
-# species - the (original) species to inspect for traits to apply the robotic to event_target:new_robotic_species
-# event_target:new_robotic_species - used as the base species to be modified, will be overwritten with the new specis if one or more traits are added
+# species = the (original) species to inspect for traits to apply the robotic to event_target:new_robotic_species
+# event_target:new_robotic_species = used as the base species to be modified, will be overwritten with the new specis if one or more traits are added
 swap_species_traits_organic_to_robotic = {
 	optimize_memory
 	if = {
