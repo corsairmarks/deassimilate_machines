@@ -78,7 +78,7 @@ event = {
 }
 
 # Modified:
-# * use variables as a max
+# * use separate variables for the maximum and counter
 # * reduce code duplication
 planet_event = {
 	id = action.65
@@ -148,7 +148,7 @@ planet_event = {
 
 # Modified:
 # * do no convert already-existing synthetics into the changed species
-# * do not set the dominant species if it already has ascension-related traits
+# * do not convert species to Synthetics if they already have other ascension-related traits (players can choose to manually set them to assimilate if desired)
 country_event = {
 	id = utopia.2551
 	title = utopia.2551.name
