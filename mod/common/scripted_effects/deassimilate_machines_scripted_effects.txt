@@ -7,9 +7,17 @@ set_post_assimilation_minimum_citizenship_pop = {
 			type = citizenship_full_machine
 			country = owner
 		}
-		if = {
-			limit = { owner = { has_valid_civic = civic_machine_assimilator } }
-			owner = { generate_cyborg_treats = yes }
+		owner = { 
+			if = {
+				limit = { has_valid_civic = civic_machine_assimilator }
+				if = {
+					limit = { NOT = { has_active_tradition = tr_cybernetics_assimilator_adopt } }
+					generate_cyborg_treats = yes
+				}
+				else = {
+					generate_cyborg_extra_treats = yes
+				}
+			}
 		}
 	}
 	else_if = {
