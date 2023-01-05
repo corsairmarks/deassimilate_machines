@@ -16,7 +16,7 @@ living_standard_deassimilation_machine = {
 			}
 		}
 		if = {
-			limit = { has_global_flag = civic_organic_zealots_installed }
+			limit = { has_civic_organic_zealots_active = yes }
 			custom_tooltip = {
 				fail_text = lost_robot_policy_war_fail
 				from = { NOT = { has_country_flag = lost_robot_policy_war } }
