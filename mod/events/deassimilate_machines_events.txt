@@ -1,18 +1,5 @@
 namespace = deassimilate_machines
 
-# flag mod as active
-event = {
-	id = deassimilate_machines.13
-	hide_window = yes
-	is_triggered_only = yes
-	trigger = {
-		NOT = { has_global_flag = deassimilate_machines_installed }
-	}
-	immediate = {
-		set_global_flag = deassimilate_machines_installed
-	}
-}
-
 # triggered by on_tech_increased or by passthrough deassimilate_machines.3 from on_post_communications_established
 country_event = {
 	id = deassimilate_machines.1

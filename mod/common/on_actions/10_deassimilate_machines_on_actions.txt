@@ -1,17 +1,3 @@
-# fired when the game starts
-on_game_start = {
-	events = {
-		deassimilate_machines.13 # flag mod as installed
-	}
-}
-
-# fired when loading a single-player game
-on_single_player_save_game_load = {
-	events = {
-		deassimilate_machines.13 # flag mod as installed
-	}
-}
-
 # this = country
 on_yearly_pulse_country = {
 	events = {

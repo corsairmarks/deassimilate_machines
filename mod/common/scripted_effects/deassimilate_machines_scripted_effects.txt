@@ -368,7 +368,7 @@ dm_prepare_machine_to_mechanical_species = {
 dm_prepare_cybernetic_species = {
 	optimize_memory
 	if = {
-		limit = { NOT = { has_global_flag = assimilate_all_the_pops_installed } }
+		limit = { has_assimilate_all_the_pops_active = no }
 		modify_species = {
 			species = species
 			add_trait = trait_cybernetic
@@ -459,7 +459,7 @@ dm_prepare_unhive_species = {
 dm_prepare_psionic_species = {
 	optimize_memory
 	if = {
-		limit = { NOT = { has_global_flag = assimilate_all_the_pops_installed } }
+		limit = { has_assimilate_all_the_pops_active = no }
 		modify_species = {
 			species = species
 			add_trait = trait_psionic
