@@ -181,6 +181,7 @@ citizenship_assimilation = {
 						custom_tooltip = {
 							fail_text = is_overlord_organic_zealots_fail
 							NAND = {
+								is_subject = yes
 								exists = overlord
 								overlord = { has_valid_civic = civic_organic_zealots }
 							}
@@ -223,6 +224,7 @@ citizenship_assimilation = {
 						custom_tooltip = {
 							fail_text = is_overlord_organic_zealots_fail
 							NAND = {
+								is_subject = yes
 								exists = overlord
 								overlord = { has_valid_civic = civic_organic_zealots }
 							}
@@ -256,6 +258,7 @@ citizenship_assimilation = {
 						custom_tooltip = {
 							fail_text = is_overlord_organic_zealots_fail
 							NAND = {
+								is_subject = yes
 								exists = overlord
 								overlord = { has_valid_civic = civic_organic_zealots }
 							}
@@ -292,6 +295,7 @@ citizenship_assimilation = {
 						custom_tooltip = {
 							fail_text = is_overlord_organic_zealots_fail
 							NAND = {
+								is_subject = yes
 								exists = overlord
 								overlord = { has_valid_civic = civic_organic_zealots }
 							}
