@@ -7,8 +7,6 @@
  living_standard_deassimilation_machine_tooltip: "This species is being unlinked from a central §Y$auth_machine_intelligence$§!."
  living_standard_deassimilation_machine_tooltip_delayed: "$living_standard_deassimilation_tooltip_delayed$"
  UNMACHINE_SPECIES_MUST_BE_MACHINE: "Only §Y$trait_machine_unit$§! species can be disconnected from a Machine Intelligence."
- REQUIRES_SYNTH_PROJECT_COMPLETE: "Requires completion of the §Y$SYNTHETIC_EVOLUTION_PROJECT$§! special project."
- SYNTH_SPECIES_MUST_BE_NON_HIVE: "Only non-§Y$trait_hive_mind$§! species can be converted into synthetics."
  SYNTH_SPECIES_MUST_BE_MACHINE: "Only §Y$trait_machine_unit$§! or §Y$trait_mechanical$§! species can be converted into our primary §Y$trait_machine_unit$§! species."
  CYBORG_SPECIES_CANT_BE_MACHINE: "Species may not be §Y$trait_machine_unit$§! or §Y$trait_mechanical$§!."
  CYBORG_SPECIES_CANT_BE_HIVE: "Without the §Y$tr_cybernetics_assimilator_inevitable_assimilation$§! Tradition, only non-§Y$trait_hive_mind$§! species can be assimilated into cyborgs."
