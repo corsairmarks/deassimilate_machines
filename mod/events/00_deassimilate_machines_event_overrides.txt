@@ -345,7 +345,7 @@ country_event = {
 		change_dominant_species = { species = event_target:new_robotic_species }
 		every_owned_leader = {
 			limit = {
-				species = { has_trait = trait_mechanical }
+				is_robotic_species = yes
 				NOR = {
 					has_trait = leader_trait_admiral_synthetic
 					has_trait = leader_trait_general_synthetic
@@ -380,7 +380,7 @@ country_event = {
 		}
 		every_pool_leader = {
 			limit = {
-				species = { has_trait = trait_mechanical }
+				is_robotic_species = yes
 				NOR = {
 					has_trait = leader_trait_admiral_synthetic
 					has_trait = leader_trait_general_synthetic

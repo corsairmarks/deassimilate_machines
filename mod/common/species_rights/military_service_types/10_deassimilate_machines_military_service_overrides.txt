@@ -155,10 +155,7 @@ military_service_full = {
 			factor = 0
 			has_battle_thrall_military_leaders_active = yes
 			from = { has_valid_civic = civic_machine_servitor }
-			NOR = {
-				has_trait = trait_mechanical
-				has_trait = trait_machine_unit
-			}
+			is_robotic = no
 			dm_is_species_smart_enough_for_leadership = no
 			# note: does not include the more complex criteria from BTML because this version gets overwritten anyway
 		}

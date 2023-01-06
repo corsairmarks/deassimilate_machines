@@ -11,10 +11,7 @@ colonization_control_yes = {
 	potential = {
 		NAND = {
 			from = { is_machine_empire = yes }
-			OR = {
-				has_trait = trait_machine_unit
-				has_trait = trait_mechanical
-			}
+			is_robotic = yes
 		}
 	}
 
@@ -74,8 +71,7 @@ colonization_control_no = {
 		NAND = {
 			from = { is_machine_empire = yes }
 			NOR = {
-				has_trait = trait_machine_unit
-				has_trait = trait_mechanical
+				is_robotic = yes
 				AND = {
 					has_trait = trait_cybernetic
 					from = { has_valid_civic = civic_machine_assimilator }
@@ -104,7 +100,7 @@ colonization_control_no = {
 		custom_tooltip = {
 			fail_text = "ROBOTS_CANNOT_COLONIZE"
 			OR = {
-				NOT = { has_trait = trait_mechanical }
+				is_robotic = no
 				from = { has_technology = tech_droid_workers }
 				from = { is_machine_empire = yes }
 			}
@@ -142,10 +138,7 @@ colonization_control_no = {
 		modifier = {
 			factor = 0
 			from = { has_valid_civic = civic_machine_servitor }
-			NOR = {
-				has_trait = trait_machine_unit
-				has_trait = trait_mechanical
-			}
+			is_robotic = no
 		}
 	}
 }
