@@ -151,6 +151,7 @@ planet_event = {
 # Modified:
 # * do no convert already-existing synthetics into the changed species
 # * do not convert species to Synthetics if they already have other ascension-related traits (players can choose to manually set them to assimilate if desired)
+# * fire the Organic Zealots "we hate you now and sever diplomatic ties" event regardless of whether the target country is an AI player, if Civic: Organic Zealots is active
 country_event = {
 	id = utopia.2551
 	title = utopia.2551.name
@@ -419,17 +420,26 @@ country_event = {
 		}
 		every_country = {
 			limit = {
-				is_ai = no
 				NOT = { is_same_value = root }
 				has_communications = root
 			}
-			country_event = {
-				id = utopia.2555
-				days = 5
+			if = {
+				limit = { is_ai = no }
+				country_event = {
+					id = utopia.2555
+					days = 5
+				}
+				country_event = {
+					id = utopia.2556
+					days = 10
+				}
 			}
-			country_event = {
-				id = utopia.2556
-				days = 10
+			if = {
+				limit = { is_civic_organic_zealots_active = yes }
+				country_event = {
+					id = civic_organic_zealots.2554
+					days = 5
+				}
 			}
 		}
 		if = {

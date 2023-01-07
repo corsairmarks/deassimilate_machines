@@ -1,0 +1,7 @@
+namespace = civic_organic_zealots
+
+country_event = {
+	id = civic_organic_zealots
+	hide_window = yes
+	is_triggered_only = yes
+}
