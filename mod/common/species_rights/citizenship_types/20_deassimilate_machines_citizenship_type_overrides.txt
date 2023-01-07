@@ -265,9 +265,8 @@ citizenship_assimilation = {
 						prev = {
 							is_robotic = no
 							OR = {
-								has_trait = trait_hive_mind
 								NOT = { has_trait = trait_cybernetic }
-								is_robotic = no
+								has_trait = trait_hive_mind
 							}
 						}
 					}
