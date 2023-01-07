@@ -179,7 +179,7 @@ citizenship_assimilation = {
 						}
 						# organic zealots can't be hive-minded, so no self-check here
 						custom_tooltip = {
-							fail_text = is_overlord_organic_zealots_fail
+							fail_text = civic_tooltip_overlord_not_organic_zealots_fail
 							NAND = {
 								is_subject = yes
 								exists = overlord
@@ -218,11 +218,11 @@ citizenship_assimilation = {
 							NOT = { has_country_flag = lost_robot_policy_war }
 						}
 						custom_tooltip = {
-							fail_text = is_organic_zealots_fail
+							fail_text = civic_tooltip_not_organic_zealots_fail
 							NOT = { has_valid_civic = civic_organic_zealots }
 						}
 						custom_tooltip = {
-							fail_text = is_overlord_organic_zealots_fail
+							fail_text = civic_tooltip_overlord_not_organic_zealots_fail
 							NAND = {
 								is_subject = yes
 								exists = overlord
@@ -244,11 +244,11 @@ citizenship_assimilation = {
 							NOT = { has_country_flag = lost_robot_policy_war }
 						}
 						custom_tooltip = {
-							fail_text = is_organic_zealots_fail
+							fail_text = civic_tooltip_not_organic_zealots_fail
 							NOT = { has_valid_civic = civic_organic_zealots }
 						}
 						custom_tooltip = {
-							fail_text = is_overlord_organic_zealots_fail
+							fail_text = civic_tooltip_overlord_not_organic_zealots_fail
 							NAND = {
 								is_subject = yes
 								exists = overlord
@@ -281,11 +281,11 @@ citizenship_assimilation = {
 							NOT = { has_country_flag = lost_robot_policy_war }
 						}
 						custom_tooltip = {
-							fail_text = is_organic_zealots_fail
+							fail_text = civic_tooltip_not_organic_zealots_fail
 							NOT = { has_valid_civic = civic_organic_zealots }
 						}
 						custom_tooltip = {
-							fail_text = is_overlord_organic_zealots_fail
+							fail_text = civic_tooltip_overlord_not_organic_zealots_fail
 							NAND = {
 								is_subject = yes
 								exists = overlord
