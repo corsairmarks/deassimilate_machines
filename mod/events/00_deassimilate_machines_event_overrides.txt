@@ -435,7 +435,7 @@ country_event = {
 				}
 			}
 			if = {
-				limit = { is_civic_organic_zealots_active = yes }
+				limit = { has_civic_organic_zealots_active = yes }
 				country_event = {
 					id = civic_organic_zealots.2554
 					days = 5
