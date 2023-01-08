@@ -95,6 +95,7 @@ This mod overwrites a number of core Stellaris game objects.  Expect to see twel
     * Refactor `species_rights` overrides to follow new file paths
     * Creating a brand-new living standard for Machine Dissociation instead of using a workaround with the existing living standard Hive Dissociation
     * No longer requires Utopia (but still requires Synthetic Dawn)
+* 5.0.1 Fix bug which caused each year deassimilating machines to create a new mechanical species, rather than finding the existing one
 
 ## Source Code
 
