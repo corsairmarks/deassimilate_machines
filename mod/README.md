@@ -96,6 +96,10 @@ This mod overwrites a number of core Stellaris game objects.  Expect to see twel
     * Creating a brand-new living standard for Machine Dissociation instead of using a workaround with the existing living standard Hive Dissociation
     * No longer requires Utopia (but still requires Synthetic Dawn)
 * 5.0.1 Fix bug which caused each year deassimilating machines to create a new mechanical species, rather than finding the existing one
+* 6.0.0 Add support for Civic: Organic Zealots
+    * Add a compatibility trigger for other mods to check whether this one is active
+    * Consume the compatibility triggers from other mods
+    * Remove old compatibility global flag
 
 ## Source Code
 
