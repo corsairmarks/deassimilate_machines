@@ -15,10 +15,6 @@ military_service_full = {
 			OR = {
 				is_robotic = yes
 				has_trait = trait_cybernetic
-				AND = {
-					has_battle_thrall_military_leaders_active = yes
-					from = { has_valid_civic = civic_machine_servitor }
-				}
 			}
 		}
 	}
@@ -33,15 +29,6 @@ military_service_full = {
 					AND = {
 						has_trait = trait_cybernetic
 						from = { has_civic = civic_machine_assimilator }
-					}
-					AND = {
-						has_battle_thrall_military_leaders_active = yes
-						has_species_flag = allow_leaders_organic_advisors@from
-						has_citizenship_type = {
-							country = from
-							type = citizenship_organic_trophy
-						}
-						from = { has_valid_civic = civic_machine_servitor }
 					}
 				}
 			}
@@ -61,19 +48,10 @@ military_service_full = {
 		}
 		custom_tooltip = {
 			fail_text = is_slaves_tooltip
-			OR = {
-				NOT = {
-					has_citizenship_type = {
-						country = from
-						type = citizenship_slavery
-					}
-				}
-				AND = {
-					has_battle_thrall_military_leaders_active = yes
-					has_slavery_type = {
-						country = from
-						type = slavery_military
-					}
+			NOT = {
+				has_citizenship_type = {
+					country = from
+					type = citizenship_slavery
 				}
 			}
 		}
@@ -136,28 +114,11 @@ military_service_full = {
 			}
 		}
 	}
-	triggered_pop_modifier = {
-		potential = {
-			has_battle_thrall_military_leaders_active = yes
-			has_slavery_type = { type = slavery_military }
-		}
-		modifier = {
-			pop_cat_slave_happiness = 0.1
-		}
-	}
 	ai_will_do = {
 		factor = 5
 		modifier = {
 			factor = 0
 			from = { has_valid_ai_personality = no }
-		}
-		modifier = {
-			factor = 0
-			has_battle_thrall_military_leaders_active = yes
-			from = { has_valid_civic = civic_machine_servitor }
-			is_robotic = no
-			dm_is_species_smart_enough_for_leadership = no
-			# note: does not include the more complex criteria from BTML because this version gets overwritten anyway
 		}
 		modifier = {
 			factor = 0
