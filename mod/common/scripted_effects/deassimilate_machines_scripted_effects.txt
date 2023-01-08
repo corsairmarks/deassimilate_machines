@@ -321,7 +321,7 @@ dm_prepare_machine_to_mechanical_species = {
 	species = { save_event_target_as = machine_species }
 	random_galaxy_species = {
 		limit = { has_species_flag = mechanical_species_of_machine_species@event_target:machine_species }
-		prev = { set_country_flag = found_assim_mech_species@event_target:machine_species }
+		prevprev = { set_country_flag = found_assim_mech_species@event_target:machine_species }
 		save_event_target_as = mechanical_species
 	}
 	if = {
