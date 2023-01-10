@@ -138,7 +138,10 @@ citizenship_assimilation = {
 					has_active_tradition = tr_genetics_creation
 					custom_tooltip = {
 						fail_text = HIVE_SPECIES_CANT_BE_HIVE
-						prev = { NOT = { has_trait = trait_hive_mind } }
+						prev = {
+							is_robotic = no
+							NOT = { has_trait = trait_hive_mind }
+						}
 					}
 				}
 				# cybernetic assimilation (hive)
@@ -159,6 +162,7 @@ citizenship_assimilation = {
 					custom_tooltip = {
 						fail_text = HIVE_SPECIES_CANT_BE_HIVE
 						prev = {
+							is_robotic = no
 							OR = {
 								NOT = { has_trait = trait_hive_mind }
 								AND = {
