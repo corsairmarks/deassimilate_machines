@@ -64,11 +64,11 @@ country_event = {
 	hide_window = yes
 	trigger = {
 		num_unique_species > 1
-		any_owned_leader = { species = { has_species_flag = assimilation_species_of_empire@ROOT } }
+		any_owned_leader = { species = { has_species_flag = assimilation_species_of_empire@root } }
 	}
 	immediate = {
 		every_owned_leader = {
-			limit = { species = { has_species_flag = assimilation_species_of_empire@ROOT } }
+			limit = { species = { has_species_flag = assimilation_species_of_empire@root } }
 			fire_on_action = { on_action = on_leader_species_changed }
 		}
 	}
@@ -86,7 +86,7 @@ country_event = {
 		country_event = {
 			id = deassimilate_machines.1
 		}
-		FROM = {
+		from = {
 			country_event = {
 				id = deassimilate_machines.1
 			}

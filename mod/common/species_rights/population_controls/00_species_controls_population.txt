@@ -25,7 +25,7 @@ population_control_yes = {
 					AND = {
 						has_trait = trait_machine_unit
 						has_living_standard = {
-							country = FROM
+							country = from
 							type = living_standard_deassimilation
 						}
 					}
@@ -54,7 +54,7 @@ population_control_yes = {
 				AND = {
 					has_trait = trait_machine_unit
 					has_living_standard = {
-						country = FROM
+						country = from
 						type = living_standard_deassimilation
 					}
 				}
@@ -81,7 +81,7 @@ population_control_no = {
 		custom_tooltip = {
 			fail_text = "HIVE_MIND_SPECIES_CITIZENS_ONLY"
 			OR = {
-				FROM = {
+				from = {
 					OR = {
 						is_hive_empire = no
 						dm_is_necrophage_empire = yes
@@ -95,7 +95,7 @@ population_control_no = {
 			NAND = {
 				has_trait = trait_machine_unit
 				has_living_standard = {
-					country = FROM
+					country = from
 					type = living_standard_deassimilation
 				}
 			}
