@@ -36,6 +36,9 @@ What this means to you is that this mod is not compatible with most other assimi
 
 This mod is explicitly compatible with my mod [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447]Special Leadership Privileges for Battle Thralls and Bio-Trophies[/url] despite both mods affecting full military service.
 
+[h3]When to Install[/h3]
+This mod can be safely added to your savegame after the game has started. It is implemented through events, effects, and species rights that alter game rules without adding object definitions. If you remove it, you will keep any machine Pops that have already been converted to robots, but any remaining machine Pops will probably revert to their default "disconnected machine" purge policy. Stellaris is fairly forgiving in situations like this - it's likely that error logs would be generated and the game would otherwise ignore the missing content. Back up your savegame before trying to remove a mod.
+
 [h3]Recommended Companion Mods[/h3]
 [list]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2908463208]Assimilate All the Pops[/url] allows empires to have multiple assimilation types - go forth and create those erudite, psionic cyborgs
@@ -44,9 +47,6 @@ This mod is explicitly compatible with my mod [url=https://steamcommunity.com/sh
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2553818684]Retain Leaders from Integrated Subjects[/url] will allow you to keep Machine Unit leaders from integrated machine empire subjects by converting them to robots and setting their species to deassimilation; combined with Leader Traits: All Eligible Species Traits, the leaders are converted to have synth leader traits if you have the right technology
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2558494770]corsairmarks's Leader Traits MOD Chinese patch[/url] by Hua Zhang - Chinese localisation
 [/list]
-[h3]When to Install[/h3]
-This mod can be safely added to your savegame after the game has started. It is implemented through events, effects, and species rights that alter game rules without adding object definitions. If you remove it, you will keep any machine Pops that have already been converted to robots, but any remaining machine Pops will probably revert to their default "disconnected machine" purge policy. Stellaris is fairly forgiving in situations like this - it's likely that error logs would be generated and the game would otherwise ignore the missing content. Back up your savegame before trying to remove a mod.
-
 [h2]Known Issues[/h2]
 This mod overwrites a number of core Stellaris game objects.  Expect to see twelve errors in your error.log for many types of game object.  All are necessary to implement the functionality of this mod.
 
