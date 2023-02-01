@@ -13,6 +13,8 @@
  CYBORG_SPECIES_MUST_BE_FULL_ORGANIC: "Only fully §Yorganic§! species can be converted into cyborgs."
  CYBORG_SPECIES_CANT_BE_CYBORG_OR_MUST_BE_HIVE: "Only non-§Y$trait_cybernetic$§! species or §Y$trait_cybernetic$§! §Y$trait_hive_mind$§! species can be assimilated into cyborgs."
  CYBORG_SPECIES_CANT_BE_CYBORG: "This species already has cybernetic implants."
+ UNCYBORG_SPECIES_MUST_BE_CYBORG: "Only §Y$trait_cybernetic$§! species can have their implants removed."
+ UNCYBORG_SPECIES_CANT_BE_HIVE: "Removing §Y$trait_cybernetic$§! implants from §Y$trait_hive_mind$§! species does not grant them individuality."
  PSI_SPECIES_MUST_BE_ORGANIC: "Only organic species can develop psionic powers."
  PSI_SPECIES_IS_ALREADY_PSIONIC: "This species already has psionic powers."
  PSI_SPECIES_CANT_BE_HIVE: "Hive minds cannot develop psionic powers."

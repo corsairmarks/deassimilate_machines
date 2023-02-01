@@ -24,23 +24,30 @@ citizenship_assimilation = {
 					is_hive_empire = yes
 					NOT = { has_valid_civic = civic_hive_devouring_swarm }
 					OR = {
-						has_tradition = tr_genetics_creation # hive assimilation
-						has_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation (hive)
+						has_active_tradition = tr_genetics_creation # hive assimilation
+						has_active_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation (hive)
 					}
 				}
 				AND = {
 					is_gestalt = no
 					NOT = { has_valid_civic = civic_fanatic_purifiers }
 					OR = {
+						has_country_flag = synth_assimilation # synthetic assimilation (regular)
+						has_active_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation (regular)
+						has_active_tradition = tr_psionics_psionic_assimilation # psionic assimilation
+						has_active_tradition = tr_genetics_creation # hive deassimilation
 						# machine deassimilation
 						AND = {
 							has_technology = tech_sapient_ai
 							prev = { has_trait = trait_machine_unit }
 						}
-						has_country_flag = synth_assimilation # synthetic assimilation (regular)
-						has_active_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation (regular)
-						has_active_tradition = tr_psionics_psionic_assimilation # psionic assimilation
-						has_active_tradition = tr_genetics_creation # hive deassimilation
+						# cyborg deassimilation
+						AND = {
+							has_civic_organic_zealots_active = yes
+							has_technology = tech_gene_tailoring
+							has_technology = tech_gene_banks
+							prev = { has_trait = trait_cybernetic }
+						}
 					}
 				}
 			}
@@ -58,9 +65,9 @@ citizenship_assimilation = {
 				fail_text = lonely_hive_mind_pops_kill_themselves_citizenship_assimilation
 				from = {
 					OR = {
-						has_tradition = tr_genetics_creation
-						has_tradition = tr_cybernetics_transubstantiation_synthesis
-						has_tradition = tr_cybernetics_assimilator_inevitable_assimilation
+						has_active_tradition = tr_genetics_creation
+						has_active_tradition = tr_cybernetics_transubstantiation_synthesis
+						has_active_tradition = tr_cybernetics_assimilator_inevitable_assimilation
 					}
 				}
 			}
@@ -261,6 +268,20 @@ citizenship_assimilation = {
 						}
 					}
 				}
+				# cybernetic deassimilation
+				from = {
+					hidden_trigger = { has_civic_organic_zealots_active = yes }
+					has_technology = tech_gene_tailoring
+					has_technology = tech_gene_banks
+					custom_tooltip = {
+						fail_text = UNCYBORG_SPECIES_MUST_BE_CYBORG
+						prev = { has_trait = trait_cybernetic }
+					}
+					custom_tooltip = {
+						fail_text = UNCYBORG_SPECIES_CANT_BE_HIVE
+						prev = { NOT = { has_trait = trait_hive_mind } }
+					}
+				}
 				# cybernetic assimilation (regular)
 				from = {
 					has_active_tradition = tr_cybernetics_transubstantiation_synthesis
@@ -329,7 +350,7 @@ citizenship_assimilation = {
 		modifier = {
 			factor = 0
 			# modified so terminator AIs can assimilate other machines/robots
-			# and organic zealots AIs can psionically/genetically assimilate non-machines
+			# and organic zealots AIs can psionically/genetically assimilate non-machines and uncyborg cybernetics
 			from = {
 				OR = {
 					AND = {
@@ -350,6 +371,14 @@ citizenship_assimilation = {
 							AND = {
 								has_active_tradition = tr_genetics_creation
 								prev = { has_trait = trait_hive_mind }
+							}
+							AND = {
+								has_technology = tech_gene_tailoring
+								has_technology = tech_gene_banks
+								prev = {
+									has_trait = trait_cybernetic
+									NOT = { has_trait = trait_hive_mind }
+								}
 							}
 						}
 					}
