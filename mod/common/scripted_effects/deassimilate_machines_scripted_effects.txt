@@ -365,7 +365,7 @@ dm_prepare_machine_to_mechanical_species = {
 # set up a species for cybernetic assimilation (non-hive)
 # this = something with a species (country, leader, pop, etc)
 # prev = country (assimilator)
-dm_prepare_cybernetic_species = {
+dm_prepare_cyborg_species = {
 	optimize_memory
 	if = {
 		limit = { has_assimilate_all_the_pops_active = no }
@@ -420,7 +420,7 @@ dm_prepare_hive_species = {
 # set up a species for cybernetic assimilation (hive)
 # this = something with a species (country, leader, pop, etc)
 # prev = country (assimilator)
-dm_prepare_hive_cybernetic_species = {
+dm_prepare_hive_cyborg_species = {
 	optimize_memory
 	modify_species = {
 		species = species

@@ -48,16 +48,16 @@ event = {
 					dm_prepare_machine_to_mechanical_species = yes
 				}
 				else_if = { # regular and machine cybernetic assimilation
-					limit = { is_undergoing_assimilation_cybernetic_species = yes }
-					dm_prepare_cybernetic_species = yes
+					limit = { is_undergoing_assimilation_cyborg_species = yes }
+					dm_prepare_cyborg_species = yes
 				}
 				else_if = { # hive assimilation
 					limit = { is_undergoing_assimilation_hive_species = yes }
 					dm_prepare_hive_species = yes
 				}
 				else_if = { # hive cybernetic assimilation
-					limit = { is_undergoing_assimilation_hive_cybernetic_species = yes }
-					dm_prepare_hive_cybernetic_species = yes
+					limit = { is_undergoing_assimilation_hive_cyborg_species = yes }
+					dm_prepare_hive_cyborg_species = yes
 				}
 				else_if = { # hive deassimilation
 					limit = { is_undergoing_assimilation_unhive_species = yes }

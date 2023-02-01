@@ -38,7 +38,7 @@ is_undergoing_assimilation_unmachine_species = {
 # check whether the species is undergoing cybernetic assimilation (non-hive)
 # this = species (current)
 # prev = country (assimilator)
-is_undergoing_assimilation_cybernetic_species = {
+is_undergoing_assimilation_cyborg_species = {
 	optimize_memory
 	OR = {
 		AND = {
@@ -90,7 +90,7 @@ is_undergoing_assimilation_hive_species = {
 # check whether the species is undergoing cybernetic assimilation (hive)
 # this = species (current)
 # prev = country (assimilator)
-is_undergoing_assimilation_hive_cybernetic_species = {
+is_undergoing_assimilation_hive_cyborg_species = {
 	optimize_memory
 	prev = { is_hive_empire = yes }
 	OR = {
@@ -117,6 +117,17 @@ is_undergoing_assimilation_unhive_species = {
 	OR = {
 		is_same_species = prev.owner_main_species
 		prev = { is_homicidal = no }
+	}
+}
+
+# check whether the species is undergoing cybernetic deassimilation
+# this = species (current)
+# prev = country (assimilator)
+is_undergoing_assimilation_uncyborg_species = {
+	optimize_memory
+	has_living_standard = {
+		type = living_standard_deassimilation_cyborg
+		country = prev
 	}
 }
 
