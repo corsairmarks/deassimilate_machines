@@ -100,6 +100,7 @@ This mod overwrites a number of core Stellaris game objects.  Expect to see twel
     * Add a compatibility trigger for other mods to check whether this one is active
     * Consume the compatibility triggers from other mods
     * Remove old compatibility global flag
+* 6.1.0 Support cybernetic deassimilation from Civic: Organic Zealots
 
 ## Source Code
 
