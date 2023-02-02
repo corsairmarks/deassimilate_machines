@@ -23,7 +23,7 @@ living_standard_deassimilation_machine = {
 			}
 			custom_tooltip = {
 				fail_text = civic_tooltip_not_organic_zealots_fail
-				from = { NOT = { has_valid_civic = civic_organic_zealots } }
+				from = { is_valid_organic_zealots = no }
 			}
 			custom_tooltip = {
 				fail_text = civic_tooltip_overlord_not_organic_zealots_fail
@@ -31,7 +31,7 @@ living_standard_deassimilation_machine = {
 					NAND = {
 						is_subject = yes
 						exists = overlord
-						overlord = { has_valid_civic = civic_organic_zealots }
+						overlord = { is_valid_organic_zealots = yes }
 					}
 				}
 			}

@@ -11,3 +11,17 @@ has_civic_organic_zealots_active = {
 	optimize_memory
 	always = no
 }
+
+### Civic: Organic Zealots ###
+
+# this = country
+is_organic_zealots = {
+	optimize_memory
+	always = no
+}
+
+# this = country
+is_valid_organic_zealots = {
+	optimize_memory
+	always = no
+}

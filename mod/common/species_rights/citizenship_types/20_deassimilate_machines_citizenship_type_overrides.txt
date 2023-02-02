@@ -194,7 +194,7 @@ citizenship_assimilation = {
 							NAND = {
 								is_subject = yes
 								exists = overlord
-								overlord = { has_valid_civic = civic_organic_zealots }
+								overlord = { is_valid_organic_zealots = yes }
 							}
 						}
 					}
@@ -230,14 +230,14 @@ citizenship_assimilation = {
 						}
 						custom_tooltip = {
 							fail_text = civic_tooltip_not_organic_zealots_fail
-							NOT = { has_valid_civic = civic_organic_zealots }
+							is_valid_organic_zealots = no
 						}
 						custom_tooltip = {
 							fail_text = civic_tooltip_overlord_not_organic_zealots_fail
 							NAND = {
 								is_subject = yes
 								exists = overlord
-								overlord = { has_valid_civic = civic_organic_zealots }
+								overlord = { is_valid_organic_zealots = yes }
 							}
 						}
 					}
@@ -256,14 +256,14 @@ citizenship_assimilation = {
 						}
 						custom_tooltip = {
 							fail_text = civic_tooltip_not_organic_zealots_fail
-							NOT = { has_valid_civic = civic_organic_zealots }
+							is_valid_organic_zealots = no
 						}
 						custom_tooltip = {
 							fail_text = civic_tooltip_overlord_not_organic_zealots_fail
 							NAND = {
 								is_subject = yes
 								exists = overlord
-								overlord = { has_valid_civic = civic_organic_zealots }
+								overlord = { is_valid_organic_zealots = yes }
 							}
 						}
 					}
@@ -306,14 +306,14 @@ citizenship_assimilation = {
 						}
 						custom_tooltip = {
 							fail_text = civic_tooltip_not_organic_zealots_fail
-							NOT = { has_valid_civic = civic_organic_zealots }
+							is_valid_organic_zealots = no
 						}
 						custom_tooltip = {
 							fail_text = civic_tooltip_overlord_not_organic_zealots_fail
 							NAND = {
 								is_subject = yes
 								exists = overlord
-								overlord = { has_valid_civic = civic_organic_zealots }
+								overlord = { is_valid_organic_zealots = yes }
 							}
 						}
 					}
@@ -362,7 +362,7 @@ citizenship_assimilation = {
 					}
 					AND = {
 						has_civic_organic_zealots_active = yes
-						has_valid_civic = civic_organic_zealots
+						is_valid_organic_zealots = yes
 						NOR = {
 							AND = {
 								has_active_tradition = tr_psionics_psionic_assimilation
