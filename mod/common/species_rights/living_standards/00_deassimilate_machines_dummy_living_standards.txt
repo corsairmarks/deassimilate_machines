@@ -1,0 +1,5 @@
+living_standard_deassimilation_cyborg = {
+	pop_modifier = {}
+	potential = { always = no }
+	ai_will_do = { factor = 0 }
+}
