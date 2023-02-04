@@ -19,39 +19,50 @@ country_event = {
 		set_country_flag = deasssimilate_machines_message
 	}
 	option = {
-		name = {
-			text = MARVELOUS
-			trigger = {
-				is_xenophobe = no
-				is_materialist = yes
+		trigger = {
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
 			}
+			is_xenophobe = no
 		}
-		name = {
-			text = GOOD
-			trigger = {
-				OR = {
-					AND = {
-						is_xenophobe = yes
-						is_materialist = yes
+		name = MARVELOUS
+		custom_tooltip = ASSIMILATION_CITIZENSHIP_ENABLED_UNMACHINE
+	}
+	option = {
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						has_ethic = ethic_xenophobe
+						has_ethic = ethic_fanatic_xenophobe
 					}
-					AND = {
-						is_xenophobe = no
-						is_spiritualist = no
-						is_materialist = no
+					OR = {
+						has_ethic = ethic_materialist
+						has_ethic = ethic_fanatic_materialist
 					}
+				}
+				AND = {
+					is_xenophobe = no
+					is_spiritualist = no
+					is_materialist = no
 				}
 			}
 		}
-		name = {
-			text = DISCONCERTING
-			trigger = {
-				OR = {
-					is_xenophobe = yes
-					is_spiritualist = yes
-				}
-				is_materialist = no
+		name = GOOD
+		custom_tooltip = ASSIMILATION_CITIZENSHIP_ENABLED_UNMACHINE
+	}
+	option = {
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
 			}
+			is_materialist = no
 		}
+		name = DISCONCERTING
 		custom_tooltip = ASSIMILATION_CITIZENSHIP_ENABLED_UNMACHINE
 	}
 }
@@ -79,9 +90,7 @@ country_event = {
 	id = deassimilate_machines.3
 	is_triggered_only = yes
 	hide_window = yes
-	trigger = {
-		has_synthethic_dawn = yes
-	}
+	trigger = { has_synthethic_dawn = yes }
 	immediate = {
 		country_event = {
 			id = deassimilate_machines.1
