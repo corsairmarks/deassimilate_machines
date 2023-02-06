@@ -75,11 +75,21 @@ country_event = {
 	hide_window = yes
 	trigger = {
 		num_unique_species > 1
-		any_owned_leader = { species = { has_species_flag = assimilation_species_of_empire@root } }
+		any_owned_leader = {
+			species = {
+				has_species_flag = assimilation_species_of_empire@root
+				has_species_flag = unmachine_species_of_empire@root
+			}
+		}
 	}
 	immediate = {
 		every_owned_leader = {
-			limit = { species = { has_species_flag = assimilation_species_of_empire@root } }
+			limit = {
+				species = {
+					has_species_flag = assimilation_species_of_empire@root
+					has_species_flag = unmachine_species_of_empire@root
+				}
+			}
 			fire_on_action = { on_action = on_leader_species_changed }
 		}
 	}
@@ -98,6 +108,36 @@ country_event = {
 		from = {
 			country_event = {
 				id = deassimilate_machines.1
+			}
+		}
+	}
+}
+
+# prepare machine Pops to be deassimilated - fired by on_yearly_pulse before action.64, see common/on_actions/000_deassimilate_machines_early_on_actions.txt
+# because the correct flags are set, the changes will be picked up automatically by assimilation_effect with minimal changes to ensure synthetic empires can choose machine deassimilation
+event = {
+	id = deassimilate_machines.64
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		any_playable_country = {
+			num_unique_species > 1
+			any_owned_pop_species = { dm_is_undergoing_assimilation_unmachine_species = yes }
+		}
+	}
+	immediate = {
+		log = "deassimilate_machines.64"
+		every_playable_country = {
+			limit = {
+				num_unique_species > 1
+				any_owned_pop_species = { dm_is_undergoing_assimilation_unmachine_species = yes }
+			}
+			log = "deassimilate_machines.64.every_playable_country: [This.GetRealName]"
+			every_owned_pop_species = {
+				limit = { dm_is_undergoing_assimilation_unmachine_species = yes }
+				log = "deassimilate_machines.64.every_owned_pop_species: [This.GetName]"
+				dm_prepare_machine_to_mechanical_species = yes
+				event_target:prepared_species = { dm_set_assimilation_flags = yes }
 			}
 		}
 	}

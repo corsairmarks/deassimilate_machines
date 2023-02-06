@@ -1,7 +1,0 @@
-namespace = civic_organic_zealots
-
-country_event = {
-	id = civic_organic_zealots.2554
-	hide_window = yes
-	is_triggered_only = yes
-}

@@ -1,14 +1,14 @@
+**_IMPORTANT UPDATE:_** This mod is no longer required for [Assimilate All the Pops](https://steamcommunity.com/sharedfiles/filedetails/?id=2908463208). Additionally, the synthetic evolution improvements have also been moved to Assimilate All the Pops! (your initial synthetic species will have traits similar to your previous organic species).
+
 # Overview
 
 Ever been disappointed at all the wasted Pops when you conquer or integrate a Machine Intelligence?  This mod is for you!  Now you can de-assimilate the Machine Units into Robots once you have discovered the Positronic AI technology.
 
 This mod also features an enhancement for machine empires - robot Pops also gain bonus trait picks and points from the machine-boosting relevant technologies and traditions.  Thus robot Pops will be just as useful as machine Pops to machine empires.
 
-New with the mod update for Stellaris version 3.6 "Orion," completing the Synthetic Evolution special project creates the initial Synthetic species with robotic traits similar to your organic species. For example, Industrious is converted to Power Drills.
-
 # Changes
 
-Adds the "Machine Dissociation" assimilation living standard for Machine Unit Pops. Coupled with an override of the "Assimilation" citizenship and related events, this enables you to convert machines into robots as a regular, non-gestalt empire (as long as you have Positronic AI).
+Adds the "Machine Dissociation" assimilation living standard for Machine Unit Pops. Coupled with an override of the "Assimilation" citizenship, this enables you to convert machines into robots as a regular, non-gestalt empire (as long as you have Positronic AI).
 
 An event window will display when you have Positronic AI and communications with a Machine Intelligence to tell you that machine deassimilation is available.
 
@@ -18,11 +18,8 @@ Overrides the robomodding series of technologies for machine empires (Machine Te
 
 Built for Stellaris version 3.6 "Orion."  Not compatible with achievements.
 
-This mod has to alter a number of built-in files and objects to implement its gameplay.  Here's a list of of what is preempted/overridden and why:
+This mod has to alter a number of built-in game objects to implement its gameplay.  Here's a list of of what is overridden and why:
 
-* Event `action.64` - assimilation setup event, altered to allow machine deassimilation
-* Event `action.65` - main assimilation event, altered to use less duplicate code and pass two variables to its effect calls - the current number of assimilated Pops and the total number allowed for the year
-* Event `utopia.2551` - Synthetic Evolution, altered to not change synthetic leaders of other species into the empire's main species (cyborgs are still fair game, however)
 * Effect `assimilation_effect` - main assimilation logic (called by `action.65`), altered so that deassimilated machines are not converted into the synthetic species for fully synthetic empires, also code de-duped
 * Citizenship `citizenship_assimilation` - Assimilation, altered to allow machines to be deassimilated by non-gestalt empires
 * Species Population Control `population_control_yes` - deassimilating machines must have population controls
@@ -35,9 +32,7 @@ This mod has to alter a number of built-in files and objects to implement its ga
 * Tradition `tr_synthetics_synthetic_age` - Synthetic Age in order to grant machine empires trait picks for both machines and robots
 * Tradition `tr_synthetics_solid_state_actuators` - Solid State Actuators in order to grant machine empires trait points for both machines and robots
 
-What this means to you is that this mod is not compatible with most other assimilation-altering mods.  That is because its highly likely they are editing the same events and species rights.
-
-This mod is explicitly compatible with my mod [Special Leadership Privileges for Battle Thralls and Bio-Trophies](https://steamcommunity.com/sharedfiles/filedetails/?id=2496357447) despite both mods affecting full military service.
+This mod is explicitly compatible with all of my other mods, including those that also modify assimilation or other species rights.
 
 ### When to Install
 
@@ -53,21 +48,17 @@ This mod can be safely added to your savegame after the game has started. It is 
 
 ## Known Issues
 
-This mod overwrites a number of core Stellaris game objects.  Expect to see twelve errors in your error.log similar to these for many types of game object.  All are necessary to implement the functionality of this mod.
+This mod overwrites several core Stellaris game objects.  Expect to see eight errors in your error.log similar to these for many types of game object.  All are necessary to implement the functionality of this mod.
 
 ```
-[12:30:26][technology.cpp:1154]: Duplicate technology: tech_robomodding_m
-[12:30:26][technology.cpp:1154]: Duplicate technology: tech_binary_motivators
-[12:30:26][technology.cpp:1154]: Duplicate technology: tech_nanite_assemblers
-[12:30:26][game_singleobjectdatabase.h:165]: Object with key: assimilation_effect already exists, using the one at  file: common/scripted_effects/deassimilate_machines_scripted_effect_overrides.txt line: 2
-[12:30:27][game_singleobjectdatabase.h:165]: Object with key: citizenship_assimilation already exists, using the one at  file: common/species_rights/citizenship_types/10_deassimilate_machines_citizenship_type_overrides.txt line: 5
-[12:30:27][trigger.cpp:603]: Invalid Scope type for trigger has_valid_civic in common/species_rights/citizenship_types/10_deassimilate_machines_citizenship_type_overrides.txt line : 127. Got species
-[12:30:27][game_singleobjectdatabase.h:165]: Object with key: military_service_full already exists, using the one at  file: common/species_rights/military_service_types/10_deassimilate_machines_military_service_overrides.txt line: 11
-[12:30:28][eventmanager.cpp:368]: an event with id [action.64] already exists!  file: events/on_action_events_1.txt line: 7950
-[12:30:28][eventmanager.cpp:368]: an event with id [action.65] already exists!  file: events/on_action_events_1.txt line: 8187
-[12:30:28][eventmanager.cpp:368]: an event with id [utopia.2551] already exists!  file: events/utopia_on_action_events.txt line: 825
-[12:30:30][game_singleobjectdatabase.h:165]: Object with key: tr_synthetics_synthetic_age already exists, using the one at  file: common/traditions/11_deassimilate_machines_synthetics_traditions_overrides.txt line: 2
-[12:30:30][game_singleobjectdatabase.h:165]: Object with key: tr_synthetics_solid_state_actuators already exists, using the one at  file: common/traditions/11_deassimilate_machines_synthetics_traditions_overrides.txt line: 70
+[03:46:46][technology.cpp:1154]: Duplicate technology: tech_robomodding_m
+[03:46:46][technology.cpp:1154]: Duplicate technology: tech_binary_motivators
+[03:46:46][technology.cpp:1154]: Duplicate technology: tech_nanite_assemblers
+[03:46:47][game_singleobjectdatabase.h:165]: Object with key: assimilation_effect already exists, using the one at  file: common/scripted_effects/deassimilate_machines_scripted_effect_overrides.txt line: 6
+[03:46:47][game_singleobjectdatabase.h:165]: Object with key: citizenship_assimilation already exists, using the one at  file: common/species_rights/citizenship_types/10_deassimilate_machines_citizenship_type_overrides.txt line: 6
+[03:46:47][game_singleobjectdatabase.h:165]: Object with key: military_service_full already exists, using the one at  file: common/species_rights/military_service_types/10_deassimilate_machines_military_service_overrides.txt line: 11
+[03:46:50][game_singleobjectdatabase.h:165]: Object with key: tr_synthetics_synthetic_age already exists, using the one at  file: common/traditions/11_deassimilate_machines_synthetics_traditions_overrides.txt line: 2
+[03:46:50][game_singleobjectdatabase.h:165]: Object with key: tr_synthetics_solid_state_actuators already exists, using the one at  file: common/traditions/11_deassimilate_machines_synthetics_traditions_overrides.txt line: 70
 ```
 
 ## Changelog
@@ -100,7 +91,9 @@ This mod overwrites a number of core Stellaris game objects.  Expect to see twel
     * Add a compatibility trigger for other mods to check whether this one is active
     * Consume the compatibility triggers from other mods
     * Remove old compatibility global flag
-* 6.1.0 Support cybernetic deassimilation from Civic: Organic Zealots
+* 7.0.0 Move assimlation overhaul (for multi-assimilation) to the more appropriate mod, [Assimilate All the Pops](https://steamcommunity.com/sharedfiles/filedetails/?id=2908463208)
+    * This mod is now more compatible with other mods due to fewer overwrites
+    * Support cybernetic deassimilation from Civic: Organic Zealots
 
 ## Source Code
 

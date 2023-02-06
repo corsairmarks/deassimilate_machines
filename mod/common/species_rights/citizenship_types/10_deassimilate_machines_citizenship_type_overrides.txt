@@ -148,18 +148,18 @@ citizenship_assimilation = {
 			limit = { from = { is_gestalt = no } }
 			# machine deassimilation
 			if = {
-				limit = { has_technology = tech_sapient_ai }
+				limit = { from = { has_technology = tech_sapient_ai } }
 				custom_tooltip = {
 					text = UNMACHINE_SPECIES_MUST_BE_MACHINE
-					prev = { has_trait = trait_machine_unit }
+					has_trait = trait_machine_unit
 				}
 				custom_tooltip = {
 					fail_text = ROBOTS_ARE_ALLOWED
-					has_policy_flag = robots_allowed
+					from = { has_policy_flag = robots_allowed }
 				}
 				custom_tooltip = {
 					fail_text = AI_IS_ALLOWED
-					NOT = { has_policy_flag = ai_outlawed }
+					from = { NOT = { has_policy_flag = ai_outlawed } }
 				}
 			}
 			# synthetic assimilation (regular)

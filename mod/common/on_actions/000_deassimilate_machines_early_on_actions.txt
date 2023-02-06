@@ -1,0 +1,9 @@
+# this file is named such that events attached to on_actions in it will fire _before_ built-in game events
+
+# fired yearly
+# no scope
+on_yearly_pulse = {
+	events = {
+		deassimilate_machines.64
+	}
+}
