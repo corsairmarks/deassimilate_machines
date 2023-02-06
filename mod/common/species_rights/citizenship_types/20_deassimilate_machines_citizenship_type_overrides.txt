@@ -1,8 +1,8 @@
 # Modified:
-# * homicidals are not blanket-denied from assimilating (potential)
 # * non-gestalt empires with tech_sapient_ai are allowed to (de)assimilate machine units
+# * homicidals are not blanket-denied from assimilating (potential)
 # * cybernetic/synthetic assimilation can be restricted (with Civic: Organic Zealots)
-# * terminators and organic zealots cas assimilate robotic/non-robotic species as appropriate
+# * terminators and organic zealots can assimilate robotic/non-robotic species as appropriate
 citizenship_assimilation = {
 	is_assimilation = yes
 	potential = {
