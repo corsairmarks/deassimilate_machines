@@ -48,7 +48,7 @@ This mod can be safely added to your savegame after the game has started. It is 
 
 ## Known Issues
 
-This mod overwrites several core Stellaris game objects.  Expect to see eight errors in your error.log similar to these for many types of game object.  All are necessary to implement the functionality of this mod.
+This mod overwrites several core Stellaris game objects.  Expect to see eight errors in your error.log similar to these.  All are necessary to implement the functionality of this mod.
 
 ```
 [03:46:46][technology.cpp:1154]: Duplicate technology: tech_robomodding_m
