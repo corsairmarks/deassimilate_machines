@@ -41,14 +41,14 @@ dm_prepare_machine_to_mechanical_species = {
 				homeworld = this
 				traits = this
 				effect = {
-					save_event_target_as = prepared_species
+					save_event_target_as = mechanical_species
 				}
 			}
 		}
 		swap_species_traits_machine_to_robotic = yes
 		modify_species = {
 			base = event_target:machine_species
-			species = event_target:prepared_species
+			species = event_target:mechanical_species
 			add_traits_at_start_of_list = yes
 			remove_trait = trait_machine_unit
 			add_trait = trait_mechanical
