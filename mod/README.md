@@ -91,7 +91,7 @@ This mod overwrites several core Stellaris game objects.  Expect to see eight er
     * Add a compatibility trigger for other mods to check whether this one is active
     * Consume the compatibility triggers from other mods
     * Remove old compatibility global flag
-* 7.0.0 Move assimlation overhaul (for multi-assimilation) to the more appropriate mod, [Assimilate All the Pops](https://steamcommunity.com/sharedfiles/filedetails/?id=2908463208)
+* 7.0.0 Move assimilation overhaul (for multi-assimilation) to the more appropriate mod, [Assimilate All the Pops](https://steamcommunity.com/sharedfiles/filedetails/?id=2908463208)
     * This mod is now more compatible with other mods due to fewer overwrites
     * Support cybernetic deassimilation from Civic: Organic Zealots
 
