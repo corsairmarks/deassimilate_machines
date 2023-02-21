@@ -1,4 +1,6 @@
-# Modified: grants both MACHINE and ROBOT trait picks for machine empires
+# Modified:
+# * grants both MACHINE and ROBOT trait picks for machine empires
+# * with Civic: Organic Zealots, add restrictions for organic zealots, their subjects, and robot policy wars
 tr_synthetics_synthetic_age = {
 	possible = {
 		if = {
@@ -8,21 +10,43 @@ tr_synthetics_synthetic_age = {
 					is_machine_empire = yes
 				}
 			}
-			always = yes
+			hidden_trigger = { always = yes }
 		}
 		else = {
 			has_technology = tech_synthetic_leaders
+		}
+		if = {
+			limit = { has_civic_organic_zealots_active = yes }
+			custom_tooltip = {
+				fail_text = "lost_robot_policy_war_fail"
+				NOT = { has_country_flag = lost_robot_policy_war }
+			}
+			custom_tooltip = {
+				fail_text = "civic_tooltip_not_organic_zealots_fail"
+				is_valid_organic_zealots = no
+			}
+			custom_tooltip = {
+				fail_text = "civic_tooltip_overlord_not_organic_zealots_fail"
+				NAND = {
+					is_subject = yes
+					exists = overlord
+					overlord = { is_valid_organic_zealots = yes }
+				}
+			}
+		}
+		else = {
+			hidden_trigger = { always = yes }
 		}
 	}
 	# Unlocks Synthetic Assimilation.
 	on_enabled = {
 		hidden_effect = {
-			country_event = { id = utopia.2550 }
+			country_event = {
+				id = utopia.2550
+			}
 		}
 	}
-
 	custom_tooltip = tr_synthetics_synthetic_age_desc
-
 	tradition_swap = {
 		name = tr_synthetics_assembly_systems
 		inherit_effects = no
@@ -35,34 +59,25 @@ tr_synthetics_synthetic_age = {
 		modifier = {
 			planet_pop_assembly_mult = 0.10
 		}
-
 		on_enabled = {
 			hidden_effect = {
-				country_event = { id = utopia.2550 }
+				country_event = {
+					id = utopia.2550
+				}
 			}
 		}
-
-		weight = {
-			factor = 1
-		}
+		weight = { factor = 1 }
 	}
-
 	tradition_swap = {
 		name = tr_synthetics_power_systems
 		inherit_effects = no
 		inherit_icon = no
-		trigger = {
-			is_machine_empire = yes
-		}
-
+		trigger = { is_machine_empire = yes }
 		modifier = {
 			MACHINE_species_trait_picks_add = 1
 			ROBOT_species_trait_picks_add = 1
 		}
-
-		weight = {
-			factor = 2
-		}
+		weight = { factor = 2 }
 	}
 }
 
