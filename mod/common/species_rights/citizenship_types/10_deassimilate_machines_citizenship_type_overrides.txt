@@ -146,14 +146,32 @@ citizenship_assimilation = {
 		}
 		else_if = {
 			limit = { from = { is_gestalt = no } }
+			# machine deassimilation
+			if = {
+				limit = {
+					is_robotic = yes
+					from = { has_technology = tech_sapient_ai }
+				}
+				custom_tooltip = {
+					text = UNMACHINE_SPECIES_MUST_BE_MACHINE
+					has_trait = trait_machine_unit
+				}
+				custom_tooltip = {
+					fail_text = ROBOTS_ARE_ALLOWED
+					from = { has_policy_flag = robots_allowed }
+				}
+				custom_tooltip = {
+					fail_text = AI_IS_ALLOWED
+					from = { NOT = { has_policy_flag = ai_outlawed } }
+				}
+			}
 			# synthetic assimilation (regular)
-			# if = {
+			# else_if = {
 			# 	limit = { from = { has_country_flag = synth_assimilation } }
 			# 	# no default allow conditions for synthetics, hive exclusion handled above
 			# }
-			# else_
 			# cybernetic assimilation (regular)
-			if = {
+			else_if = {
 				limit = { from = { has_active_tradition = tr_cybernetics_transubstantiation_synthesis } }
 				custom_tooltip = {
 					fail_text = CYBORG_SPECIES_MUST_BE_ORGANIC
@@ -186,22 +204,6 @@ citizenship_assimilation = {
 				custom_tooltip = {
 					fail_text = CAN_ONLY_ASSIMILATE_HIVES
 					has_trait = trait_hive_mind
-				}
-			}
-			# machine deassimilation
-			else_if = {
-				limit = { from = { has_technology = tech_sapient_ai } }
-				custom_tooltip = {
-					text = UNMACHINE_SPECIES_MUST_BE_MACHINE
-					has_trait = trait_machine_unit
-				}
-				custom_tooltip = {
-					fail_text = ROBOTS_ARE_ALLOWED
-					from = { has_policy_flag = robots_allowed }
-				}
-				custom_tooltip = {
-					fail_text = AI_IS_ALLOWED
-					from = { NOT = { has_policy_flag = ai_outlawed } }
 				}
 			}
 		}
