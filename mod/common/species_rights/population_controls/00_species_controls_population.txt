@@ -11,17 +11,20 @@ population_control_yes = {
 	pop_modifier = {
 		pop_happiness = -0.1
 	}
-
 	allow = {
 		hidden_trigger = { exists = from }
-		from = {
-			NOT = { has_policy_flag = population_controls_not_allowed }
-		}
+		from = { NOT = { has_policy_flag = population_controls_not_allowed } }
 		if = {
 			limit = {
 				OR = {
-					has_citizenship_type = { country = from type = citizenship_purge }
-					has_citizenship_type = { country = from type = citizenship_purge_machine }
+					has_citizenship_type = {
+						country = from
+						type = citizenship_purge
+					}
+					has_citizenship_type = {
+						country = from
+						type = citizenship_purge_machine
+					}
 					AND = {
 						has_trait = trait_machine_unit
 						has_living_standard = {
@@ -39,6 +42,10 @@ population_control_yes = {
 				NOT = { is_same_species = from }
 			}
 			custom_tooltip = {
+				fail_text = is_broken_shackles_origin
+				NOT = { from = { has_origin = origin_broken_shackles  } }
+			}
+			custom_tooltip = {
 				fail_text = empire_xenophile
 				from = { is_xenophile = no }
 			}
@@ -49,8 +56,14 @@ population_control_yes = {
 		modifier = {
 			factor = 0
 			NOR = {
-				has_citizenship_type = { country = from type = citizenship_purge_machine }
-				has_citizenship_type = { country = from type = citizenship_purge }
+				has_citizenship_type = {
+					country = from
+					type = citizenship_purge_machine
+				}
+				has_citizenship_type = {
+					country = from
+					type = citizenship_purge
+				}
 				AND = {
 					has_trait = trait_machine_unit
 					has_living_standard = {
@@ -65,21 +78,24 @@ population_control_yes = {
 
 # modified to prevent (de)assimilating machines having this right
 population_control_no = {
-	potential = {
-		always = yes
-	}
-
+	potential = { always = yes }
 	allow = {
 		hidden_trigger = { exists = from }
 		custom_tooltip = {
 			NOR = {
-				has_citizenship_type = { country = from type = citizenship_purge_machine }
-				has_citizenship_type = { country = from type = citizenship_purge }
+				has_citizenship_type = {
+					country = from
+					type = citizenship_purge_machine
+				}
+				has_citizenship_type = {
+					country = from
+					type = citizenship_purge
+				}
 			}
 			fail_text = is_undesirables_tooltip
 		}
 		custom_tooltip = {
-			fail_text = "HIVE_MIND_SPECIES_CITIZENS_ONLY"
+			fail_text = HIVE_MIND_SPECIES_CITIZENS_ONLY
 			OR = {
 				from = {
 					OR = {
@@ -101,7 +117,5 @@ population_control_no = {
 			}
 		}
 	}
-	ai_will_do = {
-		factor = 1
-	}
+	ai_will_do = { factor = 1 }
 }
