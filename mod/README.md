@@ -1,5 +1,3 @@
-**_IMPORTANT UPDATE:_** This mod is no longer required for [Assimilate All the Pops](https://steamcommunity.com/sharedfiles/filedetails/?id=2908463208). Additionally, the synthetic evolution improvements have also been moved to Assimilate All the Pops! (your initial synthetic species will have traits similar to your previous organic species).
-
 # Overview
 
 Ever been disappointed at all the wasted Pops when you conquer or integrate a Machine Intelligence?  This mod is for you!  Now you can de-assimilate the Machine Units into Robots once you have discovered the Positronic AI technology.
@@ -48,12 +46,15 @@ This mod can be safely added to your savegame after the game has started. It is 
 
 ## Known Issues
 
-This mod overwrites several core Stellaris game objects.  Expect to see eight errors in your error.log similar to these.  All are necessary to implement the functionality of this mod.
+This mod overwrites several core Stellaris game objects.  Expect to see eleven errors in your error.log similar to these.  All are necessary to implement the functionality of this mod.
 
 ```
 [03:46:46][technology.cpp:1154]: Duplicate technology: tech_robomodding_m
+[03:46:46][technology.cpp:315]: Duplicate trigger at  file: common/technology/10_deassimilate_machines_synthetic_dawn_technology_overrides.txt line: 19
 [03:46:46][technology.cpp:1154]: Duplicate technology: tech_binary_motivators
+[03:46:46][technology.cpp:315]: Duplicate trigger at  file: common/technology/10_deassimilate_machines_synthetic_dawn_technology_overrides.txt line: 60
 [03:46:46][technology.cpp:1154]: Duplicate technology: tech_nanite_assemblers
+[03:46:46][technology.cpp:315]: Duplicate trigger at  file: common/technology/10_deassimilate_machines_synthetic_dawn_technology_overrides.txt line: 102
 [03:46:47][game_singleobjectdatabase.h:165]: Object with key: assimilation_effect already exists, using the one at  file: common/scripted_effects/deassimilate_machines_scripted_effect_overrides.txt line: 6
 [03:46:47][game_singleobjectdatabase.h:165]: Object with key: citizenship_assimilation already exists, using the one at  file: common/species_rights/citizenship_types/10_deassimilate_machines_citizenship_type_overrides.txt line: 6
 [03:46:47][game_singleobjectdatabase.h:165]: Object with key: military_service_full already exists, using the one at  file: common/species_rights/military_service_types/10_deassimilate_machines_military_service_overrides.txt line: 11
