@@ -16,7 +16,7 @@ Overrides the robomodding series of technologies for machine empires (Machine Te
 
 ## Compatibility
 
-Built for Stellaris version 3.6 "Orion."  Not compatible with achievements.
+Built for Stellaris version 3.7 "Canis Minor."  Not compatible with achievements.
 
 This mod has to alter a number of built-in game objects to implement its gameplay.  Here's a list of of what is overridden and why:
 
@@ -96,6 +96,7 @@ This mod overwrites several core Stellaris game objects.  Expect to see eight er
     * Support cybernetic deassimilation from Civic: Organic Zealots
 * 7.0.1 Bugfix: adjust `tr_synthetics_synthetic_age` to account for possible restrictions from Civic: Organic Zealots, courtesy of reporting by [MrFunEGUY](https://steamcommunity.com/profiles/76561198025143641/myworkshopfiles/?appid=281990)
 * 7.0.2 Bugfix: machine deassimilation was not allowed after an empire gained access different form of assimilation - thanks [wagnerleung0079](https://steamcommunity.com/profiles/76561198261183621)
+* 8.0.0 Update for Stellaris version 3.7 "Canis Minor" - integrated underlying game changes
 
 ## Source Code
 
