@@ -98,6 +98,7 @@ This mod overwrites several core Stellaris game objects.  Expect to see eleven e
 * 7.0.1 Bugfix: adjust `tr_synthetics_synthetic_age` to account for possible restrictions from Civic: Organic Zealots, courtesy of reporting by [MrFunEGUY](https://steamcommunity.com/profiles/76561198025143641/myworkshopfiles/?appid=281990)
 * 7.0.2 Bugfix: machine deassimilation was not allowed after an empire gained access different form of assimilation - thanks [wagnerleung0079](https://steamcommunity.com/profiles/76561198261183621)
 * 8.0.0 Update for Stellaris version 3.7 "Canis Minor" - integrated underlying game changes
+* 8.1.0 Update for Stellaris version 3.7.4 "Canis Minor" - allow homicidal empires to assimilate their same species
 
 ## Source Code
 
