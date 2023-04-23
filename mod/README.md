@@ -38,7 +38,7 @@ This mod can be safely added to your savegame after the game has started. It is 
 
 ### Recommended Companion Mods
 
-* [Assimilate All the Pops](https://steamcommunity.com/sharedfiles/filedetails/?id=2908463208) allows empires to have multiple assimilation types - go forth and create those erudite, psionic cyborgs
+* [Assimilate All the Pops!](https://steamcommunity.com/sharedfiles/filedetails/?id=2908463208) allows empires to have multiple assimilation types - go forth and create those erudite, psionic cyborgs
 * [Leader Traits: All Eligible Species Traits](https://steamcommunity.com/sharedfiles/filedetails/?id=2499031295) will ensure your leaders get all their species-based traits when being assimilated (such as Psionic or Erudite)
 * [Leader Traits: Enhanced Randomisation](https://steamcommunity.com/sharedfiles/filedetails/?id=2553806265) improves leader trait randomisation (primarily from level up, but not exclusively) and toggles traits from the biological version to machine traits (and back) if a leader becomes a robot and/or returns to a biological form
 * [Retain Leaders from Integrated Subjects & Pre-FTL Civilizations](https://steamcommunity.com/sharedfiles/filedetails/?id=2553818684) will allow you to keep Machine Unit leaders from integrated machine empire subjects by converting them to robots and setting their species to deassimilation; combined with Leader Traits: All Eligible Species Traits, the leaders are converted to have synth leader traits if you have the right technology
@@ -92,13 +92,14 @@ This mod overwrites several core Stellaris game objects.  Expect to see eleven e
     * Add a compatibility trigger for other mods to check whether this one is active
     * Consume the compatibility triggers from other mods
     * Remove old compatibility global flag
-* 7.0.0 Move assimilation overhaul (for multi-assimilation) to the more appropriate mod, [Assimilate All the Pops](https://steamcommunity.com/sharedfiles/filedetails/?id=2908463208)
+* 7.0.0 Move assimilation overhaul (for multi-assimilation) to the more appropriate mod, [Assimilate All the Pops!](https://steamcommunity.com/sharedfiles/filedetails/?id=2908463208)
     * This mod is now more compatible with other mods due to fewer overwrites
     * Support cybernetic deassimilation from Civic: Organic Zealots
 * 7.0.1 Bugfix: adjust `tr_synthetics_synthetic_age` to account for possible restrictions from Civic: Organic Zealots, courtesy of reporting by [MrFunEGUY](https://steamcommunity.com/profiles/76561198025143641/myworkshopfiles/?appid=281990)
 * 7.0.2 Bugfix: machine deassimilation was not allowed after an empire gained access different form of assimilation - thanks [wagnerleung0079](https://steamcommunity.com/profiles/76561198261183621)
 * 8.0.0 Update for Stellaris version 3.7 "Canis Minor" - integrated underlying game changes
 * 8.1.0 Update for Stellaris version 3.7.4 "Canis Minor" - allow homicidal empires to assimilate their main species
+* 8.2.0 Improve compatibility with [Civic: Organic Zealots](https://steamcommunity.com/sharedfiles/filedetails/?id=2920668465)
 
 ## Source Code
 
