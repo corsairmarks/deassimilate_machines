@@ -17,8 +17,3 @@
 
  deassimilate_machines.1.title: "Synthetic Individuation"
  deassimilate_machines.1.desc: "With the development of true artificial intelligence via §Y$tech_sapient_ai$§! and the discovery of §Y$trait_machine_unit$§! populations in other empires, our scientists and engineers have made further breakthroughs in robotics. Should we acquire any §Y$trait_machine_unit$§! Pops, it will be possible to dissociate them from their §Y$auth_machine_intelligence$§! and convert them into individual, productive §Y$ROBOT_POP_SPECIES_1_plural$§!.\n\nTo do this, we must of course adopt the §Y$robots_allowed_name$ $POLICY$§!. Due to the complexity of the Machine Units, we must also adopt §Y$ai_servitude_name$§! or §Y$ai_full_rights_name$§! - they simply cannot function without some level of artificial intelligence."
-
- # localisation to make the game happy with the conditional content - matches localisation from  Civic: Organic Zealots so that it won't matter which mod loads first
- civic_tooltip_not_organic_zealots_fail: "$TRIGGER_FAIL$$civic_tooltip_not_organic_zealots$"
- civic_tooltip_overlord_not_organic_zealots_fail: "$TRIGGER_FAIL$$civic_tooltip_overlord_not_organic_zealots$"
- lost_robot_policy_war_fail: "$TRIGGER_FAIL$$lost_robot_policy_war$"

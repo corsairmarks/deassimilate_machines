@@ -27,3 +27,15 @@ is_valid_organic_zealots = {
 	optimize_memory
 	always = no
 }
+
+# this = country
+is_not_restricted_by_organic_zealots_fail = {
+	optimize_memory
+	always = no
+}
+
+# this = country
+is_not_restricted_by_organic_zealots_fail_from = {
+	optimize_memory
+	always = no
+}

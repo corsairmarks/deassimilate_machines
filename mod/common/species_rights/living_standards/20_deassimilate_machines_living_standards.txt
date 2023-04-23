@@ -17,23 +17,7 @@ living_standard_deassimilation_machine = {
 		}
 		if = {
 			limit = { has_civic_organic_zealots_active = yes }
-			custom_tooltip = {
-				fail_text = lost_robot_policy_war_fail
-				from = { NOT = { has_country_flag = lost_robot_policy_war } }
-			}
-			custom_tooltip = {
-				fail_text = civic_tooltip_not_organic_zealots_fail
-				from = { is_valid_organic_zealots = no }
-			}
-			custom_tooltip = {
-				fail_text = civic_tooltip_overlord_not_organic_zealots_fail
-				from = {
-					NAND = {
-						is_subject = yes
-						overlord = { is_valid_organic_zealots = yes }
-					}
-				}
-			}
+			is_not_restricted_by_organic_zealots_fail_from = yes
 		}
 	}
 	ai_will_do = {
