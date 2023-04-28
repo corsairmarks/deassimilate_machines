@@ -18,6 +18,7 @@ has_ai_and_knows_machines = {
 # prev = country (assimilator)
 dm_is_undergoing_assimilation_unmachine_species = {
 	optimize_memory
+	count_species_pop = { count > 0 }
 	has_living_standard = {
 		type = living_standard_deassimilation_machine
 		country = prev
