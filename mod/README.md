@@ -100,6 +100,7 @@ This mod overwrites several core Stellaris game objects.  Expect to see eleven e
 * 8.0.0 Update for Stellaris version 3.7 "Canis Minor" - integrated underlying game changes
 * 8.1.0 Update for Stellaris version 3.7.4 "Canis Minor" - allow homicidal empires to assimilate their main species
 * 8.2.0 Improve compatibility with [Civic: Organic Zealots](https://steamcommunity.com/sharedfiles/filedetails/?id=2920668465)
+* 8.2.1 Performance improvements for assimilation - only process species which have at least one Pop
 
 ## Source Code
 
