@@ -10,20 +10,17 @@ country_event = {
 	show_sound = event_robot_encounter
 	trigger = {
 		has_synthethic_dawn = yes
-		NOT = { has_country_flag = deasssimilate_machines_message }
+		NOT = { has_country_flag = deassimilate_machines_message }
 		is_ai = no
 		is_regular_empire = yes
 		has_ai_and_knows_machines = yes
 	}
 	immediate = {
-		set_country_flag = deasssimilate_machines_message
+		set_country_flag = deassimilate_machines_message
 	}
 	option = {
 		trigger = {
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_materialist = yes
 			is_xenophobe = no
 		}
 		name = MARVELOUS
@@ -33,14 +30,8 @@ country_event = {
 		trigger = {
 			OR = {
 				AND = {
-					OR = {
-						has_ethic = ethic_materialist
-						has_ethic = ethic_fanatic_materialist
-					}
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-					}
+					is_materialist = yes
+					is_xenophobe = yes
 				}
 				AND = {
 					is_xenophobe = no
@@ -55,10 +46,8 @@ country_event = {
 	option = {
 		trigger = {
 			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
+				is_xenophobe = yes
+				is_spiritualist = yes
 			}
 			is_materialist = no
 		}
