@@ -4,41 +4,16 @@ tech_robomodding_m = {
 	area = engineering
 	tier = 1
 	category = { industry }
-	prerequisites = { "tech_powered_exoskeletons" }
+	prerequisites = { tech_powered_exoskeletons }
 	weight = @tier2weight1
-
-	feature_flags = {
-		modify_robots
-	}
-
+	feature_flags = { modify_robots }
 	modifier = {
 		MACHINE_species_trait_points_add = 1
 		ROBOT_species_trait_points_add = 1
 	}
-
-	potential = {
-		is_machine_empire = yes
-	}
-
-	weight_modifier = {
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}
-		}
-	}
-	ai_weight = {
-		factor = @robots_ai_tech_factor
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}
-		}
-	}
+	potential = { is_machine_empire = yes }
+	weight_modifier = { }
+	ai_weight = { factor = @robots_ai_tech_factor }
 }
 
 # modified: also grants ROBOT trait points
@@ -47,41 +22,16 @@ tech_binary_motivators = {
 	area = engineering
 	tier = 3
 	category = { industry }
-	prerequisites = { "tech_colonial_centralization" "tech_robomodding_m" }
+	prerequisites = { tech_colonial_centralization tech_robomodding_m }
 	weight = @tier3weight1
-
 	gateway = robotics
-
 	modifier = {
 		MACHINE_species_trait_points_add = 1
 		ROBOT_species_trait_points_add = 1
 	}
-
-	potential = {
-		is_machine_empire = yes
-	}
-
-	weight_modifier = {
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-				has_level > 2
-			}
-		}
-	}
-
-	ai_weight = {
-		factor = @robots_ai_tech_factor
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}
-		}
-	}
+	potential = { is_machine_empire = yes }
+	weight_modifier = { }
+	ai_weight = { factor = @robots_ai_tech_factor }
 }
 
 # modified: also grants ROBOT trait points
@@ -90,40 +40,26 @@ tech_nanite_assemblers = {
 	area = engineering
 	tier = 4
 	category = { industry }
-	prerequisites = { "tech_binary_motivators" "tech_galactic_administration" }
+	prerequisites = { tech_binary_motivators tech_galactic_administration }
 	is_rare = yes
 	weight = @tier4weight1
-
 	modifier = {
 		MACHINE_species_trait_points_add = 1
 		ROBOT_species_trait_points_add = 1
 	}
-
-	potential = {
-		is_machine_empire = yes
-	}
-
+	potential = { is_machine_empire = yes }
 	weight_modifier = {
 		factor = 0.5
 		modifier = {
 			factor = 0.20
 			NOR = {
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_maniacal"
-				}
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_spark_of_genius"
-				}
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_curator"
-				}
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_expertise_industry"
-				}
+				has_trait_in_council = { TRAIT = leader_trait_maniacal }
+				has_trait_in_council = { TRAIT = leader_trait_maniacal_2 }
+				has_trait_in_council = { TRAIT = leader_trait_maniacal_3 }
+				has_trait_in_council = { TRAIT = leader_trait_spark_of_genius }
+				has_trait_in_council = { TRAIT = leader_trait_spark_of_genius_2 }
+				has_trait_in_council = { TRAIT = leader_trait_curator }
+				has_trait_in_council = { TRAIT = leader_trait_expertise_industry }
 			}
 		}
 		modifier = {
@@ -138,23 +74,6 @@ tech_nanite_assemblers = {
 				any_member = { has_technology = tech_nanite_assemblers }
 			}
 		}
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}
-		}
 	}
-
-	ai_weight = {
-		factor = @robots_ai_tech_factor
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}
-		}
-	}
+	ai_weight = { factor = @robots_ai_tech_factor }
 }
