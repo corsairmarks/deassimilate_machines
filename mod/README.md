@@ -14,7 +14,7 @@ Overrides the robomodding series of technologies for machine empires (Machine Te
 
 ## Compatibility
 
-Built for Stellaris version 3.7 "Canis Minor."  Not compatible with achievements.
+Built for Stellaris version 3.8 "Gemini."  Not compatible with achievements.
 
 This mod has to alter a number of built-in game objects to implement its gameplay.  Here's a list of of what is overridden and why:
 
@@ -65,7 +65,7 @@ This mod overwrites several core Stellaris game objects.  Expect to see eleven e
 ## Changelog
 
 * 1.0.0 Initial version
-* 1.0.1 Support updated flag from Full Military Service for Battle Thralls (now known as Special Leadership Privileges for Battle Thralls and Bio-Trophies)
+* 1.0.1 Support updated flag from Full Military Service for Battle Thralls (now known as Special Leadership Privileges for Battle Thralls & Bio-Trophies)
 * 1.0.2 Support Gestalt Dissociation when the player also has Transcendence (psionic assimilation)
 * 1.0.3 Code refactoring - no functionality changes
 * 1.1.0 Update for Stellaris version 3.1 "Lem" - no changes to what the mod does, just integrated a few minor underlying game changes
@@ -101,6 +101,7 @@ This mod overwrites several core Stellaris game objects.  Expect to see eleven e
 * 8.1.0 Update for Stellaris version 3.7.4 "Canis Minor" - allow homicidal empires to assimilate their main species
 * 8.2.0 Improve compatibility with [Civic: Organic Zealots](https://steamcommunity.com/sharedfiles/filedetails/?id=2920668465)
 * 8.2.1 Performance improvements for assimilation - only process species which have at least one Pop
+* 9.0.0 Update for Stellaris version 3.8 "Gemini" - integrate underlying game changes
 
 ## Source Code
 

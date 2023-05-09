@@ -11,7 +11,7 @@ An event window will display when you have Positronic AI and communications with
 Overrides the robomodding series of technologies for machine empires (Machine Template System, Binary Motivators, and Nanite Assemblers), the Synthetic Age tradition, and the Solid State Actuators tradition to grant both machine and robot trait picks/points.
 
 [h2]Compatibility[/h2]
-Built for Stellaris version 3.7 "Canis Minor." Not compatible with achievements.
+Built for Stellaris version 3.8 "Gemini." Not compatible with achievements.
 
 This mod has to alter a number of built-in game objects to implement its gameplay. Here's a list of of what is overridden and why:
 [list]
