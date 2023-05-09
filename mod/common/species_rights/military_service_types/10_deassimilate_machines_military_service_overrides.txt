@@ -73,7 +73,7 @@ military_service_full = {
 			}
 		}
 		custom_tooltip = {
-			fail_text = too_alien
+			fail_text = necrophage_only_allows_necrophage_leaders
 			OR = {
 				has_trait = trait_necrophage
 				has_species_flag = allow_military_leaders_honored_protectors@from # surprise flag that will help us later
