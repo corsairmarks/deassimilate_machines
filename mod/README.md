@@ -101,6 +101,7 @@ This mod overwrites several core Stellaris game objects.  Expect to see eleven e
 * 8.2.0 Improve compatibility with [Civic: Organic Zealots](https://steamcommunity.com/sharedfiles/filedetails/?id=2920668465)
 * 8.2.1 Performance improvements for assimilation - only process species which have at least one Pop
 * 9.0.0 Update for Stellaris version 3.8 "Gemini" - integrate underlying game changes
+* 9.0.1 Rename a file for much later loading
 
 ## Source Code
 
